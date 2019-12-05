@@ -10,12 +10,21 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
   </ItemGroup>
 
 
   <ItemGroup>
     <ProjectReference Include="..\HomeTheatre.Data\HomeTheatre.Data.csproj" />
     <ProjectReference Include="..\HomeTheatre.Services\HomeTheatre.Services.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\NewArea\Controllers\" />
+    <Folder Include="Areas\NewArea\Data\" />
+    <Folder Include="Areas\NewArea\Models\" />
+    <Folder Include="Areas\NewArea\Views\" />
   </ItemGroup>
 
 </Project>

@@ -30,7 +30,7 @@ namespace HomeTheatre.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             #endregion
-            #region Review - Comment One - To -Many
+            #region Review 
             modelBuilder.Entity<Review>().HasKey(key=>key.Id);
 
             modelBuilder.Entity<Comment>()
