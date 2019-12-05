@@ -1,0 +1,5 @@
+C:\Users\Marti\source\repos\HomeTheatre.Data\bin\Debug\netcoreapp3.0\HomeTheatre.Data.deps.json
+C:\Users\Marti\source\repos\HomeTheatre.Data\bin\Debug\netcoreapp3.0\HomeTheatre.Data.dll
+C:\Users\Marti\source\repos\HomeTheatre.Data\obj\Debug\netcoreapp3.0\HomeTheatre.Data.csprojAssemblyReference.cache
+C:\Users\Marti\source\repos\HomeTheatre.Data\obj\Debug\netcoreapp3.0\HomeTheatre.Data.AssemblyInfoInputs.cache
+C:\Users\Marti\source\repos\HomeTheatre.Data\obj\Debug\netcoreapp3.0\HomeTheatre.Data.AssemblyInfo.cs
