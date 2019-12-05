@@ -4,8 +4,9 @@ using System.Text;
 
 namespace HomeTheatre.Data.Utilities
 {
-   public interface IEntityId
+   public interface IDeletable
     {
-         Guid Id { get; set; }
+        bool IsDeleted { get; set; }
+        DateTime? DeletedOn { get; set; }
     }
 }

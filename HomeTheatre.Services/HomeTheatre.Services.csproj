@@ -8,8 +8,4 @@
     <ProjectReference Include="..\HomeTheatre.Data\HomeTheatre.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

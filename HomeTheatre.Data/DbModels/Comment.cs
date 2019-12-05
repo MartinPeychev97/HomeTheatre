@@ -5,9 +5,9 @@ using System.Text;
 
 namespace HomeTheatre.Data.DbModels
 {
-    public class Comment : IEntityId
+    public class Comment : IEntityId,IDeletable,IAuditable
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         public string CommentText { get; set; }
 
@@ -16,5 +16,9 @@ namespace HomeTheatre.Data.DbModels
         public DateTime CommentedOn { get; set; }
 
         public Review Review { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime? DeletedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; }
     }
 }

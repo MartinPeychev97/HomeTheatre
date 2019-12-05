@@ -43,6 +43,7 @@ namespace HomeTheatre.Data
                 .WithMany(m => m.Reviews);
             #endregion
 
+           // modelBuilder.Seeder();
             base.OnModelCreating(modelBuilder);
         }
 

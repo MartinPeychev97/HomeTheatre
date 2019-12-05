@@ -4,8 +4,9 @@ using System.Text;
 
 namespace HomeTheatre.Data.Utilities
 {
-   public interface IEntityId
+   public interface IAuditable
     {
-         Guid Id { get; set; }
+        DateTime CreatedOn { get; set; }
+        DateTime? ModifiedOn { get; set; }
     }
 }
