@@ -1,5 +1,6 @@
 ﻿using HomeTheatre.Data;
 using HomeTheatre.Data.DbModels;
+using HomeTheatre.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HomeTheatre.Services.Services
 {
-    public class TheatreService
+    public class TheatreService : ITheatreService
     {
         private readonly TheatreContext context;
 
@@ -24,7 +25,7 @@ namespace HomeTheatre.Services.Services
                 .Include(x => x.Reviews)
                 .Where(x => x.IsDeleted == false)
                 .OrderBy(b => b.Name)
-                .FirstOrDefaultAsync(b=>b.Id==Id);
+                .FirstOrDefaultAsync(b => b.Id == Id);
 
             if (theatre == null)
             {
@@ -67,6 +68,7 @@ namespace HomeTheatre.Services.Services
 
             return theatre;
         }
+
         public async Task<Theatre> DeleteTheatreAsync(Guid Id)
         {
             var theatre = await context.Theatres.FirstOrDefaultAsync(b => b.Id == Id);
@@ -81,6 +83,6 @@ namespace HomeTheatre.Services.Services
 
             return theatre;
         }
-       
+
     }
 }
