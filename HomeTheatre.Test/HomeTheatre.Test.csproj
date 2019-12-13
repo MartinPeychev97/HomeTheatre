@@ -19,4 +19,8 @@
     <ProjectReference Include="..\HomeTheatre\HomeTheatre.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ServicesTests\ReviewTests\" />
+  </ItemGroup>
+
 </Project>
