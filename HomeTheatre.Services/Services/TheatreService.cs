@@ -29,23 +29,22 @@ namespace HomeTheatre.Services.Services
 
             if (theatre == null)
             {
-                throw new ArgumentNullException("The theatre you are looking for doesn't exist");
+                throw new Exception("The theatre you are looking for doesn't exist");
             }
 
             return theatre;
         }
         public async Task<ICollection<Theatre>> GetAllTheatresAsync()
         {
-            var allTheatres = await this.context.Theatres
+            var allTheatres = await context.Theatres
                 .Where(b => b.IsDeleted == false)
                 .OrderBy(b => b.Name)
                 .ToListAsync();
 
             if (!allTheatres.Any())
             {
-                throw new ArgumentNullException("There are no theatres");
+                throw new Exception("There are no theatres");
             }
-
             return allTheatres;
         }
 
@@ -75,7 +74,7 @@ namespace HomeTheatre.Services.Services
 
             if (theatre == null)
             {
-                throw new Exception("Theatre doesn't exist");
+                throw new ArgumentNullException("Theatre doesn't exist");
             }
             theatre.IsDeleted = true;
             theatre.DeletedOn = DateTime.UtcNow;

@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using HomeTheatre.Services.Contracts;
 using HomeTheatre.Services.Services;
+using HomeTheatre.HttpExeptionHandlers;
 
 namespace HomeTheatre
 {
@@ -62,6 +63,7 @@ namespace HomeTheatre
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseGeneralExceptionHandler();
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -70,6 +72,7 @@ namespace HomeTheatre
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseMiddleware<PageNotFoundHandler>();
             app.UseAuthentication();
 
             app.UseMvc(routes =>

@@ -17,9 +17,12 @@ namespace HomeTheatre.Test.ServicesTests.TheatreTests
         public async Task ReturnTheatres()
         {
             var options = Utilities.GetOptions(nameof(ReturnTheatres));
+            var testId01 = Guid.NewGuid();
+            var testId02 = Guid.NewGuid();
+
             var testTheatre06 = new Theatre()
             {
-                Id = Guid.NewGuid(),
+                Id = testId01,
                 Name = "TestName",
                 AboutInfo = "TestAboutInfo",
                 Location = "TestLocation",
@@ -27,16 +30,17 @@ namespace HomeTheatre.Test.ServicesTests.TheatreTests
             };
             var testTheatre07 = new Theatre()
             {
-                Id = Guid.NewGuid(),
-                Name = "TestName7",
-                AboutInfo = "TestAboutInfo7",
-                Location = "TestLocation7",
-                Phone = "0896663557",
+                Id = testId02,
+                Name = "TestName",
+                AboutInfo = "TestAboutInfo",
+                Location = "TestLocation",
+                Phone = "0896663554",
             };
-            var collection = new List<Theatre>();
-
-            collection.Add(testTheatre06);
-            collection.Add(testTheatre07);
+            var collection = new List<Theatre>
+            {
+                testTheatre06,
+                testTheatre07
+            };
 
             using (var assertContext = new TheatreContext(options))
             {
@@ -55,22 +59,34 @@ namespace HomeTheatre.Test.ServicesTests.TheatreTests
                 Assert.AreEqual(testTheatre06.AboutInfo, result.First().AboutInfo);
                 Assert.AreEqual(testTheatre06.Location, result.First().Location);
                 Assert.AreEqual(testTheatre06.Phone, result.First().Phone);
-                Assert.AreEqual(testTheatre07.Id, result.First().Id);
-                Assert.AreEqual(testTheatre07.Name, result.First().Name);
-                Assert.AreEqual(testTheatre07.AboutInfo, result.First().AboutInfo);
-                Assert.AreEqual(testTheatre07.Location, result.First().Location);
-                Assert.AreEqual(testTheatre07.Phone, result.First().Phone);
+                Assert.AreEqual(testTheatre07.Id, result.Last().Id);
+                Assert.AreEqual(testTheatre07.Name, result.Last().Name);
+                Assert.AreEqual(testTheatre07.AboutInfo, result.Last().AboutInfo);
+                Assert.AreEqual(testTheatre07.Location, result.Last().Location);
+                Assert.AreEqual(testTheatre07.Phone, result.Last().Phone);
             }
         }
         [TestMethod]
         public async Task ThrowWhenTheatresNotFound()
         {
             var options = Utilities.GetOptions(nameof(ReturnTheatres));
-
+            var testTheatre06 = new Theatre()
+            {
+                Id = Guid.NewGuid(),
+                Name = "TestName",
+                AboutInfo = "TestAboutInfo",
+                Location = "TestLocation",
+                Phone = "0896663554",
+            };
+            using (var assertContext = new TheatreContext(options))
+            {
+                await assertContext.Theatres.AddAsync(testTheatre06);
+                await assertContext.SaveChangesAsync();
+            }
             using (var assertContext = new TheatreContext(options))
             {
                 var sut = new TheatreService(assertContext);
-                await Assert.ThrowsExceptionAsync<ArgumentNullException>(()=>sut.GetAllTheatresAsync());
+                await Assert.ThrowsExceptionAsync<Exception>(()=>sut.GetAllTheatresAsync());
             }
         }
     }

@@ -16,10 +16,10 @@ namespace HomeTheatre.Test.ServicesTests.TheatreTests
         public async Task ReturnCorrectTheatre()
         {
             var options = Utilities.GetOptions(nameof(ReturnCorrectTheatre));
-
+            var testIdGuid = Guid.NewGuid();
             var testTheatre04 = new Theatre()
             {
-                Id = Guid.NewGuid(),
+                Id = testIdGuid,
                 Name = "TestName",
                 AboutInfo = "TestAboutInfo",
                 Location = "TestLocation",
@@ -28,7 +28,7 @@ namespace HomeTheatre.Test.ServicesTests.TheatreTests
             using (var assertContext = new TheatreContext(options))
             {
                 var sut = new TheatreService(assertContext);
-                var result = await sut.GetTheatreAsync(testTheatre04.Id);
+                var result = await sut.GetTheatreAsync(testIdGuid);
                 Assert.IsInstanceOfType(result, typeof(Theatre));
                 Assert.AreEqual(testTheatre04.Name, result.Name);
                 Assert.AreEqual(testTheatre04.AboutInfo, result.AboutInfo);
