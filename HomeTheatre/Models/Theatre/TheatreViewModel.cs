@@ -24,11 +24,10 @@ namespace HomeTheatre.Models.Theatre
         public string AboutInfo { get; set; }
 
         public string Location { get; set; }
-
         [Required]
         public string Phone { get; set; }
         public bool IsDeleted { get; set; }
 
-        public double? CurrentUserRating { get; set; }
+       // public double? CurrentUserRating { get; set; }
     }
 }

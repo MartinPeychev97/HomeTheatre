@@ -110,13 +110,13 @@ namespace HomeTheatre.Services.Services
                     case "Name":
                         theatres = theatres.OrderBy(b => b.Name);
                         break;
-                    case "name_desc":
+                    case "NameByDescending":
                         theatres = theatres.OrderByDescending(b => b.Name);
                         break;
                     case "Review":
                         theatres = theatres.OrderBy(b => b.Reviews.Count());
                         break;
-                    case "review_desc":
+                    case "ReviewByDescending":
                         theatres = theatres.OrderByDescending(b => b.Reviews.Count());
                         break;
                     default:
@@ -146,5 +146,34 @@ namespace HomeTheatre.Services.Services
             }
         }
 
+
+        public async Task<Theatre> EditAsync(Guid id, string newName, string newAboutInfo, string newLocattion, string newPhone)
+        {
+            var theatre = await this.context.Theatres
+                .Where(b => b.IsDeleted == false)
+                .FirstOrDefaultAsync(b => b.Id == id);
+
+            if (theatre == null)
+            {
+                throw new Exception("No theatre found");
+            }
+
+            try
+            {
+                theatre.Name = newName;
+                theatre.AboutInfo = newAboutInfo;
+                theatre.Location = newLocattion;
+                theatre.Phone = newPhone;
+
+                this.context.Update(theatre);
+                await this.context.SaveChangesAsync();
+
+                return theatre;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Something Went wrong");
+            }
+        }
     }
 }

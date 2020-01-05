@@ -21,10 +21,10 @@ namespace HomeTheatre.Data.DbModels
         [Required]
         [StringLength(1000, ErrorMessage = "The value cannot exceed 1000 characters.")]
         public string AboutInfo { get; set; }
-
         public string Location { get; set; }
-
         public string Phone { get; set; }
+        [Range(1, 5)]
+        public int Rating { get; set; }
         public ICollection<Review> Reviews { get; set; }
         public User User { get; set; }
         public DateTime CreatedOn { get; set; }

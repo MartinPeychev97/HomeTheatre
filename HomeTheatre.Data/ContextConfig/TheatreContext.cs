@@ -1,4 +1,5 @@
 ﻿using HomeTheatre.Data.DbModels;
+using HomeTheatre.Data.Seeder;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -43,7 +44,7 @@ namespace HomeTheatre.Data
                 .WithMany(m => m.Reviews);
             #endregion
 
-           // modelBuilder.Seeder();
+            modelBuilder.Seeder();
             base.OnModelCreating(modelBuilder);
         }
 

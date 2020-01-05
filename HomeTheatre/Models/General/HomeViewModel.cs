@@ -1,11 +1,11 @@
-﻿using System;
+﻿using HomeTheatre.Models.Theatre;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HomeTheatre.Models.General
 {
     public class HomeViewModel
     {
+        public ICollection<TheatreViewModel> SixTheatres { get; set; }
+
     }
 }
