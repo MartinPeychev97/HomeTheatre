@@ -11,5 +11,6 @@ namespace HomeTheatre.Services.Contracts
         Task<Theatre> DeleteTheatreAsync(Guid Id);
         Task<ICollection<Theatre>> GetAllTheatresAsync();
         Task<Theatre> GetTheatreAsync(Guid Id);
+        Task<int> GetPageCountAsync(int theatresPerPage);
     }
 }

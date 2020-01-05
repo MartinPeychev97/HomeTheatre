@@ -1,5 +1,6 @@
 ﻿using HomeTheatre.Data;
 using HomeTheatre.Data.DbModels;
+using HomeTheatre.Data.Utilities;
 using HomeTheatre.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -81,6 +82,68 @@ namespace HomeTheatre.Services.Services
             await context.SaveChangesAsync();
 
             return theatre;
+        }
+
+        public async Task<int> GetPageCountAsync(int theatresPerPage)
+        {
+            var allTheatres = await context.Theatres
+                .Where(b => b.IsDeleted == false)
+                .CountAsync();
+
+            var totalPages = (allTheatres - 1) / theatresPerPage + 1;
+
+            return totalPages;
+        }
+
+        public async Task<ICollection<Theatre>> GetSixTheatresAsync(int currentPage, string sortOrder)
+        {
+            try
+            {
+                IQueryable<Theatre> theatres = context.Theatres
+                    .Include(b => b.Reviews)
+                    .Where(b => b.IsDeleted == false);
+
+                ICollection<Theatre> sixTheatres;
+
+                switch (sortOrder)
+                {
+                    case "Name":
+                        theatres = theatres.OrderBy(b => b.Name);
+                        break;
+                    case "name_desc":
+                        theatres = theatres.OrderByDescending(b => b.Name);
+                        break;
+                    case "Review":
+                        theatres = theatres.OrderBy(b => b.Reviews.Count());
+                        break;
+                    case "review_desc":
+                        theatres = theatres.OrderByDescending(b => b.Reviews.Count());
+                        break;
+                    default:
+                        theatres = theatres.OrderBy(b => b.Name);
+                        break;
+                }
+
+                if (currentPage == 1)
+                {
+                    sixTheatres = await theatres
+                        .Take(6)
+                        .ToListAsync();
+                }
+                else
+                {
+                    sixTheatres = await theatres
+                        .Skip((currentPage - 1) * 6)
+                        .Take(6)
+                        .ToListAsync();
+                }
+
+                return sixTheatres;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Theatre was not found");
+            }
         }
 
     }

@@ -69,7 +69,7 @@ namespace HomeTheatre.Services.Services
 
 
 
-        public async Task<ICollection<Review>> GetReviewsAsync()
+        public async Task<ICollection<Review>> GetAllReviewsAsync()
         {
             var reviews = await context.Reviews
                 .Where(x => x.IsDeleted == false)

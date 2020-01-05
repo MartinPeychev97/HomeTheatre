@@ -35,7 +35,6 @@ namespace HomeTheatre.Services.Services
                 Id = tempComment.Id,
                 CommentText = tempComment.CommentText,
                 Author = tempComment.Author,
-                CommentedOn = tempComment.CommentedOn,
                 IsDeleted = tempComment.IsDeleted,
                 CreatedOn = tempComment.CreatedOn,
                 ModifiedOn = tempComment.ModifiedOn,

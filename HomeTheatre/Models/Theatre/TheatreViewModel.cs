@@ -15,7 +15,7 @@ namespace HomeTheatre.Models.Theatre
 
         [DisplayName("Theatre Name")]
         [Required]
-        [StringLength(40, ErrorMessage = "The  value cannot exceed 40 characters.")]
+        [StringLength(40, ErrorMessage = "The value cannot exceed 40 characters.")]
         public string Name { get; set; }
 
         [DisplayName("Theatre AboutInfo")]
@@ -25,7 +25,10 @@ namespace HomeTheatre.Models.Theatre
 
         public string Location { get; set; }
 
+        [Required]
         public string Phone { get; set; }
         public bool IsDeleted { get; set; }
+
+        public double? CurrentUserRating { get; set; }
     }
 }
