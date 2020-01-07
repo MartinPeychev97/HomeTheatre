@@ -23,7 +23,10 @@ namespace HomeTheatre.Mappers
                 AboutInfo = theatre.AboutInfo,
                 Phone = theatre.Phone,
                 Location = theatre.Location,
-
+                CreatedOn = theatre.CreatedOn,
+                ModifiedOn = theatre.ModifiedOn,
+                DeletedOn = theatre.DeletedOn,
+                IsDeleted = theatre.IsDeleted
             };
             return theatreListing;
         }

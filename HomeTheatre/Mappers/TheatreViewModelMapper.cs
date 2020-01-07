@@ -23,13 +23,16 @@ namespace HomeTheatre.Mappers
                 AboutInfo = entity.AboutInfo,
                 Location = entity.Location,
                 Phone = entity.Phone,
-
+                CreatedOn = entity.CreatedOn,
+                ModifiedOn = entity.ModifiedOn,
+                DeletedOn = entity.DeletedOn,
+                IsDeleted = entity.IsDeleted,
             };
         }
 
         public ICollection<TheatreViewModel> MapFrom(ICollection<Theatre> Entities)
         {
-            return Entities.Select(this.MapFrom).ToList();
+            return Entities.Select(MapFrom).ToList();
         }
 
         public Theatre MapFrom(TheatreViewModel entityVM)
@@ -45,6 +48,10 @@ namespace HomeTheatre.Mappers
                 AboutInfo = entityVM.AboutInfo,
                 Location = entityVM.Location,
                 Phone = entityVM.Phone,
+                CreatedOn = entityVM.CreatedOn,
+                ModifiedOn = entityVM.ModifiedOn,
+                DeletedOn = entityVM.DeletedOn,
+                IsDeleted = entityVM.IsDeleted,
             };
         }
 

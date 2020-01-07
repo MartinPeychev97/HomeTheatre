@@ -1,18 +1,13 @@
-﻿using HomeTheatre.Data.DbModels;
+﻿using HomeTheatre.Data.Utilities;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HomeTheatre.Models.Theatre
 {
-    public class TheatreViewModel
+    public class TheatreViewModel : IEntityId, IAuditable, IDeletable
     {
-
         public Guid Id { get; set; }
-
         [DisplayName("Theatre Name")]
         [Required]
         [StringLength(40, ErrorMessage = "The value cannot exceed 40 characters.")]
@@ -26,8 +21,11 @@ namespace HomeTheatre.Models.Theatre
         public string Location { get; set; }
         [Required]
         public string Phone { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; }
         public bool IsDeleted { get; set; }
+        public DateTime? DeletedOn { get; set; }
 
-       // public double? CurrentUserRating { get; set; }
+        // public double? CurrentUserRating { get; set; }
     }
 }

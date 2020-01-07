@@ -69,10 +69,13 @@ namespace HomeTheatre.Services.Services
 
 
 
-        public async Task<ICollection<Review>> GetAllReviewsAsync()
+        public async Task<ICollection<Review>> GetAllReviewsAsync(Guid theatreId)
         {
             var reviews = await context.Reviews
+                .Include(x => x.Theatre)
+                .Include(x => x.User)
                 .Where(x => x.IsDeleted == false)
+                .Where(x => x.TheatreId == theatreId)
                 .ToListAsync();
 
             if (!reviews.Any())

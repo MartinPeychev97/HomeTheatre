@@ -10,19 +10,15 @@ namespace HomeTheatre.Data.DbModels
     {
         [Key]
         public Guid Id { get; set; }
-        public Theatre Theatre { get; set; }
-        public User User { get; set; }
-
         public string Author { get; set; }
-
         [Range(1, 5)]
         public int Rating { get; set; }
-
         [MaxLength(500, ErrorMessage = "Text cannot exceed 500 characters")]
         public string ReviewText { get; set; }
-
+        public Theatre Theatre { get; set; }
+        public Guid TheatreId { get; set; }
+        public User User { get; set; }
         public DateTime DateReviewed { get; set; }
-
         public ICollection<Comment> Comments { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? DeletedOn { get; set; }

@@ -16,6 +16,7 @@ namespace HomeTheatre.Data.DbModels
         [Required]
         [StringLength(40, ErrorMessage = "The  value cannot exceed 40 characters.")]
         public string Name { get; set; }
+        public double? AverageRating { get; set; }
 
         [DisplayName("Theatre AboutInfo")]
         [Required]

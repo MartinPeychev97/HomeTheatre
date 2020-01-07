@@ -11,6 +11,6 @@ namespace HomeTheatre.Services.Contracts
         Task<Review> DeleteReviewAsync(Guid id);
         Task<Review> EditReviewAsync(Guid id, string newReviewText);
         Task<Review> GetReviewAsync(Guid id);
-        Task<ICollection<Review>> GetAllReviewsAsync();
+        Task<ICollection<Review>> GetAllReviewsAsync(Guid id);
     }
 }
