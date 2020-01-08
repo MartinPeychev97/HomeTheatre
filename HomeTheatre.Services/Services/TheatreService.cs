@@ -2,6 +2,7 @@
 using HomeTheatre.Data.DbModels;
 using HomeTheatre.Data.Utilities;
 using HomeTheatre.Services.Contracts;
+using HomeTheatre.Services.Utility;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,16 +14,16 @@ namespace HomeTheatre.Services.Services
 {
     public class TheatreService : ITheatreService
     {
-        private readonly TheatreContext context;
+        private readonly TheatreContext _context;
 
         public TheatreService(TheatreContext context)
         {
-            this.context = context;
+            this._context = context;
         }
 
         public async Task<Theatre> GetTheatreAsync(Guid Id)
         {
-            var theatre = await context.Theatres
+            var theatre = await _context.Theatres
                 .Include(x => x.Reviews)
                 .Where(x => x.IsDeleted == false)
                 .OrderBy(b => b.Name)
@@ -37,7 +38,7 @@ namespace HomeTheatre.Services.Services
         }
         public async Task<ICollection<Theatre>> GetAllTheatresAsync()
         {
-            var allTheatres = await context.Theatres
+            var allTheatres = await _context.Theatres
                 .Where(b => b.IsDeleted == false)
                 .OrderBy(b => b.Name)
                 .ToListAsync();
@@ -63,15 +64,15 @@ namespace HomeTheatre.Services.Services
                 Phone = tempTheatre.Phone
             };
 
-            await context.Theatres.AddAsync(theatre);
-            await context.SaveChangesAsync();
+            await _context.Theatres.AddAsync(theatre);
+            await _context.SaveChangesAsync();
 
             return theatre;
         }
 
         public async Task<Theatre> DeleteTheatreAsync(Guid Id)
         {
-            var theatre = await context.Theatres.FirstOrDefaultAsync(b => b.Id == Id);
+            var theatre = await _context.Theatres.FirstOrDefaultAsync(b => b.Id == Id);
 
             if (theatre == null)
             {
@@ -79,14 +80,14 @@ namespace HomeTheatre.Services.Services
             }
             theatre.IsDeleted = true;
             theatre.DeletedOn = DateTime.UtcNow;
-            await context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             return theatre;
         }
 
         public async Task<int> GetPageCountAsync(int theatresPerPage)
         {
-            var allTheatres = await context.Theatres
+            var allTheatres = await _context.Theatres
                 .Where(b => b.IsDeleted == false)
                 .CountAsync();
 
@@ -99,7 +100,7 @@ namespace HomeTheatre.Services.Services
         {
             try
             {
-                IQueryable<Theatre> theatres = context.Theatres
+                IQueryable<Theatre> theatres = _context.Theatres
                     .Include(b => b.Reviews)
                     .Where(b => b.IsDeleted == false);
 
@@ -147,9 +148,9 @@ namespace HomeTheatre.Services.Services
         }
 
 
-        public async Task<Theatre> EditAsync(Guid id, string newName, string newAboutInfo, string newLocattion, string newPhone)
+        public async Task<Theatre> UpdateAsync(Guid id, string newName, string newAboutInfo, string newLocattion, string newPhone)
         {
-            var theatre = await this.context.Theatres
+            var theatre = await this._context.Theatres
                 .Where(b => b.IsDeleted == false)
                 .FirstOrDefaultAsync(b => b.Id == id);
 
@@ -165,8 +166,8 @@ namespace HomeTheatre.Services.Services
                 theatre.Location = newLocattion;
                 theatre.Phone = newPhone;
 
-                this.context.Update(theatre);
-                await this.context.SaveChangesAsync();
+                this._context.Update(theatre);
+                await this._context.SaveChangesAsync();
 
                 return theatre;
             }
@@ -175,6 +176,59 @@ namespace HomeTheatre.Services.Services
                 throw new Exception("Something Went wrong");
             }
         }
+        public async Task<double> AverageRating(Guid theatreId)
+        {
+            var theatre = await this._context.Theatres
+                .Where(b => b.IsDeleted == false)
+                .FirstOrDefaultAsync(b => b.Id == theatreId);
 
+            double RatingSum = 0;
+            foreach (var review in theatre.Reviews)
+            {
+                RatingSum += review.Rating;
+            }
+            double averageRating = RatingSum / theatre.Reviews.Count;
+            theatre.AverageRating = averageRating;
+            return averageRating;
+        }
+
+
+        public async Task<ICollection<Theatre>> SearchAsync(string searchCriteria, bool byName, bool byAddress, bool byRating, double ratingValue)
+        {
+            //Case where only rating is selected as a search criteria
+            if (string.IsNullOrEmpty(searchCriteria))
+            {
+                var allTheatres = _context.Theatres.Where(b => b.IsDeleted == false).Include(b => b.AverageRating);
+                var filteredByRating = await allTheatres.Where(b => byRating ? (b.AverageRating >= ratingValue) : false).ToListAsync();
+                return filteredByRating;
+            }
+
+            //Case where no criterias are selected so all bars are filtered
+            var terms = searchCriteria.Split(" ");
+            if (byName == false && byAddress == false && byRating == false)
+            {
+                var outcome = await _context.Theatres
+                    .Where(b => b.IsDeleted == false)
+                    .Include(b => b.AverageRating)
+                    .Where(b => b.Name.Contains(terms)
+                    || b.Location.Contains(terms))
+                    .OrderBy(b => b.Name)
+                    .ToListAsync();
+
+                return outcome;
+            }
+
+            //Case where certain criterias are selected so we filter only those bars
+            else
+            {
+                var allTheatres = _context.Theatres.Where(b => b.IsDeleted == false).Include(b => b.AverageRating);
+                var filteredByName = allTheatres.Where(b => byName && b.Name.Contains(terms));
+                var filteredByLocation = allTheatres.Where(b => byAddress && b.Location.Contains(terms));
+                var filteredByRating = allTheatres.Where(b => byRating ? (b.AverageRating >= ratingValue) : false);
+                var filtered = filteredByName.Union(filteredByLocation).Union(filteredByRating).ToList();
+
+                return filtered;
+            }
+        }
     }
 }
