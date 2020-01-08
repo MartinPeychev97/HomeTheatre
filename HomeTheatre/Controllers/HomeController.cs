@@ -8,6 +8,9 @@ using HomeTheatre.Models;
 using Microsoft.Extensions.Caching.Memory;
 using HomeTheatre.Services.Contracts;
 using HomeTheatre.Data.DbModels;
+using HomeTheatre.Mappers.Contract;
+using HomeTheatre.Models.Theatre;
+using HomeTheatre.Models.General;
 
 namespace HomeTheatre.Controllers
 {
@@ -15,16 +18,28 @@ namespace HomeTheatre.Controllers
     {
         private readonly IMemoryCache _cache;
         private readonly ITheatreService _theatreServices;
-        public HomeController(IMemoryCache cache, ITheatreService theatreServices)
+        private readonly IViewModelMapper<Theatre, TheatreViewModel> _theatreVmMapper;
+
+        public HomeController(IMemoryCache cache, ITheatreService theatreServices, 
+            IViewModelMapper<Theatre, TheatreViewModel> theatreViewModelMapper)
         {
             _cache= cache ?? throw new ArgumentNullException(nameof(cache));
             _theatreServices=theatreServices ?? throw new ArgumentNullException(nameof(theatreServices));
-
+            this._theatreVmMapper = theatreViewModelMapper;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var toptheatresVM = (await CacheTheatres())
+               .Select(x => _theatreVmMapper.MapFrom(x))
+               .ToList();
+
+            var homeViewModel = new HomeViewModel
+            {
+                TopTheatres = toptheatresVM
+            };
+            return View(homeViewModel);
+
         }
 
         public IActionResult Privacy()
@@ -43,16 +58,16 @@ namespace HomeTheatre.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        //[NonAction]
-        //private async Task<ICollection<Theatre>> CacheTheatres()
-        //{
-        //    var topBarsDtos = await _cache.GetOrCreateAsync<ICollection<Theatre>>("Theatre", async (cacheEntry) =>
-        //    {
-        //        cacheEntry.SlidingExpiration = TimeSpan.FromDays(1);
-        //        return await _theatreServices.GetSixTheatresAsync();
-        //    });
+        [NonAction]
+        private async Task<ICollection<Theatre>> CacheTheatres()
+        {
+            var TopTheatres = await _cache.GetOrCreateAsync<ICollection<Theatre>>("Theatre", async (cacheEntry) =>
+            {
+                cacheEntry.SlidingExpiration = TimeSpan.FromDays(1);
+                return await _theatreServices.GetTopTheatresAsync(6);
+            });
 
-        //    return topBarsDtos;
-        //}
+            return TopTheatres;
+        }
     }
 }

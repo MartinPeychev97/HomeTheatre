@@ -176,9 +176,9 @@ namespace HomeTheatre.Services.Services
                 throw new Exception("Something Went wrong");
             }
         }
-        public async Task<double> AverageRating(Guid theatreId)
+        public async Task<double> GetAverageRating(Guid theatreId)
         {
-            var theatre = await this._context.Theatres
+            var theatre = await _context.Theatres
                 .Where(b => b.IsDeleted == false)
                 .FirstOrDefaultAsync(b => b.Id == theatreId);
 
@@ -193,7 +193,7 @@ namespace HomeTheatre.Services.Services
         }
 
 
-        public async Task<ICollection<Theatre>> SearchAsync(string searchCriteria, bool byName, bool byAddress, bool byRating, double ratingValue)
+        public async Task<ICollection<Theatre>> SearchAsync(string searchCriteria, bool byName, bool ByLocation, bool byRating, double ratingValue)
         {
             //Case where only rating is selected as a search criteria
             if (string.IsNullOrEmpty(searchCriteria))
@@ -205,7 +205,7 @@ namespace HomeTheatre.Services.Services
 
             //Case where no criterias are selected so all bars are filtered
             var terms = searchCriteria.Split(" ");
-            if (byName == false && byAddress == false && byRating == false)
+            if (byName == false && ByLocation == false && byRating == false)
             {
                 var outcome = await _context.Theatres
                     .Where(b => b.IsDeleted == false)
@@ -223,12 +223,36 @@ namespace HomeTheatre.Services.Services
             {
                 var allTheatres = _context.Theatres.Where(b => b.IsDeleted == false).Include(b => b.AverageRating);
                 var filteredByName = allTheatres.Where(b => byName && b.Name.Contains(terms));
-                var filteredByLocation = allTheatres.Where(b => byAddress && b.Location.Contains(terms));
+                var filteredByLocation = allTheatres.Where(b => ByLocation && b.Location.Contains(terms));
                 var filteredByRating = allTheatres.Where(b => byRating ? (b.AverageRating >= ratingValue) : false);
                 var filtered = filteredByName.Union(filteredByLocation).Union(filteredByRating).ToList();
 
                 return filtered;
             }
+        }
+
+        public async Task<ICollection<Theatre>> GetTopTheatresAsync(int num)
+        {
+            var allTheatres =  _context.Theatres;
+
+            foreach (var theatre in allTheatres)
+            {
+                await GetAverageRating(theatre.Id);
+            }
+
+            var topTheatres = await allTheatres
+                 .Include(b => b.Reviews)
+                 .Where(b => b.IsDeleted == false)
+                 .OrderByDescending(b => b.AverageRating)
+                 .Take(num)
+                 .ToListAsync();
+
+            if (!topTheatres.Any())
+            {
+                throw new Exception("There aren't any theatres found");
+            }
+
+            return topTheatres;
         }
     }
 }

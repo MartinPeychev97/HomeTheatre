@@ -10,7 +10,7 @@ namespace HomeTheatre.Models.General
     {
         public string SearchBName { get; set; }
         public bool SearchByName { get; set; }
-        public bool SearchByAddress { get; set; }
+        public bool SearchByLocation { get; set; }
         public bool SearchByRating { get; set; }
         public double Value { get; set; }
 

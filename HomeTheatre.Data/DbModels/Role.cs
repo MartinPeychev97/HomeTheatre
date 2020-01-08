@@ -7,6 +7,5 @@ namespace HomeTheatre.Data.DbModels
 {
     public class Role : IdentityRole<Guid>
     {
-        //Class not needed for now
     }
 }
