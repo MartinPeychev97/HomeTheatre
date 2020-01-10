@@ -25,7 +25,7 @@ namespace HomeTheatre.Controllers
         {
             _cache= cache ?? throw new ArgumentNullException(nameof(cache));
             _theatreServices=theatreServices ?? throw new ArgumentNullException(nameof(theatreServices));
-            this._theatreVmMapper = theatreViewModelMapper;
+            _theatreVmMapper = theatreViewModelMapper ?? throw new ArgumentNullException(nameof(theatreViewModelMapper));
         }
 
         public async Task<IActionResult> Index()

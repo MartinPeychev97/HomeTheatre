@@ -21,10 +21,13 @@
 
 
   <ItemGroup>
-    <Folder Include="Areas\NewArea\Controllers\" />
-    <Folder Include="Areas\NewArea\Data\" />
-    <Folder Include="Areas\NewArea\Models\" />
-    <Folder Include="Areas\NewArea\Views\" />
+    <Folder Include="Areas\Administrator\Controllers\" />
+    <Folder Include="Areas\Administrator\Data\" />
+    <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="Areas\Administrator\Views\" />
+    <Folder Include="Areas\Member\Data\" />
+    <Folder Include="Areas\Member\Models\" />
+    <Folder Include="Areas\Member\Views\" />
   </ItemGroup>
 
 </Project>
