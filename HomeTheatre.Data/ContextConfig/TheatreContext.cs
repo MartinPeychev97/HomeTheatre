@@ -32,7 +32,7 @@ namespace HomeTheatre.Data
 
             #endregion
             #region Review 
-            modelBuilder.Entity<Review>().HasKey(key=>key.Id);
+            modelBuilder.Entity<Review>().HasKey(key => key.Id);
 
             modelBuilder.Entity<Comment>()
                 .HasOne(m => m.Review)
@@ -43,12 +43,23 @@ namespace HomeTheatre.Data
                 .HasOne(m => m.User)
                 .WithMany(m => m.Reviews);
             #endregion
+            #region Ban-User-Many-To-One
+            modelBuilder.Entity<Ban>().HasKey(b => b.Id);
 
+            modelBuilder.Entity<Ban>().Property(b => b.ReasonBanned)
+                .IsRequired();
+
+            modelBuilder.Entity<Ban>().HasOne(b => b.User)
+                .WithMany(u => u.Bans);
+
+            modelBuilder.Entity<Ban>().Property(b => b.HasExpired)
+                .IsRequired();
+            #endregion
             modelBuilder.Seeder();
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<User> Accounts { get; set; }
+        public DbSet<Ban> Bans { get; set; }
 
         public DbSet<Theatre> Theatres { get; set; }
 

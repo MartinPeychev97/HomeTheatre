@@ -9,9 +9,13 @@ namespace HomeTheatre.Data.DbModels
 {
     public class Theatre : IEntityId,IDeletable,IAuditable
     {
+        public Theatre()
+        {
+            Reviews = new List<Review>();
+        }
+
         [Key]
         public Guid Id { get; set; }
-
         [DisplayName("Theatre Name")]
         [Required]
         [StringLength(40, ErrorMessage = "The  value cannot exceed 40 characters.")]

@@ -13,7 +13,7 @@ namespace HomeTheatre.Data.DbModels
         public string Author { get; set; }
         [Range(1, 5)]
         public double Rating { get; set; }
-        [MaxLength(500, ErrorMessage = "Text cannot exceed 500 characters")]
+        [MaxLength(500, ErrorMessage = "Text cannot exceed 500 characters"),MinLength(2)]
         public string ReviewText { get; set; }
         public Theatre Theatre { get; set; }
         public Guid TheatreId { get; set; }

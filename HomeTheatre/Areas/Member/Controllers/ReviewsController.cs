@@ -2,15 +2,75 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HomeTheatre.Data.DbModels;
+using HomeTheatre.Mappers.Contract;
+using HomeTheatre.Models.Review;
+using HomeTheatre.Services.Contracts;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace HomeTheatre.Areas.Member.Controllers
 {
+    [Area("Member")]
+    [Authorize(Roles = "Member")]
     public class ReviewsController : Controller
     {
-        public IActionResult Index()
+        private readonly UserManager<User> _userManager;
+        private readonly IReviewServices _reviewServices;
+        private readonly IViewModelMapper<Review, ReviewViewModel> _reviewMapper;
+        private readonly ILogger _logger;
+
+        public ReviewsController(UserManager<User> userManager, IReviewServices commentServices, IViewModelMapper<Review, ReviewViewModel> commentMapper, ILogger logger)
         {
-            return View();
+            _userManager = userManager;
+            _reviewServices = commentServices;
+            _reviewMapper = commentMapper;
+            _logger = logger;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Index(Guid theatreId)
+        {
+            if (theatreId == null)
+            {
+                return NotFound();
+            }
+            var reviews = await _reviewServices.GetAllReviewsAsync(theatreId);
+            var reviewsVm = _reviewMapper.MapFrom(reviews);
+            return View(reviewsVm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateReview([FromBody]ReviewViewModel viewModel)
+        {
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                var Author = user.UserName;
+
+                viewModel.Id = Guid.Parse(user.Id);
+                viewModel.Author = Author;
+                var review = _reviewMapper.MapFrom(viewModel);
+
+                var newComment = await _reviewServices.CreateReviewAsync(review);
+
+                var newReviewVm = _reviewMapper.MapFrom(newComment);
+
+                _logger.LogInformation("Review has been posted successfully");
+
+                return PartialView("_AddReviewPartial", newReviewVm);
+            }
+            catch (Exception)
+            {
+                _logger.LogCritical("Review must be between 2 and 500 characters");
+            }
+
+            return View(viewModel);
+        }
+
+
     }
 }
