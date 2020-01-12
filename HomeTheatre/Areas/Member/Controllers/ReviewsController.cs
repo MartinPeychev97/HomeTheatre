@@ -71,6 +71,42 @@ namespace HomeTheatre.Areas.Member.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditReview(Guid reviewId, string newBody)
+        {
+            if (reviewId == null)
+            {
+                return NotFound();
+            }
 
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _reviewServices.EditReviewAsync(reviewId, newBody);
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Something went wrong");
+                }
+                _logger.LogInformation("Review was edited successfully");
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Index", "Home");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteReviewConfirmed(Guid id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            await _reviewServices.DeleteReviewAsync(id);
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
