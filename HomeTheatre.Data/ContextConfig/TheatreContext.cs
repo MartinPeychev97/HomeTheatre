@@ -2,10 +2,11 @@
 using HomeTheatre.Data.Seeder;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace HomeTheatre.Data
 {
-    public class TheatreContext : IdentityDbContext<User>
+    public class TheatreContext : IdentityDbContext<User,Role,Guid>
     {
         public TheatreContext(DbContextOptions options) : base(options)
         {

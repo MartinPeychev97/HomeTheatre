@@ -51,7 +51,7 @@ namespace HomeTheatre.Areas.Member.Controllers
                 var user = await _userManager.GetUserAsync(User);
                 var Author = user.UserName;
 
-                viewModel.Id = Guid.Parse(user.Id);
+                viewModel.Id = user.Id;
                 viewModel.Author = Author;
                 var review = _reviewMapper.MapFrom(viewModel);
 
@@ -103,8 +103,8 @@ namespace HomeTheatre.Areas.Member.Controllers
             {
                 return NotFound();
             }
-
             await _reviewServices.DeleteReviewAsync(id);
+            _logger.LogInformation("Review has been succesfully deleted");
 
             return RedirectToAction("Index", "Home");
         }

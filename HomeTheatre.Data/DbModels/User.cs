@@ -6,7 +6,7 @@ using System.Text;
 
 namespace HomeTheatre.Data.DbModels
 {
-    public class User : IdentityUser, IAuditable, IDeletable
+    public class User : IdentityUser<Guid>, IAuditable, IDeletable
     {
         public User()
         {

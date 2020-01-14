@@ -52,7 +52,7 @@ namespace HomeTheatre.Areas.Member.Controllers
                 var user = await _userManager.GetUserAsync(User);
                 var userName = user.Email.Split('@')[0];
 
-                viewModel.UserId = Guid.Parse(user.Id);
+                viewModel.UserId = user.Id;
                 viewModel.UserName = userName;
                 var comment = _commentMapper.MapFrom(viewModel);
 
@@ -104,8 +104,8 @@ namespace HomeTheatre.Areas.Member.Controllers
             {
                 return NotFound();
             }
-
             await _commentServices.DeleteCommentAsync(id);
+            _logger.LogInformation("Comment has been succesfully deleted");
 
             return RedirectToAction("Index", "Home");
         }

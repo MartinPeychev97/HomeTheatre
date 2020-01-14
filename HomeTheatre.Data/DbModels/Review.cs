@@ -18,7 +18,6 @@ namespace HomeTheatre.Data.DbModels
         public Theatre Theatre { get; set; }
         public Guid TheatreId { get; set; }
         public User User { get; set; }
-        public DateTime DateReviewed { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? DeletedOn { get; set; }
