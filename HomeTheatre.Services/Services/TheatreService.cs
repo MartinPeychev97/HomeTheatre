@@ -195,7 +195,6 @@ namespace HomeTheatre.Services.Services
 
         public async Task<ICollection<Theatre>> SearchAsync(string searchCriteria, bool byName, bool ByLocation, bool byRating, double ratingValue)
         {
-            //Case where only rating is selected as a search criteria
             if (string.IsNullOrEmpty(searchCriteria))
             {
                 var allTheatres = _context.Theatres.Where(b => b.IsDeleted == false).Include(b => b.AverageRating);
@@ -203,7 +202,6 @@ namespace HomeTheatre.Services.Services
                 return filteredByRating;
             }
 
-            //Case where no criterias are selected so all bars are filtered
             var terms = searchCriteria.Split(" ");
             if (byName == false && ByLocation == false && byRating == false)
             {
@@ -218,7 +216,6 @@ namespace HomeTheatre.Services.Services
                 return outcome;
             }
 
-            //Case where certain criterias are selected so we filter only those bars
             else
             {
                 var allTheatres = _context.Theatres.Where(b => b.IsDeleted == false).Include(b => b.AverageRating);

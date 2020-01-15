@@ -50,7 +50,7 @@ namespace HomeTheatre.Areas.Member.Controllers
             try
             {
                 var user = await _userManager.GetUserAsync(User);
-                var userName = user.Email.Split('@')[0];
+                var userName = user.UserName;
 
                 viewModel.UserId = user.Id;
                 viewModel.UserName = userName;
