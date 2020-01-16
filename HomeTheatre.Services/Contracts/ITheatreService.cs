@@ -17,5 +17,6 @@ namespace HomeTheatre.Services.Contracts
         Task<double> GetAverageRating(Guid theatreId);
         Task<ICollection<Theatre>> SearchAsync(string searchCriteria, bool byName, bool ByLocation, bool byRating, double ratingValue);
         Task<ICollection<Theatre>> GetTopTheatresAsync(int num);
+         Task<Theatre> AddReviewAsync(Theatre theatreParam, Review reviewParam);
     }
 }

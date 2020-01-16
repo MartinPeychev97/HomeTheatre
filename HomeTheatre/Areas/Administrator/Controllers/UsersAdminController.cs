@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HomeTheatre.Areas.Administrator.Models;
 using HomeTheatre.Data.DbModels;
 using HomeTheatre.Mappers.Contract;
-using HomeTheatre.Models.Ban;
 using HomeTheatre.Models.User;
 using HomeTheatre.Services.Contracts;
 using Microsoft.AspNetCore.Authorization;
@@ -15,13 +15,13 @@ namespace HomeTheatre.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
     [Authorize(Roles = "Administrator")]
-    public class UsersAllController : Controller
+    public class UsersAdminController : Controller
     {
         private readonly IBanServices _banService;
         private readonly IViewModelMapper<User, UserViewModel> _userMapper;
         private readonly ILogger _logger;
 
-        public UsersAllController(IBanServices banService, IViewModelMapper<User, UserViewModel> userMapper,ILogger logger)
+        public UsersAdminController(IBanServices banService, IViewModelMapper<User, UserViewModel> userMapper,ILogger logger)
         {
             _banService = banService ?? throw new ArgumentNullException(nameof(banService));
             _userMapper = userMapper ?? throw new ArgumentNullException(nameof(userMapper));

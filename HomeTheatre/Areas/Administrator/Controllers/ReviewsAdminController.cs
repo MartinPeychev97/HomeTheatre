@@ -6,8 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HomeTheatre.Areas.Administrator.Controllers
 {
-    public class ReviewsAllController : Controller
+    public class ReviewsAdminController : Controller
     {
+        public ReviewsAdminController()
+        {
+        }
+
         public IActionResult Index()
         {
             return View();

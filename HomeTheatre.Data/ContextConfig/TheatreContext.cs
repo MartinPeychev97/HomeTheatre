@@ -60,14 +60,14 @@ namespace HomeTheatre.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Ban> Bans { get; set; }
-
         public DbSet<Theatre> Theatres { get; set; }
-
         public DbSet<Review> Reviews { get; set; }
-
         public DbSet<Comment> Comments { get; set; }
-
-
+       
+        //need entity configurations
+        public DbSet<Rating> Ratings { get; set; }
+        public DbSet<TheatreReview> TheatreReviews { get; set; }
+        public DbSet<Ban> Bans { get; set; }
+        //
     }
 }

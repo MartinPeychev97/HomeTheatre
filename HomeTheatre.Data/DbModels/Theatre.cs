@@ -21,7 +21,7 @@ namespace HomeTheatre.Data.DbModels
         [StringLength(40, ErrorMessage = "The  value cannot exceed 40 characters.")]
         public string Name { get; set; }
         public double? AverageRating { get; set; }
-        public int NumberOfReviews { get { return Reviews.Count; } set { NumberOfReviews = value; } }
+        public int NumberOfReviews { get { return TheatreReviews.Count; } set { NumberOfReviews = value; } }
         [DisplayName("Theatre AboutInfo")]
         [Required]
         [StringLength(1000, ErrorMessage = "The value cannot exceed 1000 characters.")]
@@ -29,6 +29,7 @@ namespace HomeTheatre.Data.DbModels
         public string Location { get; set; }
         public string Phone { get; set; }
         public ICollection<Review> Reviews { get; set; }
+        public ICollection<TheatreReview> TheatreReviews { get; set; }
         public User User { get; set; }
         public DateTime CreatedOn { get; set; }
         public bool IsDeleted { get; set; }

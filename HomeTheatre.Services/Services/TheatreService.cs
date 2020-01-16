@@ -18,7 +18,7 @@ namespace HomeTheatre.Services.Services
 
         public TheatreService(TheatreContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         public async Task<Theatre> GetTheatreAsync(Guid Id)
@@ -250,6 +250,44 @@ namespace HomeTheatre.Services.Services
             }
 
             return topTheatres;
+        }
+
+        public async Task<Theatre> AddReviewAsync(Theatre theatreParam,Review reviewParam)
+        {
+            var theatre = await _context.Theatres.Where(t => t.IsDeleted == false)
+                .FirstOrDefaultAsync(t=>t.Id == theatreParam.Id);
+
+            if (theatre == null)
+            {
+                throw new Exception("There was no theatre found");
+            }
+            var review = await _context.Reviews.Where(c => c.IsDeleted == false)
+                .FirstOrDefaultAsync(r=>r.Id==reviewParam.Id);
+            if (review == null)
+            {
+                throw new Exception("There was no review found");
+            }
+
+            var theatreReview = await _context.TheatreReviews
+                    .Where(t => t.TheatreId == theatre.Id && t.ReviewId==review.Id )
+                    .FirstOrDefaultAsync();
+
+            if (theatreReview == null)
+            {
+                theatreReview = new TheatreReview
+                {
+                    Theatre = theatre,
+                    Review = review
+                };
+                await _context.TheatreReviews.AddAsync(theatreReview);
+                theatre.TheatreReviews.Add(theatreReview);
+            }
+            else
+            {
+                theatreReview.IsDeleted = false;
+            }
+            await _context.SaveChangesAsync();
+            return theatreParam;
         }
     }
 }
