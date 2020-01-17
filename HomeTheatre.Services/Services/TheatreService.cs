@@ -18,7 +18,7 @@ namespace HomeTheatre.Services.Services
 
         public TheatreService(TheatreContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public async Task<Theatre> GetTheatreAsync(Guid Id)
@@ -230,7 +230,7 @@ namespace HomeTheatre.Services.Services
 
         public async Task<ICollection<Theatre>> GetTopTheatresAsync(int num)
         {
-            var allTheatres =  _context.Theatres;
+            var allTheatres = _context.Theatres;
 
             foreach (var theatre in allTheatres)
             {
@@ -252,24 +252,24 @@ namespace HomeTheatre.Services.Services
             return topTheatres;
         }
 
-        public async Task<Theatre> AddReviewAsync(Theatre theatreParam,Review reviewParam)
+        public async Task<Theatre> AddReviewAsync(Theatre theatreParam, Review reviewParam)
         {
             var theatre = await _context.Theatres.Where(t => t.IsDeleted == false)
-                .FirstOrDefaultAsync(t=>t.Id == theatreParam.Id);
+                .FirstOrDefaultAsync(t => t.Id == theatreParam.Id);
 
             if (theatre == null)
             {
                 throw new Exception("There was no theatre found");
             }
             var review = await _context.Reviews.Where(c => c.IsDeleted == false)
-                .FirstOrDefaultAsync(r=>r.Id==reviewParam.Id);
+                .FirstOrDefaultAsync(r => r.Id == reviewParam.Id);
             if (review == null)
             {
                 throw new Exception("There was no review found");
             }
 
             var theatreReview = await _context.TheatreReviews
-                    .Where(t => t.TheatreId == theatre.Id && t.ReviewId==review.Id )
+                    .Where(t => t.TheatreId == theatre.Id && t.ReviewId == review.Id)
                     .FirstOrDefaultAsync();
 
             if (theatreReview == null)
@@ -277,7 +277,9 @@ namespace HomeTheatre.Services.Services
                 theatreReview = new TheatreReview
                 {
                     Theatre = theatre,
-                    Review = review
+                    TheatreId = theatre.Id,
+                    Review = review,
+                    ReviewId = review.Id
                 };
                 await _context.TheatreReviews.AddAsync(theatreReview);
                 theatre.TheatreReviews.Add(theatreReview);
@@ -288,6 +290,24 @@ namespace HomeTheatre.Services.Services
             }
             await _context.SaveChangesAsync();
             return theatreParam;
+        }
+
+        public async Task<TheatreReview> RemoveReviewAsync(TheatreReview theatreReviewParams)
+        {
+            var theatreReview = await _context.TheatreReviews.Where(x => x.Id == theatreReviewParams.Id)
+                .Where(x => x.IsDeleted == false).FirstOrDefaultAsync();
+
+            if (theatreReview == null)
+            {
+                throw new ArgumentNullException("There was no theatreReview found");
+            }
+
+            theatreReview.IsDeleted = true;
+            theatreReview.DeletedOn = DateTime.UtcNow;
+
+            await _context.SaveChangesAsync();
+
+            return theatreReviewParams;
         }
     }
 }

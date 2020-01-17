@@ -1,11 +1,12 @@
-﻿using HomeTheatre.Data.Utilities;
+﻿using HomeTheatre.Data.DbModels;
+using HomeTheatre.Data.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HomeTheatre.Data.DbModels
+namespace HomeTheatre.Areas.Administrator.Models
 {
-    public class TheatreReview : IEntityId,IAuditable, IDeletable
+    public class TheatreReviewViewModel:IEntityId,IAuditable,IDeletable
     {
         public Guid Id { get; set; }
         public Theatre Theatre { get; set; }

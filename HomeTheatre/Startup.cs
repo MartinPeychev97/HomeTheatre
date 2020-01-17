@@ -51,6 +51,7 @@ namespace HomeTheatre
             services.AddScoped<IReviewServices, ReviewServices>();
             services.AddScoped<ITheatreService, TheatreService>();
             services.AddScoped<IBanServices, BanServices>();
+            services.AddScoped<ITheatreReviewServices, TheatreReviewServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

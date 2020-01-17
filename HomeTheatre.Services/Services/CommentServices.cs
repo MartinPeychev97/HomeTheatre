@@ -12,11 +12,11 @@ namespace HomeTheatre.Services.Services
 {
     public class CommentServices : ICommentServices
     {
-        private readonly TheatreContext context;
+        private readonly TheatreContext _context;
 
         public CommentServices(TheatreContext context)
         {
-            this.context = context ?? throw new ArgumentNullException(nameof(context));
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
 
@@ -41,14 +41,14 @@ namespace HomeTheatre.Services.Services
                 DeletedOn = tempComment.ModifiedOn
             };
 
-            await context.Comments.AddAsync(comment);
-            await context.SaveChangesAsync();
+            await _context.Comments.AddAsync(comment);
+            await _context.SaveChangesAsync();
             return comment;
         }
 
         public async Task<ICollection<Comment>> GetCommentsAsync(Guid Id)
         {
-            var comments = await context.Comments
+            var comments = await _context.Comments
                 .Include(c => c.User)
                 .Include(c => c.Review)
                 .Where(x => x.IsDeleted == false)
@@ -59,7 +59,7 @@ namespace HomeTheatre.Services.Services
 
         public async Task<Comment> DeleteCommentAsync(Guid id)
         {
-            var comment = await context.Comments
+            var comment = await _context.Comments
                 .Include(bc => bc.Review)
                 .Include(bc => bc.User)
                 .Where(bc => bc.IsDeleted == false)
@@ -73,8 +73,8 @@ namespace HomeTheatre.Services.Services
             comment.DeletedOn = DateTime.UtcNow;
             comment.IsDeleted = true;
 
-            context.Update(comment);
-            await context.SaveChangesAsync();
+            _context.Update(comment);
+            await _context.SaveChangesAsync();
 
             return comment;
 
@@ -82,7 +82,7 @@ namespace HomeTheatre.Services.Services
 
         public async Task<Comment> EditCommentAsync(Guid id, string newCommentText)
         {
-            var comment = await this.context.Comments
+            var comment = await this._context.Comments
                 .Where(bc => bc.IsDeleted == false)
                 .FirstOrDefaultAsync(bc => bc.Id == id);
 
@@ -94,8 +94,8 @@ namespace HomeTheatre.Services.Services
             comment.ModifiedOn = DateTime.UtcNow;
             comment.CommentText = newCommentText;
 
-            this.context.Update(comment);
-            await this.context.SaveChangesAsync();
+            this._context.Update(comment);
+            await this._context.SaveChangesAsync();
 
             return comment;
         }

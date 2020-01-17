@@ -12,11 +12,11 @@ namespace HomeTheatre.Services.Services
 {
     public class ReviewServices : IReviewServices
     {
-        private readonly TheatreContext context;
+        private readonly TheatreContext _context;
 
         public ReviewServices(TheatreContext context)
         {
-            this.context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public async Task<Review> CreateReviewAsync(Review tempReview)
@@ -40,13 +40,13 @@ namespace HomeTheatre.Services.Services
                 DeletedOn = tempReview.ModifiedOn
             };
 
-            await context.Reviews.AddAsync(review);
-            await context.SaveChangesAsync();
+            await _context.Reviews.AddAsync(review);
+            await _context.SaveChangesAsync();
             return review;
         }
         public async Task<Review> DeleteReviewAsync(Guid id)
         {
-            var review = await context.Reviews
+            var review = await _context.Reviews
                 .Include(bc => bc.Theatre)
                 .Include(bc => bc.User)
                 .Where(bc => bc.IsDeleted == false)
@@ -60,8 +60,8 @@ namespace HomeTheatre.Services.Services
             review.DeletedOn = DateTime.UtcNow;
             review.IsDeleted = true;
 
-            context.Update(review);
-            await context.SaveChangesAsync();
+            _context.Update(review);
+            await _context.SaveChangesAsync();
 
             return review;
         }
@@ -70,7 +70,7 @@ namespace HomeTheatre.Services.Services
 
         public async Task<ICollection<Review>> GetAllReviewsAsync(Guid theatreId)
         {
-            var reviews = await context.Reviews
+            var reviews = await _context.Reviews
                 .Include(x => x.Theatre)
                 .Include(x => x.User)
                 .Where(x => x.IsDeleted == false)
@@ -86,7 +86,7 @@ namespace HomeTheatre.Services.Services
 
         public async Task<Review> GetReviewAsync(Guid id)
         {
-            var review = await context.Reviews
+            var review = await _context.Reviews
                 .Where(i => i.IsDeleted == false)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
@@ -100,7 +100,7 @@ namespace HomeTheatre.Services.Services
 
         public async Task<Review> EditReviewAsync(Guid id, string newReviewText)
         {
-            var review = await context.Reviews
+            var review = await _context.Reviews
                 .Where(bc => bc.IsDeleted == false)
                 .FirstOrDefaultAsync(bc => bc.Id == id);
 
@@ -112,8 +112,8 @@ namespace HomeTheatre.Services.Services
             review.ModifiedOn = DateTime.UtcNow;
             review.ReviewText = newReviewText;
 
-            context.Update(review);
-            await context.SaveChangesAsync();
+            _context.Update(review);
+            await _context.SaveChangesAsync();
 
             return review;
         }
