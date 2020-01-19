@@ -46,12 +46,15 @@ namespace HomeTheatre
                 .AddEntityFrameworkStores<TheatreContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
             #region RegisterServices
             services.AddScoped<ICommentServices, CommentServices>();
             services.AddScoped<IReviewServices, ReviewServices>();
             services.AddScoped<ITheatreService, TheatreService>();
             services.AddScoped<IBanServices, BanServices>();
             services.AddScoped<ITheatreReviewServices, TheatreReviewServices>();
+            services.AddScoped<ISearchServices, SearchServices>();
 
             #endregion
         }
