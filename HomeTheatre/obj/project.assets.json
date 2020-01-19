@@ -12984,11 +12984,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre\\HomeTheatre.csproj",
+      "projectUniqueName": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre\\HomeTheatre.csproj",
       "projectName": "HomeTheatre",
-      "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre\\HomeTheatre.csproj",
+      "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre\\HomeTheatre.csproj",
       "packagesPath": "C:\\Users\\Marti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre\\obj\\",
+      "outputPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13007,11 +13007,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Data\\HomeTheatre.Data.csproj": {
-              "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Data\\HomeTheatre.Data.csproj"
+            "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Data\\HomeTheatre.Data.csproj": {
+              "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Data\\HomeTheatre.Data.csproj"
             },
-            "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Services\\HomeTheatre.Services.csproj": {
-              "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Services\\HomeTheatre.Services.csproj"
+            "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Services\\HomeTheatre.Services.csproj": {
+              "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Services\\HomeTheatre.Services.csproj"
             }
           }
         }

@@ -65,7 +65,6 @@ namespace HomeTheatre.Data
         public DbSet<Comment> Comments { get; set; }
        
         //need entity configurations
-        public DbSet<Rating> Ratings { get; set; }
         public DbSet<TheatreReview> TheatreReviews { get; set; }
         public DbSet<Ban> Bans { get; set; }
         //

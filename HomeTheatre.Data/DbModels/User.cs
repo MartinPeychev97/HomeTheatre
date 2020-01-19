@@ -16,6 +16,7 @@ namespace HomeTheatre.Data.DbModels
         }
 
         public string Name { get; set; }
+        public ICollection<Comment> Comments { get; set; }
         public ICollection<Theatre> Theatres { get; set; }
         public ICollection<Review> Reviews { get; set; }
         public ICollection<Ban> Bans { get; set; }

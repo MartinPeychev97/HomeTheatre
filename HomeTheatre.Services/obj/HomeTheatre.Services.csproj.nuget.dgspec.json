@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Services\\HomeTheatre.Services.csproj": {}
+    "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Services\\HomeTheatre.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Data\\HomeTheatre.Data.csproj": {
+    "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Data\\HomeTheatre.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Data\\HomeTheatre.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Data\\HomeTheatre.Data.csproj",
         "projectName": "HomeTheatre.Data",
-        "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Data\\HomeTheatre.Data.csproj",
+        "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Data\\HomeTheatre.Data.csproj",
         "packagesPath": "C:\\Users\\Marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Data\\obj\\",
+        "outputPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -70,14 +70,14 @@
         }
       }
     },
-    "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Services\\HomeTheatre.Services.csproj": {
+    "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Services\\HomeTheatre.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Services\\HomeTheatre.Services.csproj",
+        "projectUniqueName": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Services\\HomeTheatre.Services.csproj",
         "projectName": "HomeTheatre.Services",
-        "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Services\\HomeTheatre.Services.csproj",
+        "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Services\\HomeTheatre.Services.csproj",
         "packagesPath": "C:\\Users\\Marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Services\\obj\\",
+        "outputPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -96,8 +96,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Data\\HomeTheatre.Data.csproj": {
-                "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre\\HomeTheatre.Data\\HomeTheatre.Data.csproj"
+              "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Data\\HomeTheatre.Data.csproj": {
+                "projectPath": "C:\\Users\\Marti\\Desktop\\HomeTheatre - CopyRatingIssue\\HomeTheatre.Data\\HomeTheatre.Data.csproj"
               }
             }
           }

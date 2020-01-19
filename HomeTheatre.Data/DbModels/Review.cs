@@ -8,11 +8,16 @@ namespace HomeTheatre.Data.DbModels
 {
     public class Review : IEntityId, IDeletable, IAuditable
     {
+        public Review()
+        {
+            Comments = new List<Comment>();
+        }
+
         [Key]
         public Guid Id { get; set; }
         public string Author { get; set; }
         [Range(1, 5)]
-        public double Rating { get; set; }
+         public double Rating { get; set; }
         [MaxLength(500, ErrorMessage = "Text cannot exceed 500 characters"),MinLength(2)]
         public string ReviewText { get; set; }
         public Theatre Theatre { get; set; }

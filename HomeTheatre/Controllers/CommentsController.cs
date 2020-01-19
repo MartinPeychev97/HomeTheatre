@@ -11,10 +11,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace HomeTheatre.Areas.Member.Controllers
+namespace HomeTheatre.Controllers
 {
-    [Area("Member")]
-    [Authorize(Roles = "Member")]
+   
     public class CommentsController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -98,7 +97,7 @@ namespace HomeTheatre.Areas.Member.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteComment(Guid id)
         {
             if ( id == null)
             {

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using HomeTheatre.Data.DbModels;
 using HomeTheatre.Mappers;
 using HomeTheatre.Mappers.Contract;
+using HomeTheatre.Models.Comment;
+using HomeTheatre.Models.Review;
 using HomeTheatre.Models.Theatre;
 using HomeTheatre.Services.Contracts;
 using Microsoft.AspNetCore.Identity;
@@ -19,24 +21,24 @@ namespace HomeTheatre.Controllers
         private readonly ICommentServices _commentServices;
         private readonly UserManager<User> _userManager;
         private readonly IViewModelMapper<Theatre, TheatreViewModel> _theatreViewModelMapper;
-        private readonly IViewModelMapper<Comment, CommentViewModelMapper> _commentViewModelMapper;
-        private readonly IViewModelMapper<Review, ReviewViewModelMapper> _reviewViewModelMapper; 
+        private readonly IViewModelMapper<Comment, CommentViewModel> _commentViewModelMapper;
+        private readonly IViewModelMapper<Review, ReviewViewModel> _reviewViewModelMapper;
         private readonly IReviewServices _reviewServices;
         private readonly ILogger _logger;
 
         public TheatreController(ITheatreService theatreServices, ICommentServices commentServices,
             UserManager<User> userManager, IViewModelMapper<Theatre, TheatreViewModel> theatreViewModelMapper,
-            ILogger logger, IViewModelMapper<Comment, CommentViewModelMapper> commentViewModelMapper,
-            IReviewServices reviewServices, IViewModelMapper<Review, ReviewViewModelMapper> reviewViewModelMapper)
+            ILogger logger, IViewModelMapper<Comment, CommentViewModel> commentViewModelMapper,
+            IReviewServices reviewServices, IViewModelMapper<Review, ReviewViewModel> reviewViewModelMapper)
         {
-            _theatreServices = theatreServices ?? throw new ArgumentNullException(nameof(_theatreServices));
-            _commentServices = commentServices ?? throw new ArgumentNullException(nameof(_commentServices));
+            _theatreServices = theatreServices ?? throw new ArgumentNullException(nameof(theatreServices));
+            _commentServices = commentServices ?? throw new ArgumentNullException(nameof(commentServices));
             _userManager = userManager ?? throw new ArgumentNullException(nameof(_userManager));
-            _theatreViewModelMapper = theatreViewModelMapper ?? throw new ArgumentNullException(nameof(_theatreViewModelMapper));
+            _theatreViewModelMapper = theatreViewModelMapper ?? throw new ArgumentNullException(nameof(theatreViewModelMapper));
             _logger = logger;
-            _commentViewModelMapper = commentViewModelMapper ?? throw new ArgumentNullException(nameof(_commentViewModelMapper));
-            _reviewServices = reviewServices ?? throw new ArgumentNullException(nameof(_reviewServices));
-            _reviewViewModelMapper = reviewViewModelMapper ?? throw new ArgumentNullException(nameof(_reviewViewModelMapper));
+            _commentViewModelMapper = commentViewModelMapper ?? throw new ArgumentNullException(nameof(commentViewModelMapper));
+            _reviewServices = reviewServices ?? throw new ArgumentNullException(nameof(reviewServices));
+            _reviewViewModelMapper = reviewViewModelMapper ?? throw new ArgumentNullException(nameof(reviewViewModelMapper));
         }
 
         public IActionResult Index()
@@ -79,24 +81,54 @@ namespace HomeTheatre.Controllers
             }
         }
 
-        //public async Task<IActionResult> Details(Guid id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var theatre = await _theatreServices.GetTheatreAsync(id);
-        //    var theatreVm = _theatreViewModelMapper.MapFrom(theatre);
+        public async Task<IActionResult> Details(Guid theatreId)
+        {
+            if (theatreId == null)
+            {
+                return NotFound();
+            }
+            var theatre = await _theatreServices.GetTheatreAsync(theatreId);
+            var theatreVm = _theatreViewModelMapper.MapFrom(theatre);
 
-        //    var commentsAll = await _commentServices.GetCommentsAsync(id);
-        //    var commentsVM = _commentViewModelMapper.MapFrom(commentsAll);
+            var commentsAll = await _commentServices.GetCommentsAsync(theatreId);
+            var commentsVM = _commentViewModelMapper.MapFrom(commentsAll);
 
-        //    var reviewAll = await _reviewServices.GetAllReviewsAsync(id);
-        //    var reviewVm = _reviewViewModelMapper.MapFrom(reviewAll);
+            var reviewAll = await _reviewServices.GetAllReviewsAsync(theatreId);
+            var reviewVm = _reviewViewModelMapper.MapFrom(reviewAll);
 
-        //    var userId = this._userManager.GetUserId(HttpContext.User);
+            var userId = _userManager.GetUserId(HttpContext.User);
 
+            try
+            {
+                var theatreAverageRating = await _theatreServices.GetAverageRating(theatreId);
+                theatreVm.AverageRating = theatreAverageRating;
+                _logger.LogInformation("Theatre average rating has been assigned ");
 
-        //}
+            }
+            catch (Exception)
+            {
+                theatreVm.AverageRating = null;
+            }
+
+            if (commentsVM !=null)
+            {
+                theatreVm.CommentsVM = commentsVM;
+            }
+            else
+            {
+                theatreVm.CommentsVM = new List<CommentViewModel>();
+            }
+            if (reviewVm !=null)
+            {
+                theatreVm.ReviewsVM = reviewVm;
+            }
+            else
+            {
+                theatreVm.ReviewsVM = new List<ReviewViewModel>();
+            }
+            return View(theatreVm);
+
+        }
+
     }
 }

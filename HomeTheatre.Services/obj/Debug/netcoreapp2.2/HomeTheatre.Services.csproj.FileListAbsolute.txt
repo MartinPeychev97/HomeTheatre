@@ -9,3 +9,14 @@ C:\Users\Marti\Desktop\HomeTheatre\HomeTheatre.Services\obj\Debug\netcoreapp2.2\
 C:\Users\Marti\Desktop\HomeTheatre\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.csproj.CopyComplete
 C:\Users\Marti\Desktop\HomeTheatre\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.dll
 C:\Users\Marti\Desktop\HomeTheatre\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.pdb
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.csprojAssemblyReference.cache
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.AssemblyInfoInputs.cache
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.AssemblyInfo.cs
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Services.deps.json
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Services.dll
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Services.pdb
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Data.dll
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.csproj.CopyComplete
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.dll
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.pdb

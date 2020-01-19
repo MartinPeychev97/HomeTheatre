@@ -11,10 +11,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace HomeTheatre.Areas.Member.Controllers
-{
-    [Area("Member")]
-    [Authorize(Roles = "Member")]
+namespace HomeTheatre.Controllers
+{ 
     public class ReviewsController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -97,7 +95,7 @@ namespace HomeTheatre.Areas.Member.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteReviewConfirmed(Guid id)
+        public async Task<IActionResult> DeleteReview(Guid id)
         {
             if (id == null)
             {

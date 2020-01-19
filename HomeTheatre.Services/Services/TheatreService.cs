@@ -179,6 +179,7 @@ namespace HomeTheatre.Services.Services
         public async Task<double> GetAverageRating(Guid theatreId)
         {
             var theatre = await _context.Theatres
+                .Include(t=>t.Reviews)
                 .Where(b => b.IsDeleted == false)
                 .FirstOrDefaultAsync(b => b.Id == theatreId);
 
@@ -188,7 +189,6 @@ namespace HomeTheatre.Services.Services
                 RatingSum += review.Rating;
             }
             double averageRating = RatingSum / theatre.Reviews.Count;
-            theatre.AverageRating = averageRating;
             return averageRating;
         }
 

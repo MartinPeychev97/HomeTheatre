@@ -38,6 +38,6 @@ namespace HomeTheatre.Models.Theatre
         public ICollection<ReviewViewModel> ReviewsVM { get; set; }
         public ICollection<CommentViewModel> CommentsVM { get; set; }
 
-        // public double? CurrentUserRating { get; set; }
+         public double? CurrentUserRating { get; set; }
     }
 }

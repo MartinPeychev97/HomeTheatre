@@ -7,7 +7,7 @@ namespace HomeTheatre.Services.Services
     public interface ITheatreReviewServices
     {
         Task<TheatreReview> GetTheatreReviewAsync(Guid theatreReviewId);
-        Task<TheatreReview> AddReviewAsync(Theatre theatreParam, Review reviewParam);
+        Task<Theatre> AddReviewAsync(Theatre theatreParam, Review reviewParam);
         Task<TheatreReview> RemoveReviewAsync(TheatreReview theatreReviewParams);
     }
 }

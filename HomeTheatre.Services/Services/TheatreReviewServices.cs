@@ -35,7 +35,12 @@ namespace HomeTheatre.Services.Services
             return theatreReview;
         }
 
-        public async Task<TheatreReview> AddReviewAsync(Theatre theatreParam, Review reviewParam)
+        //public async Task<TheatreReview> GetAllTheatreReviewsAsync(Guid TheatreId)
+        //{
+
+        //}
+
+        public async Task<Theatre> AddReviewAsync(Theatre theatreParam, Review reviewParam)
         {
             var theatre = await _context.Theatres.Where(t => t.IsDeleted == false)
                 .FirstOrDefaultAsync(t => t.Id == theatreParam.Id);
@@ -72,7 +77,7 @@ namespace HomeTheatre.Services.Services
                 theatreReview.IsDeleted = false;
             }
             await _context.SaveChangesAsync();
-            return theatreReview;
+            return theatreParam;
         }
 
         public async Task<TheatreReview> RemoveReviewAsync(TheatreReview theatreReviewParams)

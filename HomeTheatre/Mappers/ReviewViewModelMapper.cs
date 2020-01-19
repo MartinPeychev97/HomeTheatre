@@ -20,7 +20,7 @@ namespace HomeTheatre.Mappers
             {
                 Id = Entity.Id,
                 Author = Entity.Author,
-                Rating = Entity.Rating,
+                //Rating = Entity.Rating,
                 ReviewText = Entity.ReviewText,
                 CreatedOn = Entity.CreatedOn,
                 ModifiedOn = Entity.ModifiedOn,
@@ -38,7 +38,7 @@ namespace HomeTheatre.Mappers
             {
                 Id = entityVM.Id,
                 Author = entityVM.Author,
-                Rating = entityVM.Rating,
+                //Rating = entityVM.Rating,
                 ReviewText = entityVM.ReviewText,
                 CreatedOn = entityVM.CreatedOn,
                 ModifiedOn = entityVM.ModifiedOn,
