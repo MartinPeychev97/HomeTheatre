@@ -16,6 +16,8 @@ using Microsoft.Extensions.DependencyInjection;
 using HomeTheatre.Services.Contracts;
 using HomeTheatre.Services.Services;
 using HomeTheatre.HttpExeptionHandlers;
+using HomeTheatre.Data.DbModels;
+using HomeTheatre.Registrations;
 
 namespace HomeTheatre
 {
@@ -41,22 +43,19 @@ namespace HomeTheatre
             services.AddDbContext<TheatreContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<TheatreContext>();
+
+
+            services.AddDefaultIdentity<User>()
+               .AddRoles<Role>()
+               .AddDefaultUI(UIFramework.Bootstrap4)
+               .AddEntityFrameworkStores<TheatreContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
 
-            #region RegisterServices
-            services.AddScoped<ICommentServices, CommentServices>();
-            services.AddScoped<IReviewServices, ReviewServices>();
-            services.AddScoped<ITheatreService, TheatreService>();
-            services.AddScoped<IBanServices, BanServices>();
-            services.AddScoped<ITheatreReviewServices, TheatreReviewServices>();
-            services.AddScoped<ISearchServices, SearchServices>();
-
-            #endregion
+            services.AddHostedServices();
+            services.AddServices();
+            services.AddCustomViewModelMappers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,7 +69,7 @@ namespace HomeTheatre
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                app.UseGeneralExceptionHandler();
+                //app.UseGeneralExceptionHandler();
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -79,11 +78,16 @@ namespace HomeTheatre
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMiddleware<PageNotFoundHandler>();
+            //app.UseMiddleware<PageNotFoundHandler>();
             app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
+
+                routes.MapRoute(
+                     name: "areas",
+                     template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

@@ -37,7 +37,7 @@ namespace HomeTheatre.HttpExeptionHandlers
             }
         }
     }
-    
+
     public static class GeneralExceptionHandlerExtensions
     {
         public static IApplicationBuilder UseGeneralExceptionHandler(this IApplicationBuilder builder)

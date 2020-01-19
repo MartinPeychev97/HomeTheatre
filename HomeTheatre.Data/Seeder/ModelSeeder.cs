@@ -13,40 +13,40 @@ namespace HomeTheatre.Data.Seeder
         public static void Seeder(this ModelBuilder builder)
         {
             #region UserGuid
-            Guid AdminRoleGuid = new Guid();
-            Guid MemberRoleGuid = new Guid();
-            Guid AdminId = new Guid();
-            Guid MemberId01 = new Guid();
-            Guid MemberId02 = new Guid();
-            Guid MemberId03 = new Guid();
-            Guid MemberId04 = new Guid();
-            Guid MemberId05 = new Guid();
+            Guid AdminRoleGuid = Guid.NewGuid();
+            Guid MemberRoleGuid = Guid.NewGuid();
+            Guid AdminId = Guid.NewGuid();
+            Guid MemberId01 = Guid.NewGuid();
+            Guid MemberId02 = Guid.NewGuid();
+            Guid MemberId03 = Guid.NewGuid();
+            Guid MemberId04 = Guid.NewGuid();
+            Guid MemberId05 = Guid.NewGuid();
             #endregion
             #region TheatreGuid
-            Guid theatreId01 = new Guid();
-            Guid theatreId02 = new Guid();
-            Guid theatreId03 = new Guid();
-            Guid theatreId04 = new Guid();
-            Guid theatreId05 = new Guid();
-            Guid theatreId06 = new Guid();
-            Guid theatreId07 = new Guid();
-            Guid theatreId08 = new Guid();
-            Guid theatreId09 = new Guid();
-            Guid theatreId10 = new Guid();
+            Guid theatreId01 = Guid.NewGuid();
+            Guid theatreId02 = Guid.NewGuid();
+            Guid theatreId03 = Guid.NewGuid();
+            Guid theatreId04 = Guid.NewGuid();
+            Guid theatreId05 = Guid.NewGuid();
+            Guid theatreId06 = Guid.NewGuid();
+            Guid theatreId07 = Guid.NewGuid();
+            Guid theatreId08 = Guid.NewGuid();
+            Guid theatreId09 = Guid.NewGuid();
+            Guid theatreId10 = Guid.NewGuid();
             #endregion
             #region CommentGuid
-            Guid commentId01 = new Guid();
-            Guid commentId02 = new Guid();
-            Guid commentId03 = new Guid();
-            Guid commentId04 = new Guid();
-            Guid commentId05 = new Guid();
+            Guid commentId01 = Guid.NewGuid();
+            Guid commentId02 = Guid.NewGuid();
+            Guid commentId03 = Guid.NewGuid();
+            Guid commentId04 = Guid.NewGuid();
+            Guid commentId05 = Guid.NewGuid();
             #endregion
             #region ReviewGuid
-            Guid reviewId01 = new Guid();
-            Guid reviewId02 = new Guid();
-            Guid reviewId03 = new Guid();
-            Guid reviewId04 = new Guid();
-            Guid reviewId05 = new Guid();
+            Guid reviewId01 = Guid.NewGuid();
+            Guid reviewId02 = Guid.NewGuid();
+            Guid reviewId03 = Guid.NewGuid();
+            Guid reviewId04 = Guid.NewGuid();
+            Guid reviewId05 = Guid.NewGuid();
             #endregion
             ////
             #region SeedAdmin
@@ -248,57 +248,13 @@ namespace HomeTheatre.Data.Seeder
             };
             builder.Entity<Theatre>().HasData(theatre01, theatre02, theatre03, theatre04, theatre05, theatre06, theatre07, theatre08, theatre09, theatre10);
             #endregion
-            #region CommentSeed
-            var comment01 = new Comment
-            {
-                Id = commentId01,
-                CommentText = "Random comment text for firstComment",
-                Author = memberUser01.UserName,
-                ReviewId = reviewId01,
-                CreatedOn = DateTime.UtcNow
-            };
-            var comment02 = new Comment
-            {
-                Id = commentId02,
-                CommentText = "Random comment text for Second efin comment",
-                Author = memberUser02.UserName,
-                ReviewId = reviewId02,
-                CreatedOn = DateTime.UtcNow
-            };
-            var comment03 = new Comment
-            {
-                Id = commentId03,
-                CommentText = "Random comment text for Third damn comment",
-                Author = memberUser03.UserName,
-                ReviewId = reviewId03,
-                CreatedOn = DateTime.UtcNow
-            };
-            var comment04 = new Comment
-            {
-                Id = commentId04,
-                CommentText = "Random comment text for Fourth damn comment",
-                Author = memberUser04.UserName,
-                ReviewId = reviewId04,
-                CreatedOn = DateTime.UtcNow
-            };
-            var comment05 = new Comment
-            {
-                Id = commentId05,
-                CommentText = "Random comment text for the fifth wholesome comment",
-                Author = memberUser05.UserName,
-                ReviewId = reviewId05,
-                CreatedOn = DateTime.UtcNow
-            };
-            builder.Entity<Comment>().HasData(comment01, comment02, comment03, comment04, comment05);
-
-            #endregion
             #region SeedReview
             var review01 = new Review
             {
                 Id = reviewId01,
                 Author = memberUser05.UserName,
                 Rating = 5,
-                TheatreId=theatreId01,
+                TheatreId = theatreId01,
                 CreatedOn = DateTime.UtcNow
             };
             var review02 = new Review
@@ -335,6 +291,56 @@ namespace HomeTheatre.Data.Seeder
             };
             builder.Entity<Review>().HasData(review01, review02, review03, review04, review05);
             #endregion
+            #region CommentSeed
+            var comment01 = new Comment
+            {
+                Id = commentId01,
+                CommentText = "Random comment text for firstComment",
+                Author = memberUser01.UserName,
+                ReviewId = reviewId01,
+                UserId = MemberId01,
+                CreatedOn = DateTime.UtcNow
+            };
+            var comment02 = new Comment
+            {
+                Id = commentId02,
+                CommentText = "Random comment text for Second efin comment",
+                Author = memberUser02.UserName,
+                ReviewId = reviewId02,
+                UserId = MemberId02,
+                CreatedOn = DateTime.UtcNow
+            };
+            var comment03 = new Comment
+            {
+                Id = commentId03,
+                CommentText = "Random comment text for Third damn comment",
+                Author = memberUser03.UserName,
+                ReviewId = reviewId03,
+                UserId = MemberId03,
+                CreatedOn = DateTime.UtcNow
+            };
+            var comment04 = new Comment
+            {
+                Id = commentId04,
+                CommentText = "Random comment text for Fourth damn comment",
+                Author = memberUser04.UserName,
+                ReviewId = reviewId04,
+                UserId = MemberId04,
+                CreatedOn = DateTime.UtcNow
+            };
+            var comment05 = new Comment
+            {
+                Id = commentId05,
+                CommentText = "Random comment text for the fifth wholesome comment",
+                Author = memberUser05.UserName,
+                ReviewId = reviewId05,
+                UserId = MemberId05,
+                CreatedOn = DateTime.UtcNow
+            };
+            builder.Entity<Comment>().HasData(comment01, comment02, comment03, comment04, comment05);
+
+            #endregion
+
         }
     }
 }

@@ -11,6 +11,7 @@ namespace HomeTheatre.Data.DbModels
         public Review()
         {
             Comments = new List<Comment>();
+            TheatreReviews = new List<TheatreReview>();
         }
 
         [Key]
@@ -24,6 +25,7 @@ namespace HomeTheatre.Data.DbModels
         public Guid TheatreId { get; set; }
         public User User { get; set; }
         public ICollection<Comment> Comments { get; set; }
+        public ICollection<TheatreReview> TheatreReviews { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? DeletedOn { get; set; }
         public DateTime CreatedOn { get; set; }

@@ -61,7 +61,7 @@ namespace HomeTheatre.Controllers
         [NonAction]
         private async Task<ICollection<Theatre>> CacheTheatres()
         {
-            var TopTheatres = await _cache.GetOrCreateAsync<ICollection<Theatre>>("Theatre", async (cacheEntry) =>
+            var TopTheatres = await _cache.GetOrCreateAsync("Theatre", async (cacheEntry) =>
             {
                 cacheEntry.SlidingExpiration = TimeSpan.FromDays(1);
                 return await _theatreServices.GetTopTheatresAsync(6);

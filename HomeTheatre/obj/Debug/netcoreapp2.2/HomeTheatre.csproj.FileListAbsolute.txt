@@ -142,3 +142,4 @@ C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netco
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.csproj.CopyComplete
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.dll
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.pdb
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Theatres\Index.cshtml.g.cs

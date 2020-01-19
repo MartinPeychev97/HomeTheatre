@@ -13,3 +13,4 @@ C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Data\bin\Debug\
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.dll
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.csprojAssemblyReference.cache

@@ -24,7 +24,7 @@ namespace HomeTheatre.Services.Services
         public async Task<Theatre> GetTheatreAsync(Guid Id)
         {
             var theatre = await _context.Theatres
-                .Include(x => x.Reviews)
+                .Include(x => x.TheatreReviews)
                 .Where(x => x.IsDeleted == false)
                 .OrderBy(b => b.Name)
                 .FirstOrDefaultAsync(b => b.Id == Id);
@@ -101,7 +101,7 @@ namespace HomeTheatre.Services.Services
             try
             {
                 IQueryable<Theatre> theatres = _context.Theatres
-                    .Include(b => b.Reviews)
+                    .Include(b => b.TheatreReviews)
                     .Where(b => b.IsDeleted == false);
 
                 ICollection<Theatre> sixTheatres;
@@ -115,10 +115,10 @@ namespace HomeTheatre.Services.Services
                         theatres = theatres.OrderByDescending(b => b.Name);
                         break;
                     case "Review":
-                        theatres = theatres.OrderBy(b => b.Reviews.Count());
+                        theatres = theatres.OrderBy(b => b.TheatreReviews.Count());
                         break;
                     case "ReviewByDescending":
-                        theatres = theatres.OrderByDescending(b => b.Reviews.Count());
+                        theatres = theatres.OrderByDescending(b => b.TheatreReviews.Count());
                         break;
                     default:
                         theatres = theatres.OrderBy(b => b.Name);
@@ -179,7 +179,7 @@ namespace HomeTheatre.Services.Services
         public async Task<double> GetAverageRating(Guid theatreId)
         {
             var theatre = await _context.Theatres
-                .Include(t => t.Reviews)
+                .Include(t => t.TheatreReviews)
                 .Where(b => b.IsDeleted == false)
                 .FirstOrDefaultAsync(b => b.Id == theatreId);
 
@@ -202,7 +202,7 @@ namespace HomeTheatre.Services.Services
             }
 
             var topTheatres = await allTheatres
-                 .Include(b => b.Reviews)
+                 .Include(b => b.TheatreReviews)
                  .Where(b => b.IsDeleted == false)
                  .OrderByDescending(b => b.AverageRating)
                  .Take(num)

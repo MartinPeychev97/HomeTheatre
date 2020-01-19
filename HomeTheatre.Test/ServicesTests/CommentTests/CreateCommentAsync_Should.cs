@@ -25,10 +25,10 @@ namespace HomeTheatre.Test.ServicesTests.CommentTests
             var comment = new Comment()
             {
                 Id = idComment,
-                UserId=idUser,
-                CommentText="TestCommentText",
-                Author="testAuthor",
-                CreatedOn=createdOn
+                UserId = idUser,
+                CommentText = "TestCommentText",
+                Author = "testAuthor",
+                CreatedOn = createdOn
             };
             //Assert
             using (var assertContext = new TheatreContext(options))

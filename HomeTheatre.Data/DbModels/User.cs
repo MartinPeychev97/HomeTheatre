@@ -13,6 +13,7 @@ namespace HomeTheatre.Data.DbModels
             Theatres = new List<Theatre>();
             Bans = new List<Ban>();
             Reviews = new List<Review>();
+            Comments = new List<Comment>();
         }
 
         public string Name { get; set; }
