@@ -179,7 +179,7 @@ namespace HomeTheatre.Services.Services
         public async Task<double> GetAverageRating(Guid theatreId)
         {
             var theatre = await _context.Theatres
-                .Include(t => t.TheatreReviews)
+                .Include(t => t.Reviews)
                 .Where(b => b.IsDeleted == false)
                 .FirstOrDefaultAsync(b => b.Id == theatreId);
 

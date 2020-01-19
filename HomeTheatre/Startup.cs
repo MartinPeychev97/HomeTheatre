@@ -69,7 +69,7 @@ namespace HomeTheatre
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                //app.UseGeneralExceptionHandler();
+                app.UseGeneralExceptionHandler();
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -78,7 +78,7 @@ namespace HomeTheatre
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            //app.UseMiddleware<PageNotFoundHandler>();
+            app.UseMiddleware<PageNotFoundHandler>();
             app.UseAuthentication();
 
             app.UseMvc(routes =>

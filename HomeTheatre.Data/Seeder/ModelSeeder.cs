@@ -82,7 +82,7 @@ namespace HomeTheatre.Data.Seeder
                 UserName = "MemberFirst",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberFirst"),
                 NormalizedUserName = "MEMBERFIRST",
-                Email = "MemberFirst@gmail.com",
+                Email = "FirstMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
                 LockoutEnabled = true
             };
@@ -92,7 +92,7 @@ namespace HomeTheatre.Data.Seeder
                 UserName = "MemberSecond",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberSecond"),
                 NormalizedUserName = "MEMBERSECOND",
-                Email = "MemberSecond@gmail.com",
+                Email = "SecondMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
                 LockoutEnabled = true
             };
@@ -102,7 +102,7 @@ namespace HomeTheatre.Data.Seeder
                 UserName = "MemberThird",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberThird"),
                 NormalizedUserName = "MEMBERTHIRD",
-                Email = "MemberThird@gmail.com",
+                Email = "ThirdMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
                 LockoutEnabled = true
             };
@@ -112,7 +112,7 @@ namespace HomeTheatre.Data.Seeder
                 UserName = "MemberFourth",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberFourth"),
                 NormalizedUserName = "MEMBERFOURTH",
-                Email = "MemberFourth@gmail.com",
+                Email = "FourthMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
                 LockoutEnabled = true
             };
@@ -121,8 +121,8 @@ namespace HomeTheatre.Data.Seeder
                 Id = MemberId05,
                 UserName = "MemberFifth",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberFifth"),
-                NormalizedUserName = "MEMBERFIRST",
-                Email = "MemberFifth@gmail.com",
+                NormalizedUserName = "MEMBERFIFTH",
+                Email = "FifthMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
                 LockoutEnabled = true
             };

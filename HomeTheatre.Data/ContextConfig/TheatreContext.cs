@@ -25,7 +25,7 @@ namespace HomeTheatre.Data
             modelBuilder.ApplyConfiguration(new TheatreReviewConfig());
             modelBuilder.ApplyConfiguration(new UserConfig());
 
-            //modelBuilder.Seeder();
+            modelBuilder.Seeder();
             base.OnModelCreating(modelBuilder);
         }
 

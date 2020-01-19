@@ -13,6 +13,12 @@
     <Compile Remove="Migrations\20191218195054_I.Designer.cs" />
     <Compile Remove="Migrations\20200119190734_Y.cs" />
     <Compile Remove="Migrations\20200119190734_Y.Designer.cs" />
+    <Compile Remove="Migrations\20200119200251_I.cs" />
+    <Compile Remove="Migrations\20200119200251_I.Designer.cs" />
+    <Compile Remove="Migrations\20200119211321_I.cs" />
+    <Compile Remove="Migrations\20200119211321_I.Designer.cs" />
+    <Compile Remove="Migrations\20200119211723_I.cs" />
+    <Compile Remove="Migrations\20200119211723_I.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

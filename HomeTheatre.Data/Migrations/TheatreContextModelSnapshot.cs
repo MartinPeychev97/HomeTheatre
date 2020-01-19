@@ -70,6 +70,58 @@ namespace HomeTheatre.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Comments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("5d7d53e6-9432-4b4b-abb3-ac1517b3142f"),
+                            Author = "MemberFirst",
+                            CommentText = "Random comment text for firstComment",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(7668),
+                            IsDeleted = false,
+                            ReviewId = new Guid("7acfc848-9766-4724-b29e-3e2629131858"),
+                            UserId = new Guid("c14dad63-7ace-4f90-816a-ffad0cd1a1ea")
+                        },
+                        new
+                        {
+                            Id = new Guid("0e05c1a1-30e8-43bd-9fff-63362ccee101"),
+                            Author = "MemberSecond",
+                            CommentText = "Random comment text for Second efin comment",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(8278),
+                            IsDeleted = false,
+                            ReviewId = new Guid("e194fa27-cf4f-44c2-b1f9-0536f133bdb3"),
+                            UserId = new Guid("50fb0ad9-70a1-424b-9b90-101760b4ab37")
+                        },
+                        new
+                        {
+                            Id = new Guid("dff1a70b-08ca-4c9b-8ab4-5b40d50540cb"),
+                            Author = "MemberThird",
+                            CommentText = "Random comment text for Third damn comment",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(8283),
+                            IsDeleted = false,
+                            ReviewId = new Guid("c3912310-eafc-4ea9-b985-57709f3e6656"),
+                            UserId = new Guid("91dec2b9-35a4-47f1-8be9-476cc5e200bf")
+                        },
+                        new
+                        {
+                            Id = new Guid("5b6a51ba-4a9f-42ad-b208-7602f3887ea8"),
+                            Author = "MemberFourth",
+                            CommentText = "Random comment text for Fourth damn comment",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(8284),
+                            IsDeleted = false,
+                            ReviewId = new Guid("75221fcd-1edb-4a72-bce4-39f81045cce6"),
+                            UserId = new Guid("2eb381a5-349d-4629-acac-0f2ef1649a0e")
+                        },
+                        new
+                        {
+                            Id = new Guid("5aa49b2a-d022-4edd-942b-e36b711d1e30"),
+                            Author = "MemberFifth",
+                            CommentText = "Random comment text for the fifth wholesome comment",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(8285),
+                            IsDeleted = false,
+                            ReviewId = new Guid("a8ffef28-4ad2-48a9-bbc3-1bd2bfba9190"),
+                            UserId = new Guid("5c56dcf2-8254-4855-9ac5-815cc3fbff25")
+                        });
                 });
 
             modelBuilder.Entity("HomeTheatre.Data.DbModels.Review", b =>
@@ -103,6 +155,53 @@ namespace HomeTheatre.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("7acfc848-9766-4724-b29e-3e2629131858"),
+                            Author = "MemberFifth",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(3146),
+                            IsDeleted = false,
+                            Rating = 5.0,
+                            TheatreId = new Guid("0f7f0cf2-12a8-4210-8c4f-0597e4b03b78")
+                        },
+                        new
+                        {
+                            Id = new Guid("e194fa27-cf4f-44c2-b1f9-0536f133bdb3"),
+                            Author = "MemberFourth",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(3783),
+                            IsDeleted = false,
+                            Rating = 4.0,
+                            TheatreId = new Guid("5560593c-0617-4995-a3fa-36b67a3de884")
+                        },
+                        new
+                        {
+                            Id = new Guid("c3912310-eafc-4ea9-b985-57709f3e6656"),
+                            Author = "MemberThird",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(3788),
+                            IsDeleted = false,
+                            Rating = 3.0,
+                            TheatreId = new Guid("1208b67d-f2aa-41d8-93ac-142bd1311ba0")
+                        },
+                        new
+                        {
+                            Id = new Guid("75221fcd-1edb-4a72-bce4-39f81045cce6"),
+                            Author = "MemberSecond",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(3789),
+                            IsDeleted = false,
+                            Rating = 2.0,
+                            TheatreId = new Guid("ad30b430-fb21-4c4f-b27f-c48f01cc3d42")
+                        },
+                        new
+                        {
+                            Id = new Guid("a8ffef28-4ad2-48a9-bbc3-1bd2bfba9190"),
+                            Author = "MemberFirst",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 984, DateTimeKind.Utc).AddTicks(3791),
+                            IsDeleted = false,
+                            Rating = 1.0,
+                            TheatreId = new Guid("5c2b8ce4-b855-4870-9464-a5a0666c6180")
+                        });
                 });
 
             modelBuilder.Entity("HomeTheatre.Data.DbModels.Role", b =>
@@ -127,6 +226,22 @@ namespace HomeTheatre.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("b90f6b2b-8a19-47c0-a908-ca34b24e3440"),
+                            ConcurrencyStamp = "3dddec26-da1e-438a-aa58-640748e075c5",
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = new Guid("13541c65-4fde-4e16-a8de-f735734e5d71"),
+                            ConcurrencyStamp = "1f0dbf0c-96c2-439c-830d-e7d923218862",
+                            Name = "Member",
+                            NormalizedName = "MEMBER"
+                        });
                 });
 
             modelBuilder.Entity("HomeTheatre.Data.DbModels.Theatre", b =>
@@ -169,6 +284,118 @@ namespace HomeTheatre.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Theatres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("0f7f0cf2-12a8-4210-8c4f-0597e4b03b78"),
+                            AboutInfo = "A Cultural Theatre for those with too much time on their hands",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(6723),
+                            IsDeleted = false,
+                            Location = "7292 Dictum Av.San Antonio MI 47096",
+                            Name = "FirstTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "0896453401"
+                        },
+                        new
+                        {
+                            Id = new Guid("5560593c-0617-4995-a3fa-36b67a3de884"),
+                            AboutInfo = "A Rather nasty Theatre with rats everywhere even in the popcorn",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(7367),
+                            IsDeleted = false,
+                            Location = "191-103 Integer Rd.Corona New Mexico 08219",
+                            Name = "SecondTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "0896453402"
+                        },
+                        new
+                        {
+                            Id = new Guid("1208b67d-f2aa-41d8-93ac-142bd1311ba0"),
+                            AboutInfo = "Same as the second Theatre but with character",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(7372),
+                            IsDeleted = false,
+                            Location = "606-3727 Ullamcorper. StreetRoseville NH 11523",
+                            Name = "ThirdTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "0896453433"
+                        },
+                        new
+                        {
+                            Id = new Guid("ad30b430-fb21-4c4f-b27f-c48f01cc3d42"),
+                            AboutInfo = "The door man is very polite,otherwise the Theatre is rather unpleasant",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(7374),
+                            IsDeleted = false,
+                            Location = "Frederick Nebraska 20620",
+                            Name = "FourthTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "089645344"
+                        },
+                        new
+                        {
+                            Id = new Guid("5c2b8ce4-b855-4870-9464-a5a0666c6180"),
+                            AboutInfo = "This Theatre has stood for 200 years and it shows then you enter",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(7376),
+                            IsDeleted = false,
+                            Location = "Mankato Mississippi 96522",
+                            Name = "FifthTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "0896453455"
+                        },
+                        new
+                        {
+                            Id = new Guid("441c87df-5c5b-4d9d-86d8-0e83d2a14e78"),
+                            AboutInfo = "A Theatre for people with a finer taste then the average mortal man",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(7377),
+                            IsDeleted = false,
+                            Location = "Chaika str ,Varna city",
+                            Name = "SixthTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "0896453466"
+                        },
+                        new
+                        {
+                            Id = new Guid("24f80794-d035-457b-9021-f7855c6f0232"),
+                            AboutInfo = "There has never existed a fancier Theatre, the curtains are made o woven gold",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(7378),
+                            IsDeleted = false,
+                            Location = "TheOneTrueStreet str, BestCity city",
+                            Name = "SeventhTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "0896453477"
+                        },
+                        new
+                        {
+                            Id = new Guid("12cd7805-d88c-42dd-8864-aa59c10d146a"),
+                            AboutInfo = "Same as the seventh Theatre but yet ,somehow the opposite",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(7433),
+                            IsDeleted = false,
+                            Location = "Gospodinovzi str, Sofia city",
+                            Name = "EigthTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "0896453488"
+                        },
+                        new
+                        {
+                            Id = new Guid("503e100c-c1e6-44e9-aa86-c94757cb0ad9"),
+                            AboutInfo = "This Theatre is very expensive,not well suited to poor people",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(7434),
+                            IsDeleted = false,
+                            Location = "Bullevard 27 str, Sofia city",
+                            Name = "NinthTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "0896453499"
+                        },
+                        new
+                        {
+                            Id = new Guid("83ae2522-ca7c-4a7f-9c1b-7c809c815500"),
+                            AboutInfo = "A ghetto Theatre which has the single purpose of getting robbed",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(7436),
+                            IsDeleted = false,
+                            Location = "Fifth and avenue str ,Cansas city",
+                            Name = "TenthTheatre",
+                            NumberOfReviews = 0,
+                            Phone = "0896453410"
+                        });
                 });
 
             modelBuilder.Entity("HomeTheatre.Data.DbModels.TheatreReview", b =>
@@ -255,6 +482,110 @@ namespace HomeTheatre.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("779aa1d5-5fc9-4abe-94c9-4006de0e1c82"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7262d6f4-cabd-4d1c-9f83-cb3dcf34efc6",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 982, DateTimeKind.Utc).AddTicks(4670),
+                            Email = "AdminFirst@gmail.com",
+                            EmailConfirmed = false,
+                            IsBanned = false,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            NormalizedUserName = "ADMINFIRST",
+                            PasswordHash = "CA69C0647B99181BB9DE142C3B3DD4CCD5A3223C06D06FA184FC5D01AB88C36E",
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "AdminFirst"
+                        },
+                        new
+                        {
+                            Id = new Guid("c14dad63-7ace-4f90-816a-ffad0cd1a1ea"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "be176884-69c3-4dbf-9f27-03c00cd721cf",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(879),
+                            Email = "FirstMember@gmail.com",
+                            EmailConfirmed = false,
+                            IsBanned = false,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            NormalizedUserName = "MEMBERFIRST",
+                            PasswordHash = "3CF19CDEA15EEE7CC3F2BA9C0879DCB00BCE00E06D9A3353B29DD2186FA1E7E7",
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "MemberFirst"
+                        },
+                        new
+                        {
+                            Id = new Guid("50fb0ad9-70a1-424b-9b90-101760b4ab37"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "65db8e2a-d81d-4973-95dc-e4aa776d5c4e",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(942),
+                            Email = "SecondMember@gmail.com",
+                            EmailConfirmed = false,
+                            IsBanned = false,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            NormalizedUserName = "MEMBERSECOND",
+                            PasswordHash = "033AD8354032D25A04D3859A9ACB7786EB3DE73F852879978028526F2C49932B",
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "MemberSecond"
+                        },
+                        new
+                        {
+                            Id = new Guid("91dec2b9-35a4-47f1-8be9-476cc5e200bf"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7a1141fd-2eb8-4864-a7fc-c4662bab60ee",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(968),
+                            Email = "ThirdMember@gmail.com",
+                            EmailConfirmed = false,
+                            IsBanned = false,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            NormalizedUserName = "MEMBERTHIRD",
+                            PasswordHash = "6DF09E116C3095DD31B0952CCED5AAA34AF32CB0EA176F26ADCECB5F8C128083",
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "MemberThird"
+                        },
+                        new
+                        {
+                            Id = new Guid("2eb381a5-349d-4629-acac-0f2ef1649a0e"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "1a0aafe9-4933-4897-837e-adb0895be111",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(994),
+                            Email = "FourthMember@gmail.com",
+                            EmailConfirmed = false,
+                            IsBanned = false,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            NormalizedUserName = "MEMBERFOURTH",
+                            PasswordHash = "A8081515001427F49CCE5EFCCCDDAFEC449C2409D7C55BF003034FF33752E212",
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "MemberFourth"
+                        },
+                        new
+                        {
+                            Id = new Guid("5c56dcf2-8254-4855-9ac5-815cc3fbff25"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "be95b665-230e-4815-9571-6b16524028df",
+                            CreatedOn = new DateTime(2020, 1, 19, 21, 23, 48, 983, DateTimeKind.Utc).AddTicks(1018),
+                            Email = "FifthMember@gmail.com",
+                            EmailConfirmed = false,
+                            IsBanned = false,
+                            IsDeleted = false,
+                            LockoutEnabled = true,
+                            NormalizedUserName = "MEMBERFIFTH",
+                            PasswordHash = "C5EE108214C790A2EC74ECBAF557498B03E6F00E90EDA64C1D01631776FE1B10",
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "MemberFifth"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -325,6 +656,18 @@ namespace HomeTheatre.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = new Guid("779aa1d5-5fc9-4abe-94c9-4006de0e1c82"),
+                            RoleId = new Guid("b90f6b2b-8a19-47c0-a908-ca34b24e3440")
+                        },
+                        new
+                        {
+                            UserId = new Guid("c14dad63-7ace-4f90-816a-ffad0cd1a1ea"),
+                            RoleId = new Guid("13541c65-4fde-4e16-a8de-f735734e5d71")
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
