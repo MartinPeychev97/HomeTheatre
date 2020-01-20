@@ -27,6 +27,7 @@ namespace HomeTheatre.Models.Theatre
         [StringLength(1000, ErrorMessage = "The value cannot exceed 1000 characters.")]
         public string AboutInfo { get; set; }
         public double? AverageRating { get; set; }
+        public string ImagePath { get; set; }
 
         public string Location { get; set; }
         [Required]

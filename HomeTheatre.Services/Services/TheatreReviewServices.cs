@@ -22,7 +22,7 @@ namespace HomeTheatre.Services.Services
         {
             var theatreReview = await _context.TheatreReviews
                 .Include(x => x.Review)
-                .Include(x=>x.Theatre)
+                .Include(x => x.Theatre)
                 .Where(x => x.IsDeleted == false)
                 .OrderBy(b => b.CreatedOn)
                 .FirstOrDefaultAsync(b => b.Id == theatreReviewId);
@@ -35,10 +35,21 @@ namespace HomeTheatre.Services.Services
             return theatreReview;
         }
 
-        //public async Task<TheatreReview> GetAllTheatreReviewsAsync(Guid TheatreId)
-        //{
+        public async Task<ICollection<TheatreReview>> GetAllTheatreReviewsAsync(Guid TheatreId)
+        {
+            var allTheatreReviews = await _context.TheatreReviews
+                .Include(x => x.Review)
+                .Include(x => x.Theatre)
+                .Where(x=>x.TheatreId==TheatreId)
+                .Where(tr => tr.IsDeleted == false)
+                .ToListAsync();
+            if (allTheatreReviews == null)
+            {
+                throw new ArgumentNullException("There are no theatreReviews in the collection");
+            }
 
-        //}
+            return allTheatreReviews;
+        }
 
         public async Task<Theatre> AddReviewAsync(Theatre theatreParam, Review reviewParam)
         {
@@ -76,6 +87,7 @@ namespace HomeTheatre.Services.Services
             {
                 theatreReview.IsDeleted = false;
             }
+
             await _context.SaveChangesAsync();
             return theatreParam;
         }
@@ -97,7 +109,7 @@ namespace HomeTheatre.Services.Services
 
             return theatreReviewParams;
         }
-       
+
     }
 }
 

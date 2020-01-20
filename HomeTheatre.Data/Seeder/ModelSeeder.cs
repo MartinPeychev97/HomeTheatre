@@ -82,15 +82,20 @@ namespace HomeTheatre.Data.Seeder
                 UserName = "MemberFirst",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberFirst"),
                 NormalizedUserName = "MEMBERFIRST",
+                Name="Gosho",
                 Email = "FirstMember@gmail.com",
+                PhoneNumber="0987453355",
                 CreatedOn = DateTime.UtcNow,
                 LockoutEnabled = true
+                
             };
             User memberUser02 = new User
             {
                 Id = MemberId02,
                 UserName = "MemberSecond",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberSecond"),
+                PhoneNumber="0987453345",
+                Name="Pesho",
                 NormalizedUserName = "MEMBERSECOND",
                 Email = "SecondMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
@@ -101,6 +106,8 @@ namespace HomeTheatre.Data.Seeder
                 Id = MemberId03,
                 UserName = "MemberThird",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberThird"),
+                PhoneNumber="0987453985",
+                Name="Minka",
                 NormalizedUserName = "MEMBERTHIRD",
                 Email = "ThirdMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
@@ -110,7 +117,9 @@ namespace HomeTheatre.Data.Seeder
             {
                 Id = MemberId04,
                 UserName = "MemberFourth",
+                PhoneNumber="0987453825",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberFourth"),
+                Name="Ivancho",
                 NormalizedUserName = "MEMBERFOURTH",
                 Email = "FourthMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
@@ -121,6 +130,8 @@ namespace HomeTheatre.Data.Seeder
                 Id = MemberId05,
                 UserName = "MemberFifth",
                 PasswordHash = PasswordHasher.GetStringSha256Hash("MemberFifth"),
+                Name="Bai Ganio",
+                PhoneNumber="0987482355",
                 NormalizedUserName = "MEMBERFIFTH",
                 Email = "FifthMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
@@ -144,6 +155,7 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "A Cultural Theatre for those with too much time on their hands",
                 Location = "7292 Dictum Av.San Antonio MI 47096",
                 Phone = "0896453401",
+                ImagePath="/assets/images/Italian.jpg",
                 CreatedOn = DateTime.UtcNow,
 
             };
@@ -154,6 +166,7 @@ namespace HomeTheatre.Data.Seeder
                 Name = "SecondTheatre",
                 AboutInfo = "A Rather nasty Theatre with rats everywhere even in the popcorn",
                 Location = "191-103 Integer Rd.Corona New Mexico 08219",
+                ImagePath= "/assets/images/Depth.jpg",
                 Phone = "0896453402",
                 CreatedOn = DateTime.UtcNow,
 
@@ -165,6 +178,7 @@ namespace HomeTheatre.Data.Seeder
                 Name = "ThirdTheatre",
                 AboutInfo = "Same as the second Theatre but with character",
                 Location = "606-3727 Ullamcorper. StreetRoseville NH 11523",
+                ImagePath= "/assets/images/LightHouse.jpg",
                 Phone = "0896453433",
                 CreatedOn = DateTime.UtcNow,
 
@@ -176,6 +190,7 @@ namespace HomeTheatre.Data.Seeder
                 Name = "FourthTheatre",
                 AboutInfo = "The door man is very polite,otherwise the Theatre is rather unpleasant",
                 Location = "Frederick Nebraska 20620",
+                ImagePath= "/assets/images/ThatsAllFolks.jpg",
                 Phone = "089645344",
                 CreatedOn = DateTime.UtcNow,
 
@@ -187,6 +202,7 @@ namespace HomeTheatre.Data.Seeder
                 Name = "FifthTheatre",
                 AboutInfo = "This Theatre has stood for 200 years and it shows then you enter",
                 Location = "Mankato Mississippi 96522",
+                ImagePath= "/assets/images/YellowTheatre.jpg",
                 Phone = "0896453455",
                 CreatedOn = DateTime.UtcNow,
 
@@ -198,6 +214,7 @@ namespace HomeTheatre.Data.Seeder
                 Name = "SixthTheatre",
                 AboutInfo = "A Theatre for people with a finer taste then the average mortal man",
                 Location = "Chaika str ,Varna city",
+                ImagePath= "/assets/images/CathedralTheatre.jpg",
                 Phone = "0896453466",
                 CreatedOn = DateTime.UtcNow,
 
@@ -209,6 +226,7 @@ namespace HomeTheatre.Data.Seeder
                 Name = "SeventhTheatre",
                 AboutInfo = "There has never existed a fancier Theatre, the curtains are made o woven gold",
                 Location = "TheOneTrueStreet str, BestCity city",
+                ImagePath= "/assets/images/ComfyHomeCinema.jpg",
                 Phone = "0896453477",
                 CreatedOn = DateTime.UtcNow,
 
@@ -221,6 +239,7 @@ namespace HomeTheatre.Data.Seeder
                 Name = "EigthTheatre",
                 AboutInfo = "Same as the seventh Theatre but yet ,somehow the opposite",
                 Location = "Gospodinovzi str, Sofia city",
+                ImagePath= "/assets/images/Foiey.jpg",
                 Phone = "0896453488",
                 CreatedOn = DateTime.UtcNow,
 
@@ -232,6 +251,7 @@ namespace HomeTheatre.Data.Seeder
                 Name = "NinthTheatre",
                 AboutInfo = "This Theatre is very expensive,not well suited to poor people",
                 Location = "Bullevard 27 str, Sofia city",
+                ImagePath="/assets/images/Old.jpg",
                 Phone = "0896453499",
                 CreatedOn = DateTime.UtcNow,
 
@@ -242,6 +262,7 @@ namespace HomeTheatre.Data.Seeder
                 Name = "TenthTheatre",
                 AboutInfo = "A ghetto Theatre which has the single purpose of getting robbed",
                 Location = "Fifth and avenue str ,Cansas city",
+                ImagePath= "/assets/images/Wide.jpg",
                 Phone = "0896453410",
                 CreatedOn = DateTime.UtcNow,
 
@@ -253,6 +274,7 @@ namespace HomeTheatre.Data.Seeder
             {
                 Id = reviewId01,
                 Author = memberUser05.UserName,
+                ReviewText = "This Theatre is halfway decent,but too expensive",
                 Rating = 5,
                 TheatreId = theatreId01,
                 CreatedOn = DateTime.UtcNow
@@ -261,6 +283,7 @@ namespace HomeTheatre.Data.Seeder
             {
                 Id = reviewId02,
                 Author = memberUser04.UserName,
+                ReviewText = "I liked it a lot ,but the seats were uncomfortable ",
                 Rating = 4,
                 TheatreId = theatreId02,
                 CreatedOn = DateTime.UtcNow
@@ -269,6 +292,7 @@ namespace HomeTheatre.Data.Seeder
             {
                 Id = reviewId03,
                 Author = memberUser03.UserName,
+                ReviewText = "Very fancy building,but the plays were old and poorly enacted",
                 Rating = 3,
                 TheatreId = theatreId03,
                 CreatedOn = DateTime.UtcNow
@@ -277,6 +301,7 @@ namespace HomeTheatre.Data.Seeder
             {
                 Id = reviewId04,
                 Author = memberUser02.UserName,
+                ReviewText = "I am very disappointed, not worth the money I spent",
                 Rating = 2,
                 TheatreId = theatreId04,
                 CreatedOn = DateTime.UtcNow
@@ -285,6 +310,7 @@ namespace HomeTheatre.Data.Seeder
             {
                 Id = reviewId05,
                 Author = memberUser01.UserName,
+                ReviewText = "I was plesantly surpriced, the actors were very talented",
                 Rating = 1,
                 TheatreId = theatreId05,
                 CreatedOn = DateTime.UtcNow

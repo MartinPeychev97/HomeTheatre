@@ -1,8 +1,45 @@
-﻿@{
+﻿@using HomeTheatre.Models.General
+@using HomeTheatre.Data.DbModels
+@using Microsoft.AspNetCore.Identity
+@model HomeViewModel
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<head>
+    <link href="~/assets/Images/TheatreBackGround.jpg" rel="stylesheet" />
+</head>
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>to</h2>
+    <h1>Home Theatre</h1>
+    @*@if (!SignInManager.IsSignedIn(User))
+        {
+            <p></p>
+            <p></p>
+            <h3>Please, <ins>login</ins> to use the system.</h3>
+        }*@
+</div>
+
+<div class="section text-center">
+    <h2 class="title">Most Popular Bars</h2>
+    <div class="row">
+        @foreach (var theatre in Model.TopTheatres)
+        {
+            <div class="col-md-4 columnhomescreen">
+                <a asp-area="" asp-controller="Theatre" asp-action="Details" asp-route-id="@theatre.Id">
+                    <img src="@theatre.ImagePath" alt="TheatreImage" style="width:100%; height:240px">
+                    <h4 class="card-title">
+                        @theatre.Name
+                        <br>
+                        <small class="card-description text-muted text-center">@theatre.Location</small>
+                    </h4>
+                </a>
+            </div>
+        }
+    </div>
 </div>

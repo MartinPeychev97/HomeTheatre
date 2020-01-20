@@ -30,7 +30,7 @@ namespace HomeTheatre.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var toptheatresVM = (await CacheTheatres())
+            var toptheatresVM = (await CacheTopTheatres())
                .Select(x => _theatreVmMapper.MapFrom(x))
                .ToList();
 
@@ -59,7 +59,7 @@ namespace HomeTheatre.Controllers
         }
 
         [NonAction]
-        private async Task<ICollection<Theatre>> CacheTheatres()
+        private async Task<ICollection<Theatre>> CacheTopTheatres()
         {
             var TopTheatres = await _cache.GetOrCreateAsync("Theatre", async (cacheEntry) =>
             {
@@ -69,5 +69,17 @@ namespace HomeTheatre.Controllers
 
             return TopTheatres;
         }
+
+        //[NonAction]
+        //private async Task<ICollection<Theatre>> CacheSixTheatres()
+        //{
+        //    var SixTheatres = await _cache.GetOrCreateAsync("Theatre", async (cacheEntry) =>
+        //    {
+        //        cacheEntry.SlidingExpiration = TimeSpan.FromDays(1);
+        //        return await _theatreServices.GetSixTheatresAsync();
+        //    });
+
+        //    return SixTheatres;
+        //}
     }
 }

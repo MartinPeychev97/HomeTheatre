@@ -29,6 +29,7 @@ namespace HomeTheatre.Data.DbModels
         public string AboutInfo { get; set; }
         public string Location { get; set; }
         public string Phone { get; set; }
+        public string ImagePath { get; set; }
         public double? CurrentUserRating { get; set; }
         public ICollection<Review> Reviews { get; set; }
         public ICollection<TheatreReview> TheatreReviews { get; set; }
