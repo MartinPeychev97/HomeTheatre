@@ -64,22 +64,11 @@ namespace HomeTheatre.Controllers
             var TopTheatres = await _cache.GetOrCreateAsync("Theatre", async (cacheEntry) =>
             {
                 cacheEntry.SlidingExpiration = TimeSpan.FromDays(1);
-                return await _theatreServices.GetTopTheatresAsync(6);
+                return await _theatreServices.GetTopTheatresAsync(9);
             });
 
             return TopTheatres;
         }
 
-        //[NonAction]
-        //private async Task<ICollection<Theatre>> CacheSixTheatres()
-        //{
-        //    var SixTheatres = await _cache.GetOrCreateAsync("Theatre", async (cacheEntry) =>
-        //    {
-        //        cacheEntry.SlidingExpiration = TimeSpan.FromDays(1);
-        //        return await _theatreServices.GetSixTheatresAsync();
-        //    });
-
-        //    return SixTheatres;
-        //}
     }
 }
