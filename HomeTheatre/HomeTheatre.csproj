@@ -28,7 +28,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Areas\Administrator\Views\" />
     <Folder Include="Views\Reviews\" />
   </ItemGroup>
 

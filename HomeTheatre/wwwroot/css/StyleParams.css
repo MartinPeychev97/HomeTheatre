@@ -1,0 +1,11 @@
+﻿.containerrating > * {
+    position: absolute;
+}
+
+.containerrating, .crop {
+    height: 26px;
+}
+
+.crop {
+    overflow: hidden;
+}

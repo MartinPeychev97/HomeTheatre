@@ -23,11 +23,23 @@
     <Compile Remove="Migrations\20200119212349_I.Designer.cs" />
     <Compile Remove="Migrations\20200120141233_I.cs" />
     <Compile Remove="Migrations\20200120141233_I.Designer.cs" />
+    <Compile Remove="Migrations\20200120160251_I.cs" />
+    <Compile Remove="Migrations\20200120160251_I.Designer.cs" />
+    <Compile Remove="Migrations\20200122110219_I.cs" />
+    <Compile Remove="Migrations\20200122110219_I.Designer.cs" />
+    <Compile Remove="Migrations\20200122111539_I.cs" />
+    <Compile Remove="Migrations\20200122111539_I.Designer.cs" />
+    <Compile Remove="Migrations\20200122112248_I.cs" />
+    <Compile Remove="Migrations\20200122112248_I.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

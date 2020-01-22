@@ -144,3 +144,8 @@ C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netco
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.pdb
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Theatres\Index.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Home\PageNotFound.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\User\Index.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\User\Detail.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\User\Index.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\User\CreateBan.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\User\UnbanUser.cshtml.g.cs

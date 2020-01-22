@@ -17,15 +17,15 @@ namespace HomeTheatre.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
     [Authorize(Roles = "Administrator")]
-    public class TheatresAdminController : Controller
+    public class TheatreController : Controller
     {
-        private readonly IViewModelMapper<Theatre, TheatreViewModel> _theatreVMmapper;
+        private readonly IViewModelMapper<Data.DbModels.Theatre, TheatreViewModel> _theatreVMmapper;
         private readonly ITheatreService _theatreService;
         private readonly ILogger _logger;
         private readonly IReviewServices _reviewService;
         private readonly ITheatreReviewServices _trServices;
 
-        public TheatresAdminController(IViewModelMapper<Theatre, TheatreViewModel> theatreVMmapper, ITheatreService theatreService, ILogger logger, IReviewServices reviewService,ITheatreReviewServices trServices)
+        public TheatreController(IViewModelMapper<Data.DbModels.Theatre, TheatreViewModel> theatreVMmapper, ITheatreService theatreService, ILogger logger, IReviewServices reviewService,ITheatreReviewServices trServices)
         {
             _theatreVMmapper = theatreVMmapper ?? throw new ArgumentNullException(nameof(theatreVMmapper));
             _theatreService = theatreService ?? throw new ArgumentNullException(nameof(theatreService));

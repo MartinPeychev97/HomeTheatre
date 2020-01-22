@@ -26,6 +26,8 @@ namespace HomeTheatre.Data.DbModels
         public DateTime? DeletedOn { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsBanned { get; set; }
-
+        public Role Role { get; set; }
+        public string RoleName { get; set; }
+        public string BanReason { get; set; }
     }
 }

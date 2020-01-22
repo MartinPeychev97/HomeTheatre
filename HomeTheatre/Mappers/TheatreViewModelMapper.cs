@@ -61,7 +61,7 @@ namespace HomeTheatre.Mappers
 
         public ICollection<Theatre> MapFrom(ICollection<TheatreViewModel> entitiesVM)
         {
-            return entitiesVM.Select(this.MapFrom).ToList();
+            return entitiesVM.Select(MapFrom).ToList();
         }
     }
 }

@@ -7,9 +7,9 @@ using System.Text;
 
 namespace HomeTheatre.Data.DbConfigurations
 {
-    public class UserConfig : IEntityTypeConfiguration<Role>
+    public class UserConfig : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Role> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.HasKey(u => u.Id);
         }

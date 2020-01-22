@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HomeTheatre.Areas.Administrator.Controllers
 {
-    public class ReviewsAdminController : Controller
+    public class ReviewsController : Controller
     {
-        public ReviewsAdminController()
+        public ReviewsController()
         {
         }
 

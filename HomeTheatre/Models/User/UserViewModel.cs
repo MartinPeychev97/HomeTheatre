@@ -1,4 +1,5 @@
-﻿using HomeTheatre.Data.Utilities;
+﻿using HomeTheatre.Data.DbModels;
+using HomeTheatre.Data.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,9 @@ namespace HomeTheatre.Models.User
         public DateTime? ModifiedOn { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? DeletedOn { get; set; }
+        public Role Role { get; set; }
+        public string RoleName { get; set; }
+        public bool IsBanned { get; set; }
+        public string BanReason { get; set; }
     }
 }
