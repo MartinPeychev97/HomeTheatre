@@ -13,3 +13,10 @@ C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Data\bin\Debug\
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.dll
 C:\Users\Marti\Desktop\HomeTheatre - CopyRatingIssue\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.AssemblyInfoInputs.cache
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.AssemblyInfo.cs
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.dll
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.deps.json
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.dll
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.pdb

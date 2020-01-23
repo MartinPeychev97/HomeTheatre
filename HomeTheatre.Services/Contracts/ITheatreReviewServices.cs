@@ -2,12 +2,11 @@
 using System;
 using System.Threading.Tasks;
 
-namespace HomeTheatre.Services.Services
+namespace HomeTheatre.Services.Contracts
 {
     public interface ITheatreReviewServices
     {
-        Task<TheatreReview> GetTheatreReviewAsync(Guid theatreReviewId);
-        Task<Theatre> AddReviewAsync(Theatre theatreParam, Review reviewParam);
-        Task<TheatreReview> RemoveReviewAsync(TheatreReview theatreReviewParams);
+        Task<Theatre> AddReviewAsync(Theatre theatreTemp, Review reviewTemp);
+        Task<Theatre> RemoveReviewAsync(Theatre theatreTemp, Review reviewTemp);
     }
 }

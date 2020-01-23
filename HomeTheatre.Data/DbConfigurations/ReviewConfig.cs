@@ -17,8 +17,8 @@ namespace HomeTheatre.Data.DbConfigurations
                 .IsRequired();
 
 
-            builder.HasMany(c => c.TheatreReviews)
-                .WithOne(b => b.Review)
+            builder.HasOne(c => c.Theatre)
+                .WithMany(b => b.Reviews)
                 .OnDelete(DeleteBehavior.Restrict);
 
 

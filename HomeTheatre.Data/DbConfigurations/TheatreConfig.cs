@@ -23,7 +23,7 @@ namespace HomeTheatre.Data.DbConfigurations
             builder.Property(t => t.Location)
                 .IsRequired();
 
-            builder.HasMany(t => t.TheatreReviews)
+            builder.HasMany(t => t.Reviews)
                 .WithOne(c => c.Theatre)
                 .OnDelete(DeleteBehavior.Restrict);
         }

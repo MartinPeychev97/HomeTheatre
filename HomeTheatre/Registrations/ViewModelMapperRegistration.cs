@@ -23,8 +23,6 @@ namespace HomeTheatre.Registrations
 
             services.AddSingleton<IViewModelMapper<User, UserViewModel>, UserViewModelMapper>();
 
-            services.AddSingleton<IViewModelMapper<TheatreReview, TheatreReviewViewModel>, TheatreReviewViewModelMapper>();
-
             services.AddSingleton<IViewModelMapper<SearchTheatre, TheatreViewModel>, SearchTheatreViewModelMapper>();
 
             services.AddSingleton<IViewModelMapper<Review, ReviewViewModel>, ReviewViewModelMapper>();

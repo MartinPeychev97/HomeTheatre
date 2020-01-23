@@ -14,6 +14,10 @@ namespace HomeTheatre.Data
 
         }
 
+        public DbSet<Theatre> Theatres { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Ban> Bans { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -22,18 +26,11 @@ namespace HomeTheatre.Data
             modelBuilder.ApplyConfiguration(new ReviewConfig());
             modelBuilder.ApplyConfiguration(new RoleConfig());
             modelBuilder.ApplyConfiguration(new TheatreConfig());
-            modelBuilder.ApplyConfiguration(new TheatreReviewConfig());
             modelBuilder.ApplyConfiguration(new UserConfig());
 
             modelBuilder.Seeder();
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Theatre> Theatres { get; set; }
-        public DbSet<Review> Reviews { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-       
-        public DbSet<TheatreReview> TheatreReviews { get; set; }
-        public DbSet<Ban> Bans { get; set; }
     }
 }

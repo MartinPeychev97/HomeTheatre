@@ -11,21 +11,20 @@ namespace HomeTheatre.Data.DbModels
         public Review()
         {
             Comments = new List<Comment>();
-            TheatreReviews = new List<TheatreReview>();
         }
 
         [Key]
         public Guid Id { get; set; }
         public string Author { get; set; }
         [Range(1, 5)]
-         public double Rating { get; set; }
-        [MaxLength(500, ErrorMessage = "Text cannot exceed 500 characters"),MinLength(2)]
+        public double Rating { get; set; }
+        [MaxLength(500, ErrorMessage = "Text cannot exceed 500 characters"), MinLength(2)]
         public string ReviewText { get; set; }
         public Theatre Theatre { get; set; }
         public Guid TheatreId { get; set; }
         public User User { get; set; }
+        //public Guid UserId { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        public ICollection<TheatreReview> TheatreReviews { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? DeletedOn { get; set; }
         public DateTime CreatedOn { get; set; }

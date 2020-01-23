@@ -330,6 +330,39 @@ namespace HomeTheatre.Data.Seeder
             };
             builder.Entity<Review>().HasData(review01, review02, review03, review04, review05);
             #endregion
+            //#region Seed Theatre-Reviews
+            //var theatreReview01 = new TheatreReview
+            //{
+            //    TheatreId = theatreId01,
+            //    ReviewId = reviewId01
+
+            //};
+            //var theatreReview02 = new TheatreReview
+            //{
+            //    TheatreId = theatreId01,
+            //    ReviewId = reviewId01
+
+            //};
+            //var theatreReview03 = new TheatreReview
+            //{
+            //    TheatreId = theatreId01,
+            //    ReviewId = reviewId01
+
+            //};
+            //var theatreReview04 = new TheatreReview
+            //{
+            //    TheatreId = theatreId01,
+            //    ReviewId = reviewId01
+
+            //};
+            //var theatreReview05 = new TheatreReview
+            //{
+            //    TheatreId = theatreId01,
+            //    ReviewId = reviewId01
+
+            //};
+            //builder.Entity<TheatreReview>().HasData(theatreReview01, theatreReview02, theatreReview03, theatreReview04, theatreReview05);
+            //#endregion
             #region CommentSeed
             var comment01 = new Comment
             {
@@ -379,6 +412,8 @@ namespace HomeTheatre.Data.Seeder
             builder.Entity<Comment>().HasData(comment01, comment02, comment03, comment04, comment05);
 
             #endregion
+
+           
 
         }
     }

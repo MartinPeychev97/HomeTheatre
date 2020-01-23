@@ -23,6 +23,7 @@ namespace HomeTheatre.Mappers
                 Rating = Entity.Rating,
                 ReviewText = Entity.ReviewText,
                 CreatedOn = Entity.CreatedOn,
+                //UserId=Entity.UserId,
                 ModifiedOn = Entity.ModifiedOn,
                 DeletedOn = Entity.DeletedOn,
                 IsDeleted = Entity.IsDeleted
@@ -41,6 +42,7 @@ namespace HomeTheatre.Mappers
                 Rating = entityVM.Rating,
                 ReviewText = entityVM.ReviewText,
                 CreatedOn = entityVM.CreatedOn,
+                //UserId = entityVM.UserId,
                 ModifiedOn = entityVM.ModifiedOn,
                 DeletedOn = entityVM.DeletedOn,
                 IsDeleted = entityVM.IsDeleted

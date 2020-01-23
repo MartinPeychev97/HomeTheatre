@@ -34,6 +34,7 @@ namespace HomeTheatre.Services.Services
                 Id = tempReview.Id,
                 ReviewText = tempReview.ReviewText,
                 Author = tempReview.Author,
+                Rating=tempReview.Rating,
                 IsDeleted = tempReview.IsDeleted,
                 CreatedOn = tempReview.CreatedOn,
                 ModifiedOn = tempReview.ModifiedOn,

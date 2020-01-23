@@ -12,7 +12,6 @@ namespace HomeTheatre.Areas.Administrator.Models
     {
         public Guid Id { get; set; }
         public List<Review> AllReviews { get; set; }
-        public List<string> SelectedReviews { get; set; }
 
     }
 }

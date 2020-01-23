@@ -19,13 +19,13 @@ namespace HomeTheatre.Areas.Administrator.Controllers
     [Authorize(Roles = "Administrator")]
     public class TheatreController : Controller
     {
-        private readonly IViewModelMapper<Data.DbModels.Theatre, TheatreViewModel> _theatreVMmapper;
+        private readonly IViewModelMapper<Theatre, TheatreViewModel> _theatreVMmapper;
         private readonly ITheatreService _theatreService;
         private readonly ILogger _logger;
         private readonly IReviewServices _reviewService;
         private readonly ITheatreReviewServices _trServices;
 
-        public TheatreController(IViewModelMapper<Data.DbModels.Theatre, TheatreViewModel> theatreVMmapper, ITheatreService theatreService, ILogger logger, IReviewServices reviewService,ITheatreReviewServices trServices)
+        public TheatreController(IViewModelMapper<Theatre, TheatreViewModel> theatreVMmapper, ITheatreService theatreService, ILogger logger, IReviewServices reviewService,ITheatreReviewServices trServices)
         {
             _theatreVMmapper = theatreVMmapper ?? throw new ArgumentNullException(nameof(theatreVMmapper));
             _theatreService = theatreService ?? throw new ArgumentNullException(nameof(theatreService));
@@ -87,34 +87,35 @@ namespace HomeTheatre.Areas.Administrator.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddReviewToTheatre(TheatreReviewViewModel theatreReviewVM)
+        public async Task<IActionResult> AddReviewToTheatre(TheatreViewModel theatreVM,ReviewViewModel reviewVM)
         {
             if (ModelState.IsValid)
             {
-                var theatre = await _theatreService.GetTheatreAsync(theatreReviewVM.TheatreId);
-                var review = await _reviewService.GetReviewAsync(theatreReviewVM.ReviewId);
+                var theatre = await _theatreService.GetTheatreAsync(theatreVM.Id);
+                var review = await _reviewService.GetReviewAsync(reviewVM.Id);
                 await _trServices.AddReviewAsync(theatre, review);
                 _logger.LogInformation("Review successfully added to Theatre");
                 return RedirectToAction("Details", "Theatre", new { id = theatre.Id });
             }
             _logger.LogError("Something went wrong ,Review was not added to theatre");
-            return View(theatreReviewVM);
+            return View(theatreVM);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RemoveReviewFromTheatre(TheatreReviewViewModel theatreReviewVM)
+        public async Task<IActionResult> RemoveReviewFromTheatre(TheatreViewModel theatreVM, ReviewViewModel reviewVM)
         {
             if (ModelState.IsValid)
             {
-                var theatreReview = await _trServices.GetTheatreReviewAsync(theatreReviewVM.Id);
-                await _trServices.RemoveReviewAsync(theatreReview);
+                var theatre = await _theatreService.GetTheatreAsync(theatreVM.Id);
+                var review = await _reviewService.GetReviewAsync(reviewVM.Id);
+                await _trServices.RemoveReviewAsync(theatre, review);
                 _logger.LogInformation("Review was successfully removed from Theatre");
                 return RedirectToAction("Details", "Theatre");
             }
             _logger.LogInformation("Review could not be removed something went wrong");
 
-            return View(theatreReviewVM);
+            return View(theatreVM);
 
         }
     }

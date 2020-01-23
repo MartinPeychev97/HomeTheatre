@@ -12,7 +12,7 @@ namespace HomeTheatre.Data.DbModels
     {
         public Theatre()
         {
-            TheatreReviews = new List<TheatreReview>();
+            Reviews = new List<Review>();
         }
 
         [Key]
@@ -32,7 +32,6 @@ namespace HomeTheatre.Data.DbModels
         public string ImagePath { get; set; }
         public double? CurrentUserRating { get; set; }
         public ICollection<Review> Reviews { get; set; }
-        public ICollection<TheatreReview> TheatreReviews { get; set; }
         public User User { get; set; }
         public DateTime CreatedOn { get; set; }
         public bool IsDeleted { get; set; }

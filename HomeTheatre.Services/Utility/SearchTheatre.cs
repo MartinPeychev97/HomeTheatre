@@ -11,6 +11,6 @@ namespace HomeTheatre.Services.Utility
         public string Location { get; set; }
         public double? AverageRating { get; set; }
 
-        //public string Phone { get; set; }
+        public string Phone { get; set; }
     }
 }

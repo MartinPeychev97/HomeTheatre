@@ -24,7 +24,7 @@ namespace HomeTheatre.Services.Services
         public async Task<Theatre> GetTheatreAsync(Guid Id)
         {
             var theatre = await _context.Theatres
-                .Include(x => x.TheatreReviews)
+                .Include(x => x.Reviews)
                 .Where(x => x.IsDeleted == false)
                 .OrderBy(b => b.Name)
                 .FirstOrDefaultAsync(b => b.Id == Id);
@@ -61,7 +61,9 @@ namespace HomeTheatre.Services.Services
                 Name = tempTheatre.Name,
                 AboutInfo = tempTheatre.AboutInfo,
                 Location = tempTheatre.Location,
-                Phone = tempTheatre.Phone
+                Phone = tempTheatre.Phone,
+                AverageRating=tempTheatre.AverageRating
+                
             };
 
             await _context.Theatres.AddAsync(theatre);
@@ -101,7 +103,7 @@ namespace HomeTheatre.Services.Services
             try
             {
                 IQueryable<Theatre> theatres = _context.Theatres
-                    .Include(b => b.TheatreReviews)
+                    .Include(b => b.Reviews)
                     .Where(b => b.IsDeleted == false);
 
                 ICollection<Theatre> sixTheatres;
@@ -115,10 +117,10 @@ namespace HomeTheatre.Services.Services
                         theatres = theatres.OrderByDescending(b => b.Name);
                         break;
                     case "Review":
-                        theatres = theatres.OrderBy(b => b.TheatreReviews.Count());
+                        theatres = theatres.OrderBy(b => b.Reviews.Count());
                         break;
                     case "ReviewByDescending":
-                        theatres = theatres.OrderByDescending(b => b.TheatreReviews.Count());
+                        theatres = theatres.OrderByDescending(b => b.Reviews.Count());
                         break;
                     default:
                         theatres = theatres.OrderBy(b => b.Name);
@@ -189,6 +191,7 @@ namespace HomeTheatre.Services.Services
                 RatingSum += review.Rating;
             }
             double averageRating = RatingSum / theatre.Reviews.Count;
+            theatre.AverageRating = averageRating;
             return averageRating;
         }
 
@@ -202,7 +205,7 @@ namespace HomeTheatre.Services.Services
             }
 
             var topTheatres = await allTheatres
-                 .Include(b => b.TheatreReviews)
+                 .Include(b => b.Reviews)
                  .Where(b => b.IsDeleted == false)
                  .OrderByDescending(b => b.AverageRating)
                  .Take(num)

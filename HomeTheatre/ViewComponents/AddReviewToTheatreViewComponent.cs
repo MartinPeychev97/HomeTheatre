@@ -23,7 +23,7 @@ namespace HomeTheatre.ViewComponents
         //    var model = new AddReviewToTheatreViewModel();
         //    var allReviews = await _reviewServices.GetAllReviewsAsync(theatreId);
         //    model.Id = theatreId;
-        //    model.AllReviews = allReviews.Select(a.Author,a.Author).ToList();
+        //    model.AllReviews = allReviews.Select(a.Author, a.Author).ToList();
 
         //    return View(model);
         //}
