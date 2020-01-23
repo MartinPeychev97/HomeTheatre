@@ -28,7 +28,7 @@ namespace HomeTheatre.Models.Theatre
         public string AboutInfo { get; set; }
         public double? AverageRating { get; set; }
         public string ImagePath { get; set; }
-
+        public int NumberOfReviews { get; set; }
         public string Location { get; set; }
         [Required]
         public string Phone { get; set; }

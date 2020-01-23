@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace HomeTheatre.Controllers
-{ 
+{
+    [Authorize(Roles = "Member")]
     public class ReviewsController : Controller
     {
         private readonly UserManager<User> _userManager;

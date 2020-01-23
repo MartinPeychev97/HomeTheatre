@@ -20,7 +20,8 @@ namespace HomeTheatre.Services.Utility
                 Id = entity.Id,
                 Name = entity.Name,
                 Location = entity.Location,
-                AverageRating = entity.AverageRating
+                AverageRating = entity.AverageRating,
+                Phone=entity.Phone
             };
         }
 

@@ -94,7 +94,8 @@ namespace HomeTheatre.Data.Seeder
                 PhoneNumber = "0987453355",
                 CreatedOn = DateTime.UtcNow,
                 LockoutEnabled = true,
-                RoleName = "Member"
+                RoleName = "Member",
+                SecurityStamp="HHTF565DGH87NHFT"
 
             };
 
@@ -109,7 +110,8 @@ namespace HomeTheatre.Data.Seeder
                 Email = "SecondMember@gmail.com",
                 CreatedOn = DateTime.UtcNow,
                 RoleName = "Member",
-                LockoutEnabled = true
+                LockoutEnabled = true,
+                SecurityStamp = "JKIVDR4H7DJSKH"
             };
             User memberUser03 = new User
             {
@@ -122,7 +124,9 @@ namespace HomeTheatre.Data.Seeder
                 Email = "ThirdMember@gmail.com",
                 RoleName = "Member",
                 CreatedOn = DateTime.UtcNow,
-                LockoutEnabled = true
+                LockoutEnabled = true,
+                SecurityStamp = "DA76A4HJ534UF7445T5E"
+
             };
             User memberUser04 = new User
             {
@@ -135,7 +139,9 @@ namespace HomeTheatre.Data.Seeder
                 Email = "FourthMember@gmail.com",
                 RoleName = "Member",
                 CreatedOn = DateTime.UtcNow,
-                LockoutEnabled = true
+                LockoutEnabled = true,
+                SecurityStamp = "UDIADFG564433HGS"
+
             };
             User memberUser05 = new User
             {
@@ -148,7 +154,9 @@ namespace HomeTheatre.Data.Seeder
                 Email = "FifthMember@gmail.com",
                 RoleName = "Member",
                 CreatedOn = DateTime.UtcNow,
-                LockoutEnabled = true
+                LockoutEnabled = true,
+                SecurityStamp = "DOHASIUDG7637242G5YG"
+
             };
             builder.Entity<User>().HasData(memberUser01, memberUser02, memberUser03, memberUser04, memberUser05);
 
@@ -330,39 +338,6 @@ namespace HomeTheatre.Data.Seeder
             };
             builder.Entity<Review>().HasData(review01, review02, review03, review04, review05);
             #endregion
-            //#region Seed Theatre-Reviews
-            //var theatreReview01 = new TheatreReview
-            //{
-            //    TheatreId = theatreId01,
-            //    ReviewId = reviewId01
-
-            //};
-            //var theatreReview02 = new TheatreReview
-            //{
-            //    TheatreId = theatreId01,
-            //    ReviewId = reviewId01
-
-            //};
-            //var theatreReview03 = new TheatreReview
-            //{
-            //    TheatreId = theatreId01,
-            //    ReviewId = reviewId01
-
-            //};
-            //var theatreReview04 = new TheatreReview
-            //{
-            //    TheatreId = theatreId01,
-            //    ReviewId = reviewId01
-
-            //};
-            //var theatreReview05 = new TheatreReview
-            //{
-            //    TheatreId = theatreId01,
-            //    ReviewId = reviewId01
-
-            //};
-            //builder.Entity<TheatreReview>().HasData(theatreReview01, theatreReview02, theatreReview03, theatreReview04, theatreReview05);
-            //#endregion
             #region CommentSeed
             var comment01 = new Comment
             {

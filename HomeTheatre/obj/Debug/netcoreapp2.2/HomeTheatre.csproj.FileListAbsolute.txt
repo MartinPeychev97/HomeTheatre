@@ -175,9 +175,6 @@ C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\bin\Debug\netcoreapp2.2\HomeT
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.TagHelpers.input.cache
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.TagHelpers.output.cache
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.RazorCoreGenerate.cache
-C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\User\CreateBan.cshtml.g.cs
-C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\User\Index.cshtml.g.cs
-C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\User\UnbanUser.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\ExternalLogin.cshtml.g.cs
@@ -221,8 +218,6 @@ C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Theatres\Details.cshtml.g.cs
-C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Theatres\Index.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\User\Detail.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\User\Index.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
@@ -231,3 +226,8 @@ C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\HomeT
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.RazorTargetAssemblyInfo.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.Views.pdb
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\HomeTheatre.csproj.CopyComplete
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\UsersAdmin\CreateBan.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\UsersAdmin\Index.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\UsersAdmin\UnbanUser.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Theatre\Details.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Theatre\Index.cshtml.g.cs

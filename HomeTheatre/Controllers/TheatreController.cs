@@ -115,7 +115,7 @@ namespace HomeTheatre.Controllers
             }
             catch (Exception)
             {
-                theatreVm.AverageRating = null;
+                theatreVm.AverageRating = 0.6666;
             }
 
             if (commentsVM != null)

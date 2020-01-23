@@ -62,8 +62,6 @@ namespace HomeTheatre.Services.Services
                 AboutInfo = tempTheatre.AboutInfo,
                 Location = tempTheatre.Location,
                 Phone = tempTheatre.Phone,
-                AverageRating=tempTheatre.AverageRating
-                
             };
 
             await _context.Theatres.AddAsync(theatre);

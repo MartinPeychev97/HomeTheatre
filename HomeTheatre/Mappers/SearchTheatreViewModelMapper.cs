@@ -22,7 +22,8 @@ namespace HomeTheatre.Mappers
                Id=Entity.Id,
                Name=Entity.Name,
                Location=Entity.Location,
-               AverageRating=Entity.AverageRating
+               AverageRating=Entity.AverageRating,
+               Phone=Entity.Phone
             };
         }
 
@@ -42,7 +43,9 @@ namespace HomeTheatre.Mappers
                 Id = entityVM.Id,
                 Name = entityVM.Name,
                 Location = entityVM.Location,
-                AverageRating = entityVM.AverageRating
+                AverageRating = entityVM.AverageRating,
+                Phone = entityVM.Phone
+
             };
         }
 
