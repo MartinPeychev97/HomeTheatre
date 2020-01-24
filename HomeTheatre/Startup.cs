@@ -45,9 +45,18 @@ namespace HomeTheatre
                     Configuration.GetConnectionString("DefaultConnection")));
 
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 5;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+
+            });
+
             services.AddDefaultIdentity<User>()
                .AddRoles<Role>()
-               .AddDefaultUI(UIFramework.Bootstrap4)
                .AddEntityFrameworkStores<TheatreContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

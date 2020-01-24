@@ -1,0 +1,20 @@
+﻿@using HomeTheatre.Models.Theatre
+@model TheatreViewModel
+@{
+    ViewData["Title"] = "SearchTheatreResultPartial";
+}
+
+<h1>SearchTheatreResultPartial</h1>
+
+
+<div class="col-md-4">
+    <a asp-area="" asp-controller="Theatre" asp-action="Details" asp-route-id="@Model.Id">
+        <img src="@Model.ImagePath" class="detailsimage">
+    </a>
+    <h4 class="card-title">
+        @Model.Name
+        <br>
+        <small class="card-description text-muted text-center">@Model.Location</small>
+    </h4>
+</div>
+

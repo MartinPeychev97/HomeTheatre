@@ -20,4 +20,3 @@ C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\obj\Debug\netcoreapp2.2\
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.deps.json
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.dll
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
-C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.csprojAssemblyReference.cache
