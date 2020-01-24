@@ -231,3 +231,5 @@ C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\UsersAdmin\UnbanUser.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Theatre\Details.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Theatre\Index.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_NavigationPartial.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Shared\SearchTheatreResultPartial.cshtml.g.cs

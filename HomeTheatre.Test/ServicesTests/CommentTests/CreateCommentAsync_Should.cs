@@ -45,5 +45,20 @@ namespace HomeTheatre.Test.ServicesTests.CommentTests
 
             }
         }
+        [TestMethod]
+        public async Task ThrowWhen_ModelPassedIsNull()
+        {
+
+            //Arrange
+            var options = Utilities.GetOptions(nameof(CreateValidComment));
+
+
+            using (var assertContext = new TheatreContext(options))
+            {
+                //Act & Assert
+                var sut = new CommentServices(assertContext);
+                await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => sut.CreateCommentAsync(null));
+            }
+        }
     }
 }

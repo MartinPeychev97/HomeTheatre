@@ -1,0 +1,27 @@
+﻿
+<ul class="navbar-nav">
+    @if (User.IsInRole("Administrator"))
+    {
+        <li class="dropdown nav-item">
+            <a class="dropdown-toggle nav-link" data-toggle="dropdown" asp-area="" asp-controller="Theatre" asp-action="Index">
+                Manager Panel
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+                <a class="dropdown-item" asp-area="" asp-controller="Theatre" asp-action="Index">
+                    <i class="material-icons">account_balance</i> Theatres
+                </a>
+                <a class="dropdown-item" asp-area="Administrator" asp-controller="Users" asp-action="Index">
+                    <i class="material-icons">face</i> Users
+                </a>
+            </div>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Bars" asp-action="Index">
+                Bars <i class="material-icons">account_balance</i>
+            </a>
+        </li>
+    }
+</ul>

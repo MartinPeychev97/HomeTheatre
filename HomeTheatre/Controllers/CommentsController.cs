@@ -97,13 +97,13 @@ namespace HomeTheatre.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteComment(Guid id)
+        public async Task<IActionResult> DeleteComment(Guid id,Guid reviewId)
         {
             if ( id == null)
             {
                 return NotFound();
             }
-            await _commentServices.DeleteCommentAsync(id);
+            await _commentServices.DeleteCommentAsync(id,reviewId);
             _logger.LogInformation("Comment has been succesfully deleted");
 
             return RedirectToAction("Index", "Home");

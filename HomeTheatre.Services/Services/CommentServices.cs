@@ -28,7 +28,7 @@ namespace HomeTheatre.Services.Services
             }
             if (String.IsNullOrEmpty(tempComment.CommentText))
             {
-                throw new ArgumentException("This comment is empty");
+                throw new ArgumentNullException("This comment is empty");
             }
             var comment = new Comment
             {
@@ -47,24 +47,26 @@ namespace HomeTheatre.Services.Services
             return comment;
         }
 
-        public async Task<ICollection<Comment>> GetCommentsAsync(Guid Id)
+        public async Task<ICollection<Comment>> GetCommentsAsync(Guid reviewId)
         {
             var comments = await _context.Comments
                 .Include(c => c.User)
                 .Include(c => c.Review)
                 .Where(x => x.IsDeleted == false)
-                .Where(x => x.Id == Id)
+                .Where(x => x.Id == reviewId)
                 .ToListAsync();
             return comments;
         }
+        
 
-        public async Task<Comment> DeleteCommentAsync(Guid id)
+        public async Task<Comment> DeleteCommentAsync(Guid id,Guid reviewId)
         {
             var comment = await _context.Comments
-                .Include(bc => bc.Review)
-                .Include(bc => bc.User)
-                .Where(bc => bc.IsDeleted == false)
-                .Where(bc => bc.Id == id)
+                .Include(x => x.Review)
+                .Include(x => x.User)
+                .Where(x => x.IsDeleted == false)
+                .Where(x => x.Id == id)
+                .Where(x=>x.ReviewId==reviewId)
                 .FirstOrDefaultAsync();
 
             if (comment == null)

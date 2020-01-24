@@ -8,7 +8,7 @@ namespace HomeTheatre.Services.Contracts
     public interface ICommentServices
     {
         Task<Comment> CreateCommentAsync(Comment tempComment);
-        Task<Comment> DeleteCommentAsync(Guid id);
+        Task<Comment> DeleteCommentAsync(Guid id,Guid reviewId);
         Task<Comment> EditCommentAsync(Guid id, string newCommentText);
         Task<ICollection<Comment>> GetCommentsAsync(Guid Id);
     }

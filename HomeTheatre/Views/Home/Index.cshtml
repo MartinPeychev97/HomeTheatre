@@ -25,7 +25,7 @@
         @foreach (var theatre in Model.TopTheatres)
         {
             <div class="col-md-4 columnhomescreen">
-                <a href="" asp-controller="Theatre" asp-action="Details" asp-route-id="@theatre.Id" rel="alternate"> 
+                <a asp-controller="Theatre" asp-action="Details" asp-route-id="@theatre.Id" rel="alternate"> 
                     <img src="@theatre.ImagePath" alt="TheatreImage" style="width:100%; height:240px">
                     <h4 class="card-title">
                         @theatre.Name
