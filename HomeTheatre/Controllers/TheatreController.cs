@@ -41,7 +41,7 @@ namespace HomeTheatre.Controllers
             _commentServices = commentServices ?? throw new ArgumentNullException(nameof(commentServices));
             _userManager = userManager ?? throw new ArgumentNullException(nameof(_userManager));
             _theatreViewModelMapper = theatreViewModelMapper ?? throw new ArgumentNullException(nameof(theatreViewModelMapper));
-            _logger = logger;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _commentViewModelMapper = commentViewModelMapper ?? throw new ArgumentNullException(nameof(commentViewModelMapper));
             _reviewServices = reviewServices ?? throw new ArgumentNullException(nameof(reviewServices));
             _reviewViewModelMapper = reviewViewModelMapper ?? throw new ArgumentNullException(nameof(reviewViewModelMapper));
@@ -110,7 +110,7 @@ namespace HomeTheatre.Controllers
             {
                 var theatreAverageRating = await _theatreServices.GetAverageRating(theatreId);
                 theatreVm.AverageRating = theatreAverageRating;
-                _logger.LogInformation("Theatre average rating has been assigned ");
+               _logger.LogInformation("Theatre average rating has been assigned ");
 
             }
             catch (Exception)

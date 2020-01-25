@@ -13,7 +13,7 @@ namespace HomeTheatre.Models.Comment
         public Guid Id { get; set; }
         public Guid ReviewId { get; set; }
         public Guid UserId { get; set; }
-        public string UserName { get; set; }
+        public string Author { get; set; }
         [DisplayName("Comment Text")]
         [Required]
         [StringLength(300, ErrorMessage = "Body Lenght must be between 2 and 300 characters", MinimumLength = 2)]

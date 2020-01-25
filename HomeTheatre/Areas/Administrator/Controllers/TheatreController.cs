@@ -21,7 +21,7 @@ namespace HomeTheatre.Areas.Administrator.Controllers
     {
         private readonly IViewModelMapper<Theatre, TheatreViewModel> _theatreVMmapper;
         private readonly ITheatreService _theatreService;
-        private readonly ILogger _logger;
+        //private readonly ILogger _logger;
         private readonly IReviewServices _reviewService;
         private readonly ITheatreReviewServices _trServices;
 
@@ -29,7 +29,7 @@ namespace HomeTheatre.Areas.Administrator.Controllers
         {
             _theatreVMmapper = theatreVMmapper ?? throw new ArgumentNullException(nameof(theatreVMmapper));
             _theatreService = theatreService ?? throw new ArgumentNullException(nameof(theatreService));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+          //  _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _reviewService = reviewService ?? throw new ArgumentNullException(nameof(reviewService));
             _trServices = trServices ?? throw new ArgumentNullException(nameof(trServices));
         }
@@ -43,12 +43,12 @@ namespace HomeTheatre.Areas.Administrator.Controllers
                 var theatreModel = _theatreVMmapper.MapFrom(theatreVM);
                 var newlyCreatedTheatre = await _theatreService.CreateTheatreAsync(theatreModel);
 
-                _logger.LogInformation("Theatre Successfully created");
+                //_logger.LogInformation("Theatre Successfully created");
                 return RedirectToAction("Details", new { id = newlyCreatedTheatre.Id });
             }
             else
             {
-                _logger.LogError("Theatre was not created,something went wrong");
+                //_logger.LogError("Theatre was not created,something went wrong");
                 return RedirectToAction("Index", "Theatre", new { area = "" });
             }
         }
@@ -61,11 +61,11 @@ namespace HomeTheatre.Areas.Administrator.Controllers
             {
                 var tempTheatre = await _theatreService.UpdateAsync(id, newName, newAboutInfo, newLocation, newPhone);
 
-                _logger.LogInformation("Theatre was successfully updated");
+                //_logger.LogInformation("Theatre was successfully updated");
                 return RedirectToAction("Details", new { id = tempTheatre.Id });
             }
 
-            _logger.LogError("Theatre update was unsuccessfull, something went wrong");
+            //_logger.LogError("Theatre update was unsuccessfull, something went wrong");
             return RedirectToAction("Index", "Theatre", new { area = "" });
         }
 
@@ -76,11 +76,11 @@ namespace HomeTheatre.Areas.Administrator.Controllers
             try
             {
                 await _theatreService.DeleteTheatreAsync(id);
-                _logger.LogInformation("Theatre was successfully deleted");
+               // _logger.LogInformation("Theatre was successfully deleted");
             }
             catch (Exception)
             {
-                _logger.LogError("Theatre deletion was unsuccessfull, something went wrong");
+               // _logger.LogError("Theatre deletion was unsuccessfull, something went wrong");
             }
             return RedirectToAction("Index", "Theatre", new { area = "" });
         }
@@ -94,10 +94,10 @@ namespace HomeTheatre.Areas.Administrator.Controllers
                 var theatre = await _theatreService.GetTheatreAsync(theatreVM.Id);
                 var review = await _reviewService.GetReviewAsync(reviewVM.Id);
                 await _trServices.AddReviewAsync(theatre, review);
-                _logger.LogInformation("Review successfully added to Theatre");
+               // _logger.LogInformation("Review successfully added to Theatre");
                 return RedirectToAction("Details", "Theatre", new { id = theatre.Id });
             }
-            _logger.LogError("Something went wrong ,Review was not added to theatre");
+           // _logger.LogError("Something went wrong ,Review was not added to theatre");
             return View(theatreVM);
         }
 
@@ -110,10 +110,10 @@ namespace HomeTheatre.Areas.Administrator.Controllers
                 var theatre = await _theatreService.GetTheatreAsync(theatreVM.Id);
                 var review = await _reviewService.GetReviewAsync(reviewVM.Id);
                 await _trServices.RemoveReviewAsync(theatre, review);
-                _logger.LogInformation("Review was successfully removed from Theatre");
+               // _logger.LogInformation("Review was successfully removed from Theatre");
                 return RedirectToAction("Details", "Theatre");
             }
-            _logger.LogInformation("Review could not be removed something went wrong");
+           // _logger.LogInformation("Review could not be removed something went wrong");
 
             return View(theatreVM);
 

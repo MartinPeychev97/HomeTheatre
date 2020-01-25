@@ -101,19 +101,5 @@ namespace HomeTheatre.Services.Services
 
             await _context.SaveChangesAsync();
         }
-
-        //public async Task CheckForExpiredBansAsync()
-        //{
-        //    var expiredBans = await _context.Bans
-        //        .Include(b => b.User)
-        //        .Where(b => b.ExpiresOn < DateTime.UtcNow)
-        //        .ToListAsync();
-
-        //    expiredBans.ForEach(b => b.HasExpired = true);
-        //    expiredBans.ForEach(b => b.User.IsBanned = false);
-        //    expiredBans.ForEach(b => b.User.LockoutEnabled = false);
-
-        //    return;
-        //}
     }
 }

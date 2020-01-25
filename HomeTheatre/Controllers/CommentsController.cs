@@ -52,7 +52,7 @@ namespace HomeTheatre.Controllers
                 var userName = user.UserName;
 
                 viewModel.UserId = user.Id;
-                viewModel.UserName = userName;
+                viewModel.Author = userName;
                 var comment = _commentMapper.MapFrom(viewModel);
 
                 var newComment = await _commentServices.CreateCommentAsync(comment);
