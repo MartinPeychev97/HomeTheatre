@@ -13,20 +13,23 @@ using Microsoft.Extensions.Logging;
 
 namespace HomeTheatre.Controllers
 {
-    [Authorize(Roles = "Member")]
+    //[Authorize(Roles = "Member")]
+    [Authorize(Roles = "Administrator, Member")]
     public class ReviewsController : Controller
     {
         private readonly UserManager<User> _userManager;
         private readonly IReviewServices _reviewServices;
         private readonly IViewModelMapper<Review, ReviewViewModel> _reviewMapper;
-        private readonly ILogger _logger;
+        //private readonly ILogger _logger;
 
-        public ReviewsController(UserManager<User> userManager, IReviewServices commentServices, IViewModelMapper<Review, ReviewViewModel> commentMapper, ILogger logger)
+        public ReviewsController(UserManager<User> userManager,
+            IReviewServices commentServices,
+            IViewModelMapper<Review, ReviewViewModel> commentMapper/*, ILogger logger*/)
         {
             _userManager = userManager;
             _reviewServices = commentServices;
             _reviewMapper = commentMapper;
-            _logger = logger;
+            //_logger = logger;
         }
 
         [HttpGet]
@@ -40,10 +43,15 @@ namespace HomeTheatre.Controllers
             var reviewsVm = _reviewMapper.MapFrom(reviews);
             return View(reviewsVm);
         }
+        //[HttpGet]
+        //public  IActionResult RedirectToCreareReviewView()
+        //{
+        //    CreateReview();
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateReview([FromBody]ReviewViewModel viewModel,Guid theatreid)
+        public async Task<IActionResult> CreateReview(ReviewViewModel viewModel, Guid theatreid)
         {
             try
             {
@@ -58,16 +66,17 @@ namespace HomeTheatre.Controllers
 
                 var newReviewVm = _reviewMapper.MapFrom(newComment);
 
-                _logger.LogInformation("Review has been posted successfully");
+                //_logger.LogInformation("Review has been posted successfully");
 
                 return PartialView("_AddReviewPartial", newReviewVm);
+
             }
             catch (Exception)
             {
-                _logger.LogCritical("Review must be between 2 and 500 characters");
+                //_logger.LogCritical("Review must be between 2 and 500 characters");
             }
 
-            return View(viewModel);
+            return View("Index", viewModel);
         }
 
         [HttpPost]
@@ -89,7 +98,7 @@ namespace HomeTheatre.Controllers
                 {
                     throw new Exception("Something went wrong");
                 }
-                _logger.LogInformation("Review was edited successfully");
+                // _logger.LogInformation("Review was edited successfully");
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Index", "Home");
@@ -103,7 +112,7 @@ namespace HomeTheatre.Controllers
                 return NotFound();
             }
             await _reviewServices.DeleteReviewAsync(id);
-            _logger.LogInformation("Review has been succesfully deleted");
+            //_logger.LogInformation("Review has been succesfully deleted");
 
             return RedirectToAction("Index", "Home");
         }

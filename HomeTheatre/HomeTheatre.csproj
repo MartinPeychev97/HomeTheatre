@@ -26,9 +26,4 @@
     <ProjectReference Include="..\HomeTheatre.Services\HomeTheatre.Services.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Views\Reviews\" />
-  </ItemGroup>
-
 </Project>
