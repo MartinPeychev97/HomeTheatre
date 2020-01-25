@@ -1,4 +1,7 @@
 ﻿@model TheatreViewModel
+
+@inject SignInManager<HomeTheatre.Data.DbModels.User> SignInManager
+
 @{
     ViewData["Title"] = "Details";
 }
@@ -19,11 +22,10 @@
         <p><b>About Info:</b> @Model.AboutInfo</p>
         <p><b>Phone:</b> @Model.Phone</p>
 
-        @*<form asp-controller="Reviews" asp-action="RedirectToCreareReviewView" method="post" asp-route-theatreId="@Model.Id">
-            <button type="submit" class="btn btn-lg btn-success">Create Review</button>
-        </form>*@
-        
-        <a class="btn-link btn-lg btn-info" asp-controller="Reviews" asp-action="CreateReview">Create Review</a>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <partial name="_AddReviewPartial" , model="new ReviewViewModel { Id = Model.Id }" />
+        }
     </div>
 </div>
 

@@ -10,8 +10,7 @@ namespace HomeTheatre.Models.Review
     public class ReviewViewModel : IEntityId, IAuditable, IDeletable
     {
         public ReviewViewModel()
-        {
-        }
+        { }
 
         public Guid Id { get; set; }
         public string Author { get; set; }
@@ -23,5 +22,7 @@ namespace HomeTheatre.Models.Review
         public DateTime? ModifiedOn { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? DeletedOn { get; set; }
+
+        public Guid TheatreId { get; set; }
     }
 }

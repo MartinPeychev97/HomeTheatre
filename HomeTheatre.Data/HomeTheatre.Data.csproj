@@ -47,11 +47,19 @@
     <Compile Remove="Migrations\20200123140134_I.Designer.cs" />
     <Compile Remove="Migrations\20200124163939_I.cs" />
     <Compile Remove="Migrations\20200124163939_I.Designer.cs" />
+    <Compile Remove="Migrations\20200124183746_I.cs" />
+    <Compile Remove="Migrations\20200124183746_I.Designer.cs" />
+    <Compile Remove="Migrations\20200125194309_update-database.cs" />
+    <Compile Remove="Migrations\20200125194309_update-database.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

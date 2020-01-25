@@ -21,6 +21,8 @@ namespace HomeTheatre.Services.Services
 
         public async Task<Review> CreateReviewAsync(Review tempReview)
         {
+            Guid reviewId = Guid.NewGuid();
+
             if (tempReview == null)
             {
                 throw new ArgumentNullException("The review is null");
@@ -29,20 +31,22 @@ namespace HomeTheatre.Services.Services
             {
                 throw new ArgumentException("This review is empty");
             }
+
             var review = new Review
             {
-                Id = tempReview.Id,
+                Id = reviewId,
                 ReviewText = tempReview.ReviewText,
                 Author = tempReview.Author,
-                Rating=tempReview.Rating,
+                Rating = tempReview.Rating,
                 IsDeleted = tempReview.IsDeleted,
-                CreatedOn = tempReview.CreatedOn,
+                CreatedOn = DateTime.Now,
                 ModifiedOn = tempReview.ModifiedOn,
                 DeletedOn = tempReview.ModifiedOn
             };
 
             await _context.Reviews.AddAsync(review);
             await _context.SaveChangesAsync();
+
             return review;
         }
         public async Task<Review> DeleteReviewAsync(Guid id)
@@ -67,8 +71,6 @@ namespace HomeTheatre.Services.Services
             return review;
         }
 
-
-
         public async Task<ICollection<Review>> GetAllReviewsAsync(Guid theatreId)
         {
             var reviews = await _context.Reviews
@@ -82,6 +84,7 @@ namespace HomeTheatre.Services.Services
             {
                 throw new ArgumentNullException("There are no reviews");
             }
+
             return reviews;
         }
 

@@ -45,7 +45,8 @@ namespace HomeTheatre.Mappers
                 //UserId = entityVM.UserId,
                 ModifiedOn = entityVM.ModifiedOn,
                 DeletedOn = entityVM.DeletedOn,
-                IsDeleted = entityVM.IsDeleted
+                IsDeleted = entityVM.IsDeleted,
+                TheatreId = entityVM.TheatreId
             };
         }
         public ICollection<ReviewViewModel> MapFrom(ICollection<Review> Entities)

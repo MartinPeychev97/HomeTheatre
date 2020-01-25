@@ -20,3 +20,10 @@ C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\obj\Debug\netcoreapp2.2\
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.deps.json
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.dll
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.deps.json
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.dll
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\bin\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.AssemblyInfoInputs.cache
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.AssemblyInfo.cs
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.dll
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.pdb

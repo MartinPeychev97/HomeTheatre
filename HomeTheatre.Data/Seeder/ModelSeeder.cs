@@ -59,7 +59,6 @@ namespace HomeTheatre.Data.Seeder
             {
                 Id = AdminId,
                 UserName = "Admin",
-                //PasswordHash = PasswordHasher.GetStringSha256Hash("Admin"),
                 NormalizedUserName = "ADMIN",
                 Email = "Admin@gmail.com",
                 Name = "Martin",
@@ -87,7 +86,6 @@ namespace HomeTheatre.Data.Seeder
             {
                 Id = MemberId01,
                 UserName = "MemberFirst",
-                PasswordHash = PasswordHasher.GetStringSha256Hash("MemberFirst"),
                 NormalizedUserName = "MEMBERFIRST",
                 Name = "Gosho",
                 Email = "FirstMember@gmail.com",
@@ -98,7 +96,8 @@ namespace HomeTheatre.Data.Seeder
                 SecurityStamp="HHTF565DGH87NHFT"
 
             };
-
+            var hashePass01 = new PasswordHasher<User>().HashPassword(memberUser01, "MemberFirst");
+            memberUser01.PasswordHash = hashePass;
             User memberUser02 = new User
             {
                 Id = MemberId02,
@@ -113,6 +112,10 @@ namespace HomeTheatre.Data.Seeder
                 LockoutEnabled = true,
                 SecurityStamp = "JKIVDR4H7DJSKH"
             };
+            var hashePass02 = new PasswordHasher<User>().HashPassword(memberUser02, "MemberSecond");
+            memberUser02.PasswordHash = hashePass;
+
+
             User memberUser03 = new User
             {
                 Id = MemberId03,
@@ -128,6 +131,9 @@ namespace HomeTheatre.Data.Seeder
                 SecurityStamp = "DA76A4HJ534UF7445T5E"
 
             };
+            var hashePass03 = new PasswordHasher<User>().HashPassword(memberUser03, "MemberThird");
+            memberUser03.PasswordHash = hashePass;
+
             User memberUser04 = new User
             {
                 Id = MemberId04,
@@ -143,6 +149,9 @@ namespace HomeTheatre.Data.Seeder
                 SecurityStamp = "UDIADFG564433HGS"
 
             };
+            var hashePass04 = new PasswordHasher<User>().HashPassword(memberUser04, "MemberFourth");
+            memberUser04.PasswordHash = hashePass;
+
             User memberUser05 = new User
             {
                 Id = MemberId05,
@@ -158,6 +167,9 @@ namespace HomeTheatre.Data.Seeder
                 SecurityStamp = "DOHASIUDG7637242G5YG"
 
             };
+            var hashePass05 = new PasswordHasher<User>().HashPassword(memberUser05, "MemberFifth");
+            memberUser05.PasswordHash = hashePass;
+
             builder.Entity<User>().HasData(memberUser01, memberUser02, memberUser03, memberUser04, memberUser05);
 
             builder.Entity<IdentityUserRole<Guid>>().HasData(

@@ -31,3 +31,14 @@ C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Services\obj\Debug\netcoreapp
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.dll
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.pdb
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.csprojAssemblyReference.cache
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Services.deps.json
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Services.dll
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Services.pdb
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Data.dll
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\bin\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.csprojAssemblyReference.cache
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.AssemblyInfoInputs.cache
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.AssemblyInfo.cs
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.csproj.CopyComplete
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.dll
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Services\obj\Debug\netcoreapp2.2\HomeTheatre.Services.pdb

@@ -33,21 +33,18 @@ namespace HomeTheatre.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(Guid theatreId)
+        public async Task<IActionResult> Index(ReviewViewModel viewModel)
         {
-            if (theatreId == null)
+            if (viewModel.TheatreId == null)
             {
                 return NotFound();
             }
-            var reviews = await _reviewServices.GetAllReviewsAsync(theatreId);
+
+            var reviews = await _reviewServices.GetAllReviewsAsync(viewModel.TheatreId);
             var reviewsVm = _reviewMapper.MapFrom(reviews);
+
             return View(reviewsVm);
         }
-        //[HttpGet]
-        //public  IActionResult RedirectToCreareReviewView()
-        //{
-        //    CreateReview();
-        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -58,7 +55,7 @@ namespace HomeTheatre.Controllers
                 var user = await _userManager.GetUserAsync(User);
                 var Author = user.UserName;
 
-                viewModel.Id = user.Id;
+                viewModel.UserId = user.Id;
                 viewModel.Author = Author;
                 var review = _reviewMapper.MapFrom(viewModel);
 
@@ -68,7 +65,7 @@ namespace HomeTheatre.Controllers
 
                 //_logger.LogInformation("Review has been posted successfully");
 
-                return PartialView("_AddReviewPartial", newReviewVm);
+                return RedirectToAction("Index", newReviewVm);
 
             }
             catch (Exception)
@@ -76,7 +73,7 @@ namespace HomeTheatre.Controllers
                 //_logger.LogCritical("Review must be between 2 and 500 characters");
             }
 
-            return View("Index", viewModel);
+            return RedirectToAction("Index", viewModel);
         }
 
         [HttpPost]
