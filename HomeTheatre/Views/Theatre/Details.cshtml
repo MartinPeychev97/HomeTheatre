@@ -1,19 +1,32 @@
-﻿
-@model TheatreViewModel
+﻿@model TheatreViewModel
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Detail for Theatre</h1>
+<h1>@Model.Name</h1>
 
 <div class="container">
-    <div>
-        
+    <div class="row">
+        <div>
+            <img src="@Model.ImagePath" alt="TheatreImage" style="width:100%; height:240px">
+        </div>
     </div>
-    
+    <div class="col">
+        <p><b>Location:</b> @Model.Location</p>
+        <p><b>Average Rating:</b> @Model.AverageRating</p>
+        <p><b>Number Of Reviews:</b> @Model.NumberOfReviews</p>
+        <p><b>Created On:</b> @Model.CreatedOn</p>
+        <p><b>About Info:</b> @Model.AboutInfo</p>
+        <p><b>Phone:</b> @Model.Phone</p>
+
+        <form asp-controller="Review" asp-action="CreateReview" method="post" asp-route-theatreId="@Model.Id">
+            <button type="submit" class="btn btn-lg btn-success">Create Review</button>
+        </form>
+    </div>
 </div>
 
 @section scripts
 {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+

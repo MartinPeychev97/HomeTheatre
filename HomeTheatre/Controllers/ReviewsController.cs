@@ -43,7 +43,7 @@ namespace HomeTheatre.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateReview([FromBody]ReviewViewModel viewModel)
+        public async Task<IActionResult> CreateReview([FromBody]ReviewViewModel viewModel,Guid theatreid)
         {
             try
             {
