@@ -1,6 +1,7 @@
 ﻿using HomeTheatre.Services.Contracts;
 using HomeTheatre.Services.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace HomeTheatre.Registrations
             services.AddScoped<ITheatreService, TheatreService>();
             services.AddScoped<IBanServices, BanServices>();
             services.AddScoped<ITheatreReviewServices, TheatreReviewServices>();
-           // services.AddScoped<ISearchServices, SearchServices>();
+            services.AddScoped<ISearchServices, SearchServices>();
 
             return services;
         }

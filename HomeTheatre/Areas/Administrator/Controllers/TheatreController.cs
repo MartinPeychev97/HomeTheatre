@@ -25,7 +25,7 @@ namespace HomeTheatre.Areas.Administrator.Controllers
         private readonly IReviewServices _reviewService;
         private readonly ITheatreReviewServices _trServices;
 
-        public TheatreController(IViewModelMapper<Theatre, TheatreViewModel> theatreVMmapper, ITheatreService theatreService, ILogger logger, IReviewServices reviewService,ITheatreReviewServices trServices)
+        public TheatreController(IViewModelMapper<Theatre, TheatreViewModel> theatreVMmapper, ITheatreService theatreService,/* ILogger logger,*/ IReviewServices reviewService,ITheatreReviewServices trServices)
         {
             _theatreVMmapper = theatreVMmapper ?? throw new ArgumentNullException(nameof(theatreVMmapper));
             _theatreService = theatreService ?? throw new ArgumentNullException(nameof(theatreService));

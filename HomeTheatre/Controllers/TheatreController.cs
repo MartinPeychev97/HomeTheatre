@@ -25,7 +25,7 @@ namespace HomeTheatre.Controllers
         private readonly IViewModelMapper<Theatre, TheatreViewModel> _theatreViewModelMapper;
         private readonly IViewModelMapper<Comment, CommentViewModel> _commentViewModelMapper;
         private readonly IViewModelMapper<Review, ReviewViewModel> _reviewViewModelMapper;
-       // private readonly IViewModelMapper<SearchTheatre, SearchTheatreMapper> _searchTheatreViewModelMapper;
+        private readonly IViewModelMapper<SearchTheatre, TheatreViewModel> _searchTheatreViewModelMapper;
         //private readonly ISearchServices _searchServices;
         private readonly IReviewServices _reviewServices;
         //private readonly ILogger _logger;
@@ -33,19 +33,19 @@ namespace HomeTheatre.Controllers
         public TheatreController(ITheatreService theatreServices, ICommentServices commentServices,
             UserManager<User> userManager, IViewModelMapper<Theatre, TheatreViewModel> theatreViewModelMapper,
             /*ILogger logger,*/ IViewModelMapper<Comment, CommentViewModel> commentViewModelMapper,
-            IReviewServices reviewServices, IViewModelMapper<Review, ReviewViewModel> reviewViewModelMapper
-            //IViewModelMapper<SearchTheatre, TheatreViewModel> searchTheatreViewModelMapper,
+            IReviewServices reviewServices, IViewModelMapper<Review, ReviewViewModel> reviewViewModelMapper,
+            IViewModelMapper<SearchTheatre, TheatreViewModel> searchTheatreViewModelMapper
             /*ISearchServices searchServices*/)
         {
             _theatreServices = theatreServices ?? throw new ArgumentNullException(nameof(theatreServices));
             _commentServices = commentServices ?? throw new ArgumentNullException(nameof(commentServices));
             _userManager = userManager ?? throw new ArgumentNullException(nameof(_userManager));
             _theatreViewModelMapper = theatreViewModelMapper ?? throw new ArgumentNullException(nameof(theatreViewModelMapper));
-            //_logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            //_logger = logger ?? throw new ArgumentNullException(nameof(logger)); ;
             _commentViewModelMapper = commentViewModelMapper ?? throw new ArgumentNullException(nameof(commentViewModelMapper));
             _reviewServices = reviewServices ?? throw new ArgumentNullException(nameof(reviewServices));
             _reviewViewModelMapper = reviewViewModelMapper ?? throw new ArgumentNullException(nameof(reviewViewModelMapper));
-           // _searchTheatreViewModelMapper = searchTheatreViewModelMapper ?? throw new ArgumentNullException(nameof(searchTheatreViewModelMapper));
+            _searchTheatreViewModelMapper = searchTheatreViewModelMapper ?? throw new ArgumentNullException(nameof(searchTheatreViewModelMapper));
             //_searchServices = searchServices ?? throw new ArgumentNullException(nameof(searchServices));
         }
 
@@ -84,7 +84,7 @@ namespace HomeTheatre.Controllers
             }
             catch (Exception)
             {
-               // _logger.LogError("Something went wrong");
+                //_logger.LogError("Something went wrong");
                 return RedirectToAction(nameof(Index));
             }
         }
@@ -110,7 +110,7 @@ namespace HomeTheatre.Controllers
             {
                 var theatreAverageRating = await _theatreServices.GetAverageRating(theatreId);
                 theatreVm.AverageRating = theatreAverageRating;
-               //_logger.LogInformation("Theatre average rating has been assigned ");
+               // _logger.LogInformation("Theatre average rating has been assigned ");
 
             }
             catch (Exception)
