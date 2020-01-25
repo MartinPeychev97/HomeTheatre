@@ -17,7 +17,7 @@ namespace HomeTheatre.Registrations
             services.AddScoped<ITheatreService, TheatreService>();
             services.AddScoped<IBanServices, BanServices>();
             services.AddScoped<ITheatreReviewServices, TheatreReviewServices>();
-            services.AddScoped<ISearchServices, SearchServices>();
+           // services.AddScoped<ISearchServices, SearchServices>();
 
             return services;
         }

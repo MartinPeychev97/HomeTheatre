@@ -87,7 +87,7 @@ namespace HomeTheatre
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMiddleware<PageNotFoundHandler>();
+            //app.UseMiddleware<PageNotFoundHandler>();
             app.UseAuthentication();
 
             app.UseMvc(routes =>
