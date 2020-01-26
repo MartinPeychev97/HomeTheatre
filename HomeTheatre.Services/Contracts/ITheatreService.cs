@@ -15,7 +15,7 @@ namespace HomeTheatre.Services.Contracts
         Task<int> GetPageCountAsync(int theatresPerPage);
         Task<ICollection<Theatre>> GetSixTheatresAsync(int currentPage, string sortOrder);
         Task<Theatre> UpdateAsync(Guid id, string newName, string newAboutInfo, string newLocattion, string newPhone);
-        Task<double> GetAverageRating(Guid theatreId);
+        Task<double> GetAverageRatingAndNumberOfReviews(Guid theatreId);
         Task<ICollection<Theatre>> GetTopTheatresAsync(int num);
     }
 }

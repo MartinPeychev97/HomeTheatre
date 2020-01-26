@@ -47,6 +47,11 @@ namespace HomeTheatre.Data.Seeder
             Guid reviewId03 = Guid.NewGuid();
             Guid reviewId04 = Guid.NewGuid();
             Guid reviewId05 = Guid.NewGuid();
+            Guid reviewId06 = Guid.NewGuid();
+            Guid reviewId07 = Guid.NewGuid();
+            Guid reviewId08 = Guid.NewGuid();
+            Guid reviewId09 = Guid.NewGuid();
+            Guid reviewId10 = Guid.NewGuid();
             #endregion
             ////
             #region Seed Role and Admin
@@ -97,7 +102,7 @@ namespace HomeTheatre.Data.Seeder
 
             };
             var hashePass01 = new PasswordHasher<User>().HashPassword(memberUser01, "MemberFirst");
-            memberUser01.PasswordHash = hashePass;
+            memberUser01.PasswordHash = hashePass01;
             User memberUser02 = new User
             {
                 Id = MemberId02,
@@ -113,7 +118,7 @@ namespace HomeTheatre.Data.Seeder
                 SecurityStamp = "JKIVDR4H7DJSKH"
             };
             var hashePass02 = new PasswordHasher<User>().HashPassword(memberUser02, "MemberSecond");
-            memberUser02.PasswordHash = hashePass;
+            memberUser02.PasswordHash = hashePass02;
 
 
             User memberUser03 = new User
@@ -132,7 +137,7 @@ namespace HomeTheatre.Data.Seeder
 
             };
             var hashePass03 = new PasswordHasher<User>().HashPassword(memberUser03, "MemberThird");
-            memberUser03.PasswordHash = hashePass;
+            memberUser03.PasswordHash = hashePass03;
 
             User memberUser04 = new User
             {
@@ -150,7 +155,7 @@ namespace HomeTheatre.Data.Seeder
 
             };
             var hashePass04 = new PasswordHasher<User>().HashPassword(memberUser04, "MemberFourth");
-            memberUser04.PasswordHash = hashePass;
+            memberUser04.PasswordHash = hashePass04;
 
             User memberUser05 = new User
             {
@@ -168,7 +173,7 @@ namespace HomeTheatre.Data.Seeder
 
             };
             var hashePass05 = new PasswordHasher<User>().HashPassword(memberUser05, "MemberFifth");
-            memberUser05.PasswordHash = hashePass;
+            memberUser05.PasswordHash = hashePass05;
 
             builder.Entity<User>().HasData(memberUser01, memberUser02, memberUser03, memberUser04, memberUser05);
 
@@ -348,7 +353,53 @@ namespace HomeTheatre.Data.Seeder
                 TheatreId = theatreId05,
                 CreatedOn = DateTime.UtcNow
             };
-            builder.Entity<Review>().HasData(review01, review02, review03, review04, review05);
+            var review06 = new Review
+            {
+                Id = reviewId06,
+                Author = memberUser01.UserName,
+                ReviewText = "The Theatre was not good",
+                Rating = 4,
+                TheatreId = theatreId06,
+                CreatedOn = DateTime.UtcNow
+            };
+            var review07 = new Review
+            {
+                Id = reviewId07,
+                Author = memberUser02.UserName,
+                ReviewText = "It was a pleasant experience , would do it again",
+                Rating = 4,
+                TheatreId = theatreId07,
+                CreatedOn = DateTime.UtcNow
+            };
+            var review08 = new Review
+            {
+                Id = reviewId08,
+                Author = memberUser03.UserName,
+                ReviewText = "I was plesantly surpriced, the actors were very talented",
+                Rating = 4,
+                TheatreId = theatreId08,
+                CreatedOn = DateTime.UtcNow
+            };
+            var review09 = new Review
+            {
+                Id = reviewId09,
+                Author = memberUser04.UserName,
+                ReviewText = "I was plesantly surpriced, the actors were very talented",
+                Rating = 3,
+                TheatreId = theatreId09,
+                CreatedOn = DateTime.UtcNow
+            };
+            var review10 = new Review
+            {
+                Id = reviewId10,
+                Author = memberUser05.UserName,
+                ReviewText = "I was plesantly surpriced, the actors were very talented",
+                Rating = 5,
+                TheatreId = theatreId10,
+                CreatedOn = DateTime.UtcNow
+            };
+            builder.Entity<Review>().HasData(review01, review02, review03, review04, review05,review06,review07,review08,review09,review10);
+
             #endregion
             #region CommentSeed
             var comment01 = new Comment

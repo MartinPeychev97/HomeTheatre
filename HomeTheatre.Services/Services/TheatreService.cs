@@ -176,7 +176,7 @@ namespace HomeTheatre.Services.Services
                 throw new Exception("Something Went wrong");
             }
         }
-        public async Task<double> GetAverageRating(Guid theatreId)
+        public async Task<double> GetAverageRatingAndNumberOfReviews(Guid theatreId)
         {
             var theatre = await _context.Theatres
                 .Include(t => t.Reviews)
@@ -188,8 +188,10 @@ namespace HomeTheatre.Services.Services
             {
                 RatingSum += review.Rating;
             }
-            double averageRating = RatingSum / theatre.Reviews.Count;
+            var reviewCount = theatre.Reviews.Count;
+            double averageRating = RatingSum / reviewCount;
             theatre.AverageRating = averageRating;
+            theatre.NumberOfReviews = reviewCount;
             return averageRating;
         }
 
@@ -199,7 +201,7 @@ namespace HomeTheatre.Services.Services
 
             foreach (var theatre in allTheatres)
             {
-                await GetAverageRating(theatre.Id);
+                await GetAverageRatingAndNumberOfReviews(theatre.Id);
             }
 
             var topTheatres = await allTheatres

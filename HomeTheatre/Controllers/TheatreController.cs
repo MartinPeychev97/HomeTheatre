@@ -106,17 +106,19 @@ namespace HomeTheatre.Controllers
 
             //var userId = _userManager.GetUserId(HttpContext.User);
 
-            try
-            {
-                var theatreAverageRating = await _theatreServices.GetAverageRating(theatreId);
-                theatreVm.AverageRating = theatreAverageRating;
-               // _logger.LogInformation("Theatre average rating has been assigned ");
+            //try
+            //{
+            //    var theatreAverageRating = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
+            //    theatreVm.AverageRating = theatreAverageRating;
+            //   // _logger.LogInformation("Theatre average rating has been assigned ");
 
-            }
-            catch (Exception)
-            {
-                theatreVm.AverageRating = 0.6666;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    theatreVm.AverageRating = 0.6666;
+            //}
+
+            var theatreAverageRating = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
 
             if (commentsVM != null)
             {

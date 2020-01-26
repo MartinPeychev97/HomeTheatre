@@ -51,6 +51,10 @@
     <Compile Remove="Migrations\20200124183746_I.Designer.cs" />
     <Compile Remove="Migrations\20200125194309_update-database.cs" />
     <Compile Remove="Migrations\20200125194309_update-database.Designer.cs" />
+    <Compile Remove="Migrations\20200126092337_I.cs" />
+    <Compile Remove="Migrations\20200126092337_I.Designer.cs" />
+    <Compile Remove="Migrations\20200126093627_I.cs" />
+    <Compile Remove="Migrations\20200126093627_I.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
