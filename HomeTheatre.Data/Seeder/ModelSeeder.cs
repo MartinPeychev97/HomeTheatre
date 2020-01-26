@@ -33,6 +33,9 @@ namespace HomeTheatre.Data.Seeder
             Guid theatreId08 = Guid.NewGuid();
             Guid theatreId09 = Guid.NewGuid();
             Guid theatreId10 = Guid.NewGuid();
+            Guid theatreId11 = Guid.NewGuid();
+            Guid theatreId12 = Guid.NewGuid();
+            Guid theatreId13 = Guid.NewGuid();
             #endregion
             #region CommentGuid
             Guid commentId01 = Guid.NewGuid();
@@ -196,7 +199,6 @@ namespace HomeTheatre.Data.Seeder
                 ImagePath = "/assets/images/Italian.jpg",
                 Image = "Italian.jpg",
                 CreatedOn = DateTime.UtcNow,
-
             };
 
             Theatre theatre02 = new Theatre
@@ -315,7 +317,41 @@ namespace HomeTheatre.Data.Seeder
                 CreatedOn = DateTime.UtcNow,
                 
             };
-            builder.Entity<Theatre>().HasData(theatre01, theatre02, theatre03, theatre04, theatre05, theatre06, theatre07, theatre08, theatre09, theatre10);
+            Theatre theatre11 = new Theatre
+            {
+                Id = theatreId11,
+                Name = "EleventhTheatre",
+                AboutInfo = "A den of scum and villany",
+                Location = "Slanchaka",
+                Phone = "0986553654",
+                ImagePath = "/assets/images/Italian.jpg",
+                Image = "Italian.jpg",
+                CreatedOn = DateTime.UtcNow,
+            };
+
+            Theatre theatre12 = new Theatre
+            {
+                Id = theatreId12,
+                Name = "TwelthTheatre",
+                AboutInfo = "A regular theatre for average people",
+                Location = "Sofia",
+                Phone = "0986556953",
+                ImagePath = "/assets/images/Italian.jpg",
+                Image = "Italian.jpg",
+                CreatedOn = DateTime.UtcNow,
+            };
+            Theatre theatre13 = new Theatre
+            {
+                Id = theatreId13,
+                Name = "ThirteenthTheatre",
+                AboutInfo = "An unlucky place ,maybe because it is called ThirteenthTheatre",
+                Location = "UnluckyPlace",
+                Phone = "09877364253",
+                ImagePath = "/assets/images/Italian.jpg",
+                Image = "Italian.jpg",
+                CreatedOn = DateTime.UtcNow,
+            };
+            builder.Entity<Theatre>().HasData(theatre01, theatre02, theatre03, theatre04, theatre05, theatre06, theatre07, theatre08, theatre09, theatre10, theatre11, theatre12, theatre13);
             #endregion
             #region SeedReview
             var review01 = new Review

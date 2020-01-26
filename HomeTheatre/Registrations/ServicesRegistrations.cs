@@ -19,6 +19,7 @@ namespace HomeTheatre.Registrations
             services.AddScoped<IBanServices, BanServices>();
             services.AddScoped<ITheatreReviewServices, TheatreReviewServices>();
             services.AddScoped<ISearchServices, SearchServices>();
+            services.AddScoped<IUserServices, UserServices>();
 
             return services;
         }
