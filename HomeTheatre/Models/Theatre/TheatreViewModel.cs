@@ -13,7 +13,6 @@ namespace HomeTheatre.Models.Theatre
         public TheatreViewModel()
         {
             ReviewsVM = new List<ReviewViewModel>();
-            AverageRating = 0.00;
         }
 
         public Guid Id { get; set; }

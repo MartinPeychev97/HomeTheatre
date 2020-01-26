@@ -56,6 +56,8 @@ namespace HomeTheatre.Services.Services
             {
                 throw new ArgumentNullException();
             }
+            var assignARandNumOfReviews = await GetAverageRatingAndNumberOfReviews(tempTheatre.Id);
+
             var theatre = new Theatre
             {
                 Name = tempTheatre.Name,
@@ -176,7 +178,7 @@ namespace HomeTheatre.Services.Services
                 throw new Exception("Something Went wrong");
             }
         }
-        public async Task<double> GetAverageRatingAndNumberOfReviews(Guid theatreId)
+        public async Task<Theatre> GetAverageRatingAndNumberOfReviews(Guid theatreId)
         {
             var theatre = await _context.Theatres
                 .Include(t => t.Reviews)
@@ -192,7 +194,7 @@ namespace HomeTheatre.Services.Services
             double averageRating = RatingSum / reviewCount;
             theatre.AverageRating = averageRating;
             theatre.NumberOfReviews = reviewCount;
-            return averageRating;
+            return theatre;
         }
 
         public async Task<ICollection<Theatre>> GetTopTheatresAsync(int num)

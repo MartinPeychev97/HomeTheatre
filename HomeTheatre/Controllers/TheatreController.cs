@@ -118,7 +118,7 @@ namespace HomeTheatre.Controllers
             //    theatreVm.AverageRating = 0.6666;
             //}
 
-            var theatreAverageRating = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
+            //var assignARandNumOfReviews = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
 
             if (commentsVM != null)
             {

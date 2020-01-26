@@ -13,6 +13,7 @@ namespace HomeTheatre.Data.DbModels
         public Theatre()
         {
             Reviews = new List<Review>();
+            AverageRating = 0.00;
         }
 
         [Key]
