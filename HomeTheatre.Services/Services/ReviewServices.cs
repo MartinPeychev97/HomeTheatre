@@ -31,24 +31,47 @@ namespace HomeTheatre.Services.Services
             {
                 throw new ArgumentException("This review is empty");
             }
+            var getReviews = _context.Reviews
+                .Include(x => x.Theatre);
 
-            var review = new Review
+            var isTrue = false;
+
+            foreach (var item in getReviews)
             {
-                Id = reviewId,
-                ReviewText = tempReview.ReviewText,
-                Author = tempReview.Author,
-                Rating = tempReview.Rating,
-                IsDeleted = tempReview.IsDeleted,
-                CreatedOn = DateTime.Now,
-                ModifiedOn = tempReview.ModifiedOn,
-                DeletedOn = tempReview.ModifiedOn
-            };
+                var checkUser = item.Author == tempReview.Author;
+                var checkTheaher = item.TheatreId == tempReview.TheatreId;
 
-            await _context.Reviews.AddAsync(review);
-            await _context.SaveChangesAsync();
+                if (checkTheaher != false && checkUser != false)
+                {
+                    isTrue = true;
+                    break;
+                }
+            }
 
-            return review;
+            if (isTrue == false)
+            {
+                var review = new Review
+                {
+                    Id = reviewId,
+                    ReviewText = tempReview.ReviewText,
+                    Author = tempReview.Author,
+                    Rating = tempReview.Rating,
+                    IsDeleted = tempReview.IsDeleted,
+                    CreatedOn = DateTime.Now,
+                    ModifiedOn = tempReview.ModifiedOn,
+                    DeletedOn = tempReview.ModifiedOn,
+                    TheatreId = tempReview.TheatreId
+                };
+
+                await _context.Reviews.AddAsync(review);
+                await _context.SaveChangesAsync();
+
+                return review;
+            }
+
+            throw new Exception("You can not write more than one review for theatre.");
         }
+
         public async Task<Review> DeleteReviewAsync(Guid id)
         {
             var review = await _context.Reviews
@@ -80,10 +103,10 @@ namespace HomeTheatre.Services.Services
                 .Where(x => x.TheatreId == theatreId)
                 .ToListAsync();
 
-            if (!reviews.Any())
-            {
-                throw new ArgumentNullException("There are no reviews");
-            }
+            //if (!reviews.Any())
+            //{
+            //    throw new ArgumentNullException("There are no reviews");
+            //}
 
             return reviews;
         }

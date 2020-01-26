@@ -27,3 +27,4 @@ C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\obj\Debug\netcoreapp
 C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.AssemblyInfo.cs
 C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.dll
 C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.pdb
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre.Data\obj\Debug\netcoreapp2.2\HomeTheatre.Data.csprojAssemblyReference.cache

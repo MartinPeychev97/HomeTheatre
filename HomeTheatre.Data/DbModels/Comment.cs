@@ -15,9 +15,9 @@ namespace HomeTheatre.Data.DbModels
         public string CommentText { get; set; }
         public string Author { get; set; }
         public User User { get; set; }
+        public Guid UserId { get; set; }
         public Review Review { get; set; }
         public Guid ReviewId { get; set; }
-        public Guid UserId { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? DeletedOn { get; set; }
         public DateTime CreatedOn { get; set; }

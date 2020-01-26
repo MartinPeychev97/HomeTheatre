@@ -5,63 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20191205155545_I.cs" />
-    <Compile Remove="Migrations\20191205155545_I.Designer.cs" />
-    <Compile Remove="Migrations\20191208182619_I.cs" />
-    <Compile Remove="Migrations\20191208182619_I.Designer.cs" />
-    <Compile Remove="Migrations\20191218195054_I.cs" />
-    <Compile Remove="Migrations\20191218195054_I.Designer.cs" />
-    <Compile Remove="Migrations\20200119190734_Y.cs" />
-    <Compile Remove="Migrations\20200119190734_Y.Designer.cs" />
-    <Compile Remove="Migrations\20200119200251_I.cs" />
-    <Compile Remove="Migrations\20200119200251_I.Designer.cs" />
-    <Compile Remove="Migrations\20200119211321_I.cs" />
-    <Compile Remove="Migrations\20200119211321_I.Designer.cs" />
-    <Compile Remove="Migrations\20200119211723_I.cs" />
-    <Compile Remove="Migrations\20200119211723_I.Designer.cs" />
-    <Compile Remove="Migrations\20200119212349_I.cs" />
-    <Compile Remove="Migrations\20200119212349_I.Designer.cs" />
-    <Compile Remove="Migrations\20200120141233_I.cs" />
-    <Compile Remove="Migrations\20200120141233_I.Designer.cs" />
-    <Compile Remove="Migrations\20200120160251_I.cs" />
-    <Compile Remove="Migrations\20200120160251_I.Designer.cs" />
-    <Compile Remove="Migrations\20200122110219_I.cs" />
-    <Compile Remove="Migrations\20200122110219_I.Designer.cs" />
-    <Compile Remove="Migrations\20200122111539_I.cs" />
-    <Compile Remove="Migrations\20200122111539_I.Designer.cs" />
-    <Compile Remove="Migrations\20200122112248_I.cs" />
-    <Compile Remove="Migrations\20200122112248_I.Designer.cs" />
-    <Compile Remove="Migrations\20200123101922_I.cs" />
-    <Compile Remove="Migrations\20200123101922_I.Designer.cs" />
-    <Compile Remove="Migrations\20200123103004_I.cs" />
-    <Compile Remove="Migrations\20200123103004_I.Designer.cs" />
-    <Compile Remove="Migrations\20200123103538_I.cs" />
-    <Compile Remove="Migrations\20200123103538_I.Designer.cs" />
-    <Compile Remove="Migrations\20200123125912_I.cs" />
-    <Compile Remove="Migrations\20200123125912_I.Designer.cs" />
-    <Compile Remove="Migrations\20200123130239_I.cs" />
-    <Compile Remove="Migrations\20200123130239_I.Designer.cs" />
-    <Compile Remove="Migrations\20200123131002_I.cs" />
-    <Compile Remove="Migrations\20200123131002_I.Designer.cs" />
-    <Compile Remove="Migrations\20200123140134_I.cs" />
-    <Compile Remove="Migrations\20200123140134_I.Designer.cs" />
-    <Compile Remove="Migrations\20200124163939_I.cs" />
-    <Compile Remove="Migrations\20200124163939_I.Designer.cs" />
-    <Compile Remove="Migrations\20200124183746_I.cs" />
-    <Compile Remove="Migrations\20200124183746_I.Designer.cs" />
-    <Compile Remove="Migrations\20200125194309_update-database.cs" />
-    <Compile Remove="Migrations\20200125194309_update-database.Designer.cs" />
-    <Compile Remove="Migrations\20200126092337_I.cs" />
-    <Compile Remove="Migrations\20200126092337_I.Designer.cs" />
-    <Compile Remove="Migrations\20200126093627_I.cs" />
-    <Compile Remove="Migrations\20200126093627_I.Designer.cs" />
-    <Compile Remove="Migrations\20200126094406_I.cs" />
-    <Compile Remove="Migrations\20200126094406_I.Designer.cs" />
+    <Compile Remove="Migrations\20200126185131_I.cs" />
+    <Compile Remove="Migrations\20200126185131_I.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

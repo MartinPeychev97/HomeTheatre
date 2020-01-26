@@ -29,14 +29,14 @@
                             <form asp-action="Create">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-group">
-                                    <label asp-for="Description" class="control-label"></label>
-                                    <input asp-for="Description" class="form-control" />
-                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                    <label asp-for="BanReason" class="control-label"></label>
+                                    <input asp-for="BanReason" class="form-control" />
+                                    <span asp-validation-for="BanReason" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Period" class="control-label"></label>
-                                    <input asp-for="Period" class="form-control" />
-                                    <span asp-validation-for="Period" class="text-danger"></span>
+                                    <label asp-for="DurationInDays" class="control-label"></label>
+                                    <input asp-for="DurationInDays" class="form-control" />
+                                    <span asp-validation-for="DurationInDays" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Ban" class="btn btn-primary" />

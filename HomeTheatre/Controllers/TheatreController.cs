@@ -20,12 +20,17 @@ namespace HomeTheatre.Controllers
     public class TheatreController : Controller
     {
         private readonly ITheatreService _theatreServices;
+        //FRPOM THE AREA ================
+        //private readonly IViewModelMapper<Theatre, TheatreViewModel> _theatreVMmapper;
+        //private readonly ITheatreService _theatreService;
+        //=======================================
         private readonly ICommentServices _commentServices;
         private readonly UserManager<User> _userManager;
         private readonly IViewModelMapper<Theatre, TheatreViewModel> _theatreViewModelMapper;
         private readonly IViewModelMapper<Comment, CommentViewModel> _commentViewModelMapper;
         private readonly IViewModelMapper<Review, ReviewViewModel> _reviewViewModelMapper;
         private readonly IViewModelMapper<SearchTheatre, TheatreViewModel> _searchTheatreViewModelMapper;
+
         //private readonly ISearchServices _searchServices;
         private readonly IReviewServices _reviewServices;
         //private readonly ILogger _logger;
@@ -95,6 +100,7 @@ namespace HomeTheatre.Controllers
             {
                 return NotFound();
             }
+
             var theatre = await _theatreServices.GetTheatreAsync(theatreId);
             var theatreVm = _theatreViewModelMapper.MapFrom(theatre);
 
@@ -140,6 +146,15 @@ namespace HomeTheatre.Controllers
 
         }
 
+        public async Task<IActionResult> Catalogue()
+        {
+            var allTheatres = await _theatreServices.GetAllTheatresAsync();
+            var theatreVm = _theatreViewModelMapper.MapFrom(allTheatres);
+            var theatre = TheatreMapper.MapFromTheatreIndex(theatreVm);
+
+            return View(theatre);
+        }
+
         //[HttpGet]
         //public async Task<IActionResult> Search([FromQuery]SearchTheatreViewModel model)
         //{
@@ -160,6 +175,63 @@ namespace HomeTheatre.Controllers
         //        //_logger.LogInformation("Search failed,please try again");
         //        return View();
         //    }
+        //}
+
+
+
+
+
+        ////TODO - FROM THE AREA!
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> CreateTheatre(TheatreViewModel theatreVM)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var theatreModel = _theatreVMmapper.MapFrom(theatreVM);
+        //        var newlyCreatedTheatre = await _theatreService.CreateTheatreAsync(theatreModel);
+
+        //        //_logger.LogInformation("Theatre Successfully created");
+        //        return RedirectToAction("Details", new { id = newlyCreatedTheatre.Id });
+        //    }
+        //    else
+        //    {
+        //        //_logger.LogError("Theatre was not created,something went wrong");
+        //        return RedirectToAction("Index", "Theatre", new { area = "" });
+        //    }
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> EditTheatre(Guid id, string newName, string newAboutInfo, string newLocation, string newPhone)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var tempTheatre = await _theatreService.UpdateAsync(id, newName, newAboutInfo, newLocation, newPhone);
+
+        //        //_logger.LogInformation("Theatre was successfully updated");
+        //        return RedirectToAction("Details", new { id = tempTheatre.Id });
+        //    }
+
+        //    //_logger.LogError("Theatre update was unsuccessfull, something went wrong");
+        //    return RedirectToAction("Index", "Theatre", new { area = "" });
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteTheatre(Guid id)
+        //{
+        //    try
+        //    {
+        //        await _theatreService.DeleteTheatreAsync(id);
+        //        // _logger.LogInformation("Theatre was successfully deleted");
+        //    }
+        //    catch (Exception)
+        //    {
+        //        // _logger.LogError("Theatre deletion was unsuccessfull, something went wrong");
+        //    }
+        //    return RedirectToAction("Index", "Theatre", new { area = "" });
         //}
     }
 }

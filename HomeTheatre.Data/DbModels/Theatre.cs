@@ -18,19 +18,24 @@ namespace HomeTheatre.Data.DbModels
 
         [Key]
         public Guid Id { get; set; }
+
         [DisplayName("Theatre Name")]
         [Required]
         [StringLength(40, ErrorMessage = "The  value cannot exceed 40 characters.")]
         public string Name { get; set; }
+
         public double? AverageRating { get; set; }
         public int NumberOfReviews { get; set; }
+
         [DisplayName("Theatre AboutInfo")]
         [Required]
         [StringLength(1000, ErrorMessage = "The value cannot exceed 1000 characters.")]
         public string AboutInfo { get; set; }
+
         public string Location { get; set; }
         public string Phone { get; set; }
         public string ImagePath { get; set; }
+        public string Image { get; set; }
         public double? CurrentUserRating { get; set; }
         public ICollection<Review> Reviews { get; set; }
         public User User { get; set; }

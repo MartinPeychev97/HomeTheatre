@@ -194,6 +194,7 @@ namespace HomeTheatre.Data.Seeder
                 Location = "7292 Dictum Av.San Antonio MI 47096",
                 Phone = "0896453401",
                 ImagePath = "/assets/images/Italian.jpg",
+                Image = "Italian.jpg",
                 CreatedOn = DateTime.UtcNow,
 
             };
@@ -205,6 +206,7 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "A Rather nasty Theatre with rats everywhere even in the popcorn",
                 Location = "191-103 Integer Rd.Corona New Mexico 08219",
                 ImagePath = "/assets/images/Depth.jpg",
+                Image = "Depth.jpg",
                 Phone = "0896453402",
                 CreatedOn = DateTime.UtcNow,
 
@@ -217,6 +219,7 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "Same as the second Theatre but with character",
                 Location = "606-3727 Ullamcorper. StreetRoseville NH 11523",
                 ImagePath = "/assets/images/LightHouse.jpg",
+                Image = "LightHouse.jpg",
                 Phone = "0896453433",
                 CreatedOn = DateTime.UtcNow,
 
@@ -229,6 +232,7 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "The door man is very polite,otherwise the Theatre is rather unpleasant",
                 Location = "Frederick Nebraska 20620",
                 ImagePath = "/assets/images/ThatsAllFolks.jpg",
+                Image = "ThatsAllFolks.jpg",
                 Phone = "089645344",
                 CreatedOn = DateTime.UtcNow,
 
@@ -241,6 +245,7 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "This Theatre has stood for 200 years and it shows then you enter",
                 Location = "Mankato Mississippi 96522",
                 ImagePath = "/assets/images/YellowTheatre.jpg",
+                Image = "YellowTheatre.jpg",
                 Phone = "0896453455",
                 CreatedOn = DateTime.UtcNow,
 
@@ -253,6 +258,7 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "A Theatre for people with a finer taste then the average mortal man",
                 Location = "Chaika str ,Varna city",
                 ImagePath = "/assets/images/CathedralTheatre.jpg",
+                Image = "CathedralTheatre.jpg",
                 Phone = "0896453466",
                 CreatedOn = DateTime.UtcNow,
 
@@ -265,6 +271,7 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "There has never existed a fancier Theatre, the curtains are made o woven gold",
                 Location = "TheOneTrueStreet str, BestCity city",
                 ImagePath = "/assets/images/ComfyHomeCinema.jpg",
+                Image = "ComfyHomeCinema.jpg",
                 Phone = "0896453477",
                 CreatedOn = DateTime.UtcNow,
 
@@ -278,6 +285,7 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "Same as the seventh Theatre but yet ,somehow the opposite",
                 Location = "Gospodinovzi str, Sofia city",
                 ImagePath = "/assets/images/Foiey.jpg",
+                Image = "Foiey.jpg",
                 Phone = "0896453488",
                 CreatedOn = DateTime.UtcNow,
 
@@ -290,6 +298,7 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "This Theatre is very expensive,not well suited to poor people",
                 Location = "Bullevard 27 str, Sofia city",
                 ImagePath = "/assets/images/Old.jpg",
+                Image = "Old.jpg",
                 Phone = "0896453499",
                 CreatedOn = DateTime.UtcNow,
 
@@ -301,9 +310,10 @@ namespace HomeTheatre.Data.Seeder
                 AboutInfo = "A ghetto Theatre which has the single purpose of getting robbed",
                 Location = "Fifth and avenue str ,Cansas city",
                 ImagePath = "/assets/images/Wide.jpg",
+                Image = "Wide.jpg",
                 Phone = "0896453410",
                 CreatedOn = DateTime.UtcNow,
-
+                
             };
             builder.Entity<Theatre>().HasData(theatre01, theatre02, theatre03, theatre04, theatre05, theatre06, theatre07, theatre08, theatre09, theatre10);
             #endregion

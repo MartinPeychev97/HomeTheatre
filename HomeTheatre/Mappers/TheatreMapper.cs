@@ -1,10 +1,6 @@
 ﻿using HomeTheatre.Data.DbModels;
 using HomeTheatre.Models.Theatre;
-using HomeTheatre.Services.Contracts;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HomeTheatre.Mappers
 {
@@ -12,10 +8,6 @@ namespace HomeTheatre.Mappers
     {
         public static TheatreViewModel MapFromTheatre(this Theatre theatre)
         {
-            if (theatre == null)
-            {
-                throw new ArgumentNullException();
-            }
             var theatreListing = new TheatreViewModel
             {
                 Id = theatre.Id,
@@ -28,8 +20,18 @@ namespace HomeTheatre.Mappers
                 DeletedOn = theatre.DeletedOn,
                 IsDeleted = theatre.IsDeleted
             };
+
             return theatreListing;
         }
-      
+
+        public static TheatreIndexViewModel MapFromTheatreIndex(this ICollection<TheatreViewModel> theatre)
+        {
+            var model = new TheatreIndexViewModel
+            {
+                TheatreModels = theatre
+            };
+
+            return model;
+        }
     }
 }

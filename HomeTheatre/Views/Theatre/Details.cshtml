@@ -22,6 +22,25 @@
         <p><b>About Info:</b> @Model.AboutInfo</p>
         <p><b>Phone:</b> @Model.Phone</p>
 
+        <div class="container" style="border: double">
+            <div class="container" style="border-bottom: dashed">
+                <p><b>Reviews:</b></p>
+            </div>
+
+            <p></p>
+
+            @foreach (var item in Model.ReviewsVM)
+            {
+                <div class="container" style="border-bottom: dashed">
+                    <p><b>Author: </b>@item.Author</p>
+                    <p><b>Text: </b> @item.ReviewText</p>
+                </div>
+            }
+            <p></p>
+        </div>
+
+
+
         @if (SignInManager.IsSignedIn(User))
         {
             <partial name="_AddReviewPartial" , model="new ReviewViewModel { Id = Model.Id }" />

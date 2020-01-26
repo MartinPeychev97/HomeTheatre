@@ -48,15 +48,14 @@ namespace HomeTheatre.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateReview(ReviewViewModel viewModel, Guid theatreid)
+        public async Task<IActionResult> CreateReview(ReviewViewModel viewModel)
         {
             try
             {
                 var user = await _userManager.GetUserAsync(User);
-                var Author = user.UserName;
 
                 viewModel.UserId = user.Id;
-                viewModel.Author = Author;
+                viewModel.Author = user.UserName;
                 var review = _reviewMapper.MapFrom(viewModel);
 
                 var newComment = await _reviewServices.CreateReviewAsync(review);
@@ -71,6 +70,7 @@ namespace HomeTheatre.Controllers
             catch (Exception)
             {
                 //_logger.LogCritical("Review must be between 2 and 500 characters");
+                //return RedirectToAction("Theatre", viewModel);
             }
 
             return RedirectToAction("Index", viewModel);

@@ -92,10 +92,14 @@ namespace HomeTheatre
 
             app.UseMvc(routes =>
             {
+                //routes.MapRoute(
+                //    name: "areas",
+                //    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
-                routes.MapRoute(
-                     name: "areas",
-                     template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                routes.MapAreaRoute(
+                     name: "AdministratorsActions",
+                     areaName: "Administrator",
+                     template: "{area:exists}/{controller=Theater}/{action=CreateTheatre}/{id?}");
 
                 routes.MapRoute(
                     name: "default",

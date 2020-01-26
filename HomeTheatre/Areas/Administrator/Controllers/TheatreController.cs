@@ -34,6 +34,11 @@ namespace HomeTheatre.Areas.Administrator.Controllers
             _trServices = trServices ?? throw new ArgumentNullException(nameof(trServices));
         }
 
+        public IActionResult CreateTheatre()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateTheatre(TheatreViewModel theatreVM)

@@ -29,13 +29,14 @@ namespace HomeTheatre.Services.Services
                 .OrderBy(b => b.Name)
                 .FirstOrDefaultAsync(b => b.Id == Id);
 
-            if (theatre == null)
-            {
-                throw new Exception("The theatre you are looking for doesn't exist");
-            }
+            //if (theatre == null)
+            //{
+            //    throw new Exception("The theatre you are looking for doesn't exist");
+            //}
 
             return theatre;
         }
+
         public async Task<ICollection<Theatre>> GetAllTheatresAsync()
         {
             var allTheatres = await _context.Theatres
@@ -56,7 +57,18 @@ namespace HomeTheatre.Services.Services
             {
                 throw new ArgumentNullException();
             }
-            var assignARandNumOfReviews = await GetAverageRatingAndNumberOfReviews(tempTheatre.Id);
+
+            Guid newTheatreId = Guid.NewGuid();
+            //var assignARandNumOfReviews = await GetAverageRatingAndNumberOfReviews(tempTheatre.Id);
+
+            if (tempTheatre.ImagePath == null)
+            {
+                tempTheatre.ImagePath = "/assets/images/Defaulttheater.jpg";
+            }
+            if (tempTheatre.Image == null)
+            {
+                tempTheatre.Image = "Defaulttheater.jpg";
+            }
 
             var theatre = new Theatre
             {
@@ -64,6 +76,12 @@ namespace HomeTheatre.Services.Services
                 AboutInfo = tempTheatre.AboutInfo,
                 Location = tempTheatre.Location,
                 Phone = tempTheatre.Phone,
+                AverageRating = 0,
+                NumberOfReviews = 0,
+                CreatedOn = DateTime.Now,
+                Id = newTheatreId,
+                ImagePath = tempTheatre.ImagePath,
+                Image = tempTheatre.Image,
             };
 
             await _context.Theatres.AddAsync(theatre);
