@@ -34,9 +34,9 @@ namespace HomeTheatre.Controllers
                .Select(x => _theatreVmMapper.MapFrom(x))
                .ToList();
 
-            var homeViewModel = new HomeViewModel
+            var homeViewModel = new TheatreIndexViewModel
             {
-                TopTheatres = toptheatresVM
+                TheatreModels = toptheatresVM
             };
             return View(homeViewModel);
 

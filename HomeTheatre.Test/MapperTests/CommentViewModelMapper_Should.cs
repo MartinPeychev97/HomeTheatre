@@ -33,7 +33,7 @@ namespace HomeTheatre.Test.MapperTests
             var result = sut.MapFrom(comment);
 
             //Assert
-            Assert.IsInstanceOfType(result, typeof(CommentViewModelMapper));
+            Assert.IsInstanceOfType(result, typeof(CommentViewModel));
         }
 
         [TestMethod]

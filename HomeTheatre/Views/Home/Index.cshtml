@@ -1,5 +1,5 @@
 ﻿
-@model HomeViewModel
+@model TheatreIndexViewModel
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
@@ -20,22 +20,22 @@
 <div class="section text-center" >
     <h2 class="title">Highest rated Theatres </h2>
     <div class="row">
-        @foreach (var theatre in Model.TopTheatres)
+        @foreach (var theatre in Model.TheatreModels)
         {
             <div class="col-md-4 columnhomescreen">
                 <a asp-controller="Theatre" asp-action="Details" asp-route-theatreId="@theatre.Id" rel="alternate"> 
                     <img src="@theatre.ImagePath" alt="TheatreImage" style="width:100%; height:240px">
                     <h4 class="card-title">
-                        @theatre.Name
-                        <br>
-                        @theatre.Location
-                        <br>
-                        @theatre.Phone
-                        <br>
-                        @theatre.NumberOfReviews
-                        <br>
-                        @theatre.AverageRating
-                    </h4>
+                        <b> Name:</b>@theatre.Name
+                            <br>
+                            <b> Location:</b>@theatre.Location
+                                <br>
+                                <b>Phone:</b> @theatre.Phone
+                                    <br>
+                                    <b>NumberOfReviews:</b> @theatre.NumberOfReviews
+                                        <br>
+                                       <b>AverageRating:</b> @theatre.AverageRating
+</h4>
                 </a>
             </div>
         }

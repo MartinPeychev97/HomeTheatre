@@ -60,7 +60,7 @@ namespace HomeTheatre.Test.ServicesTests.BanServicesTests
             using (var assertContext = new TheatreContext(options))
             {
                 //Assert
-                var ban = assertContext.Bans.Include(b => b.User).FirstOrDefault(b => b.User.UserName == "Martin");
+                var ban = assertContext.Bans.Include(b => b.User).FirstOrDefault(b => b.User.UserName == "Mariika");
                 Assert.AreEqual("Mariika", ban.User.UserName);
                 Assert.AreEqual("Improper language", ban.ReasonBanned);
             }

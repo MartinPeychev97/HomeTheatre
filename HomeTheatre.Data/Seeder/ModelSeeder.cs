@@ -55,6 +55,9 @@ namespace HomeTheatre.Data.Seeder
             Guid reviewId08 = Guid.NewGuid();
             Guid reviewId09 = Guid.NewGuid();
             Guid reviewId10 = Guid.NewGuid();
+            Guid reviewId11 = Guid.NewGuid();
+            Guid reviewId12 = Guid.NewGuid();
+            Guid reviewId13 = Guid.NewGuid();
             #endregion
             ////
             #region Seed Role and Admin
@@ -444,7 +447,35 @@ namespace HomeTheatre.Data.Seeder
                 TheatreId = theatreId10,
                 CreatedOn = DateTime.UtcNow
             };
-            builder.Entity<Review>().HasData(review01, review02, review03, review04, review05,review06,review07,review08,review09,review10);
+            var review11 = new Review
+            {
+                Id = reviewId11,
+                Author = memberUser01.UserName,
+                ReviewText = "I Have Made a Review For this theatre ",
+                Rating = 2,
+                TheatreId = theatreId11,
+                CreatedOn = DateTime.UtcNow
+            };
+            var review12 = new Review
+            {
+                Id = reviewId12,
+                Author = memberUser01.UserName,
+                ReviewText = "Amazing theatre would go again ",
+                Rating = 2,
+                TheatreId = theatreId12,
+                CreatedOn = DateTime.UtcNow
+            };
+            var review13 = new Review
+            {
+                Id = reviewId13,
+                Author = memberUser03.UserName,
+                ReviewText = "Meh it was very meh. ",
+                Rating = 2,
+                TheatreId = theatreId13,
+                CreatedOn = DateTime.UtcNow
+            };
+          
+            builder.Entity<Review>().HasData(review01, review02, review03, review04, review05,review06,review07,review08,review09,review10, review11, review12, review13);
 
             #endregion
             #region CommentSeed

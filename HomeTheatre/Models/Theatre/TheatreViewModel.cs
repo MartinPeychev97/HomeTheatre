@@ -25,11 +25,12 @@ namespace HomeTheatre.Models.Theatre
         [Required]
         [StringLength(1000, ErrorMessage = "The value cannot exceed 1000 characters.")]
         public string AboutInfo { get; set; }
-
+        [Required]
+        public int NumberOfReviews { get; set; }
+        [Required]
         public double? AverageRating { get; set; }
         public string ImagePath { get; set; }
         public string Image { get; set; }
-        public int NumberOfReviews { get; set; }
         public string Location { get; set; }
 
         [Required]
@@ -42,8 +43,6 @@ namespace HomeTheatre.Models.Theatre
 
         public ICollection<ReviewViewModel> ReviewsVM { get; set; }
         public ICollection<CommentViewModel> CommentsVM { get; set; }
-        //public ICollection<TheatreIndexViewModel> TheatreModels { get; set; }
-
         public double? CurrentUserRating { get; set; }
     }
 }

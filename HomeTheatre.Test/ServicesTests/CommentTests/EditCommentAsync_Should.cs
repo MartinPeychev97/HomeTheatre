@@ -26,9 +26,8 @@ namespace HomeTheatre.Test.ServicesTests.CommentTests
 
             var createdOn = DateTime.UtcNow;
 
-            var entity = new Comment
+            var comment = new Comment
             {
-
                 Id = id,
                 ReviewId = reviewId,
                 UserId = userId,
@@ -38,7 +37,7 @@ namespace HomeTheatre.Test.ServicesTests.CommentTests
 
             using (var arrangeContext = new TheatreContext(options))
             {
-                await arrangeContext.Comments.AddAsync(entity);
+                await arrangeContext.Comments.AddAsync(comment);
                 await arrangeContext.SaveChangesAsync();
             }
 
@@ -47,7 +46,7 @@ namespace HomeTheatre.Test.ServicesTests.CommentTests
             {
                 var sut = new CommentServices(assertContext);
 
-                var result = await sut.EditCommentAsync(id, "newbody");
+                var result = await sut.EditCommentAsync(id, "newText");
 
                 var modifiedComment = await assertContext.Comments.FirstAsync();
 

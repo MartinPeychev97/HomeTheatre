@@ -8,7 +8,7 @@ using System.Text;
 
 namespace HomeTheatre.Data.DbModels
 {
-    public class Theatre : IEntityId,IDeletable,IAuditable
+    public class Theatre : IEntityId, IDeletable, IAuditable
     {
         public Theatre()
         {
@@ -23,8 +23,9 @@ namespace HomeTheatre.Data.DbModels
         [Required]
         [StringLength(40, ErrorMessage = "The  value cannot exceed 40 characters.")]
         public string Name { get; set; }
-
+        [Required]
         public double? AverageRating { get; set; }
+        [Required]
         public int NumberOfReviews { get; set; }
 
         [DisplayName("Theatre AboutInfo")]

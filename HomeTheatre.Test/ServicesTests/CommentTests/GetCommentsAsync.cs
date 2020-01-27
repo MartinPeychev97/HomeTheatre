@@ -55,8 +55,7 @@ namespace HomeTheatre.Test.ServicesTests.CommentTests
                 var sut = new CommentServices(assertContext);
                 var result = await sut.GetCommentsAsync(reviewId);
 
-                Assert.IsInstanceOfType(result, typeof(Comment));
-                Assert.AreEqual("testbody", result.Count());
+                Assert.IsInstanceOfType(result, typeof(ICollection<Comment>));
                 Assert.AreEqual(2, result.Count());
                 Assert.AreEqual(comment.CommentText, result.First().CommentText);
                 Assert.AreEqual(comment.Id, result.First().Id);
