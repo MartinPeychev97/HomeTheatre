@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 
 namespace HomeTheatre.Controllers
 {
-    [Authorize(Roles = "Member")]
+    [Authorize(Roles = "Member,Administrator")]
     public class CommentsController : Controller
     {
         private readonly UserManager<User> _userManager;
