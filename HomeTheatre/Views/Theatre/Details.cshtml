@@ -23,7 +23,7 @@
         <p><b>Phone:</b> @Model.Phone</p>
 
         <div class="container" style="border: double">
-            <div class="container" style="border-bottom: dashed">
+            <div class="container" style="border-bottom: double">
                 <p><b>Reviews:</b></p>
             </div>
 
@@ -31,9 +31,14 @@
 
             @foreach (var item in Model.ReviewsVM)
             {
-                <div class="container" style="border-bottom: dashed">
+                <div class="container" style="border-bottom: double">
                     <p><b>Author: </b>@item.Author</p>
                     <p><b>Text: </b> @item.ReviewText</p>
+                    <p><b> CreatedOn:</b>@item.CreatedOn</p>
+                    <p></p>
+                    <div class="container" style="float:right"  >
+                        <b>Button Here</b>
+                    </div>
                 </div>
             }
             <p></p>

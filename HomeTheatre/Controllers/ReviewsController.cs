@@ -13,7 +13,6 @@ using Microsoft.Extensions.Logging;
 
 namespace HomeTheatre.Controllers
 {
-    //[Authorize(Roles = "Member")]
     [Authorize(Roles = "Administrator, Member")]
     public class ReviewsController : Controller
     {

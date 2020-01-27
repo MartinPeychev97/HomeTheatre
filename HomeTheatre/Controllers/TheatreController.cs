@@ -106,12 +106,10 @@ namespace HomeTheatre.Controllers
             var reviewAll = await _reviewServices.GetAllReviewsAsync(theatreId);
             var reviewVm = _reviewViewModelMapper.MapFrom(reviewAll);
 
-            //var userId = _userManager.GetUserId(HttpContext.User);
 
             try
             {
                 var theatreAverageRating = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
-                //ADDED  theatreAverageRating.AverageRating
                 theatreVm.AverageRating = theatreAverageRating.AverageRating;
                 // _logger.LogInformation("Theatre average rating has been assigned ");
 
@@ -122,7 +120,7 @@ namespace HomeTheatre.Controllers
             }
 
             var assignARandNumOfReviews = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
-            //ADDED - row
+
             theatreVm.NumberOfReviews = assignARandNumOfReviews.NumberOfReviews;
 
             if (commentsVM != null)
