@@ -29,10 +29,10 @@ namespace HomeTheatre.Services.Services
                 .OrderBy(b => b.Name)
                 .FirstOrDefaultAsync(b => b.Id == Id);
 
-            //if (theatre == null)
-            //{
-            //    throw new Exception("The theatre you are looking for doesn't exist");
-            //}
+            if (theatre == null)
+            {
+                throw new Exception("The theatre you are looking for doesn't exist");
+            }
 
             return theatre;
         }

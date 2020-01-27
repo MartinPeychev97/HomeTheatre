@@ -42,7 +42,7 @@ namespace HomeTheatre.Test.MapperTests
             //Arrange
             var sut = new CommentViewModelMapper();
 
-            var barComment = new Comment
+            var comment = new Comment
             {
                 Id = Guid.NewGuid(),
                 ReviewId = Guid.NewGuid(),
@@ -53,15 +53,15 @@ namespace HomeTheatre.Test.MapperTests
             };
 
             //Act
-            var result = sut.MapFrom(barComment);
+            var result = sut.MapFrom(comment);
 
             //Assert
-            Assert.AreEqual(result.Id, barComment.Id);
-            Assert.AreEqual(result.ReviewId, barComment.ReviewId);
-            Assert.AreEqual(result.UserId, barComment.UserId);
-            Assert.AreEqual(result.Author, barComment.Author);
-            Assert.AreEqual(result.CommentText, barComment.CommentText);
-            Assert.AreEqual(result.CreatedOn, barComment.CreatedOn);
+            Assert.AreEqual(result.Id, comment.Id);
+            Assert.AreEqual(result.ReviewId, comment.ReviewId);
+            Assert.AreEqual(result.UserId, comment.UserId);
+            Assert.AreEqual(result.Author, comment.Author);
+            Assert.AreEqual(result.CommentText, comment.CommentText);
+            Assert.AreEqual(result.CreatedOn, comment.CreatedOn);
         }
 
 
@@ -71,7 +71,7 @@ namespace HomeTheatre.Test.MapperTests
             //Arrange
             var sut = new CommentViewModelMapper();
 
-            var barComment = new List<Comment>
+            var comment = new List<Comment>
             {
                 new Comment
                 {
@@ -94,7 +94,7 @@ namespace HomeTheatre.Test.MapperTests
             };
 
             //Act
-            var result = sut.MapFrom(barComment);
+            var result = sut.MapFrom(comment);
 
             //Assert
             Assert.IsInstanceOfType(result, typeof(List<CommentViewModel>));
@@ -106,7 +106,7 @@ namespace HomeTheatre.Test.MapperTests
             //Arrange
             var sut = new CommentViewModelMapper();
 
-            var barComment = new List<Comment>
+            var comment = new List<Comment>
             {
                 new Comment
                 {
@@ -129,7 +129,7 @@ namespace HomeTheatre.Test.MapperTests
             };
 
             //Act
-            var result = sut.MapFrom(barComment);
+            var result = sut.MapFrom(comment);
 
             //Assert
             Assert.AreEqual(2, result.Count());

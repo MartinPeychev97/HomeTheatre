@@ -47,6 +47,7 @@ namespace HomeTheatre.Test.ServicesTests.ReviewTests
                 
                 Assert.IsInstanceOfType(result, typeof(Review));
                 Assert.AreEqual(id, result.Id);
+                Assert.AreEqual(review.Rating, result.Rating);
                 Assert.AreEqual(theatreId, result.TheatreId);
                 Assert.AreEqual(createdOn, result.CreatedOn);
                 Assert.AreEqual("TestReviewText", result.ReviewText);

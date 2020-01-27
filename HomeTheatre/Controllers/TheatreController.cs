@@ -108,19 +108,22 @@ namespace HomeTheatre.Controllers
 
             //var userId = _userManager.GetUserId(HttpContext.User);
 
-            //try
-            //{
-            //    var theatreAverageRating = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
-            //    theatreVm.AverageRating = theatreAverageRating;
-            //   // _logger.LogInformation("Theatre average rating has been assigned ");
+            try
+            {
+                var theatreAverageRating = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
+                //ADDED  theatreAverageRating.AverageRating
+                theatreVm.AverageRating = theatreAverageRating.AverageRating;
+                // _logger.LogInformation("Theatre average rating has been assigned ");
 
-            //}
-            //catch (Exception)
-            //{
-            //    theatreVm.AverageRating = 0.6666;
-            //}
+            }
+            catch (Exception)
+            {
+                theatreVm.AverageRating = 0.6666;
+            }
 
-            //var assignARandNumOfReviews = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
+            var assignARandNumOfReviews = await _theatreServices.GetAverageRatingAndNumberOfReviews(theatreId);
+            //ADDED - row
+            theatreVm.NumberOfReviews = assignARandNumOfReviews.NumberOfReviews;
 
             if (commentsVM != null)
             {

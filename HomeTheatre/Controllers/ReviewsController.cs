@@ -64,7 +64,8 @@ namespace HomeTheatre.Controllers
 
                 //_logger.LogInformation("Review has been posted successfully");
 
-                return RedirectToAction("Index", newReviewVm);
+                //ADDED
+                return RedirectToAction("Index", "Home", viewModel);
 
             }
             catch (Exception)

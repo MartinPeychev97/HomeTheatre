@@ -329,3 +329,7 @@ C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\_ViewImports.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\_ViewStart.cshtml.g.cs
 C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Views\Theatre\Catalogue.cshtml.g.cs
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\CreateTheatrePartialView.cshtml.g.cs
+C:\Users\MSuser\Desktop\HomeTheatre-master\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\CreateTheatrePartialView.cshtml.g.cs
+C:\Users\Marti\Desktop\HomeTheatrSoFar\HomeTheatre\obj\Debug\netcoreapp2.2\Razor\Areas\Administrator\Views\_ValidationScriptsPartial.cshtml.g.cs

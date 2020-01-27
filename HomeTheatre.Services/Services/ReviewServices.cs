@@ -103,7 +103,7 @@ namespace HomeTheatre.Services.Services
                 .Where(x => x.TheatreId == theatreId)
                 .ToListAsync();
 
-            //if (!reviews.Any())
+            //if (reviews.Count == 0)
             //{
             //    throw new ArgumentNullException("There are no reviews");
             //}

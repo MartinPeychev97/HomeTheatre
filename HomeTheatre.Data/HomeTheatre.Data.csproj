@@ -5,25 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200126185131_I.cs" />
-    <Compile Remove="Migrations\20200126185131_I.Designer.cs" />
-    <Compile Remove="Migrations\20200126192416_I.cs" />
-    <Compile Remove="Migrations\20200126192416_I.Designer.cs" />
-    <Compile Remove="Migrations\20200126195726_I.cs" />
-    <Compile Remove="Migrations\20200126195726_I.Designer.cs" />
-    <Compile Remove="Migrations\20200127100706_TY.cs" />
-    <Compile Remove="Migrations\20200127100706_TY.Designer.cs" />
-    <Compile Remove="Migrations\20200127101030_I.cs" />
-    <Compile Remove="Migrations\20200127101030_I.Designer.cs" />
-    <Compile Remove="Migrations\20200127101827_I.cs" />
-    <Compile Remove="Migrations\20200127101827_I.Designer.cs" />
-    <Compile Remove="Migrations\20200127103132_I.cs" />
-    <Compile Remove="Migrations\20200127103132_I.Designer.cs" />
+    <Compile Remove="Migrations\20200127131352_I.cs" />
+    <Compile Remove="Migrations\20200127131352_I.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

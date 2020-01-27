@@ -16,6 +16,7 @@ namespace HomeTheatre.Models.Theatre
         }
 
         public Guid Id { get; set; }
+
         [DisplayName("Theatre Name")]
         [Required]
         [StringLength(40, ErrorMessage = "The value cannot exceed 40 characters.")]
@@ -25,8 +26,10 @@ namespace HomeTheatre.Models.Theatre
         [Required]
         [StringLength(1000, ErrorMessage = "The value cannot exceed 1000 characters.")]
         public string AboutInfo { get; set; }
+
         [Required]
         public int NumberOfReviews { get; set; }
+
         [Required]
         public double? AverageRating { get; set; }
         public string ImagePath { get; set; }

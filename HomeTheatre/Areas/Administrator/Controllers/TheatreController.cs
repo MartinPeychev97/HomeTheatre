@@ -43,18 +43,18 @@ namespace HomeTheatre.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateTheatre(TheatreViewModel theatreVM)
         {
-            if (ModelState.IsValid)
+            try
             {
                 var theatreModel = _theatreVMmapper.MapFrom(theatreVM);
                 var newlyCreatedTheatre = await _theatreService.CreateTheatreAsync(theatreModel);
 
                 //_logger.LogInformation("Theatre Successfully created");
-                return RedirectToAction("Details", new { id = newlyCreatedTheatre.Id });
+                return RedirectToAction("Catalogue", "Theatre", new { id = newlyCreatedTheatre.Id });
             }
-            else
+            catch (Exception)
             {
                 //_logger.LogError("Theatre was not created,something went wrong");
-                return RedirectToAction("Index", "Theatre", new { area = "" });
+                return RedirectToAction("Catalogue", "Theatre", new { area = "" });
             }
         }
 

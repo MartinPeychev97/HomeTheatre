@@ -27,6 +27,8 @@ namespace HomeTheatre.Test.ServicesTests.TheatreTests
             };
             using (var assertContext = new TheatreContext(options))
             {
+                await assertContext.AddAsync(testTheatre04);
+                assertContext.SaveChanges();
                 var sut = new TheatreService(assertContext);
                 var result = await sut.GetTheatreAsync(testIdGuid);
                 Assert.IsInstanceOfType(result, typeof(Theatre));
